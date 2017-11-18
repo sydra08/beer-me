@@ -21,6 +21,12 @@ RSpec.describe Beer, type: :model do
       expect(build(:beer, name: nil)).not_to be_valid
     end
 
+    it 'has a unique name, case insensitive' do
+      beer1 = create(:beer, name: "Avery White Rascal")
+      expect(build(:beer, name: "avery white rascal")).not_to be_valid
+      expect(build(:beer, name: "AVERY WHITE RASCAL")).not_to be_valid
+    end
+
     it 'is invalid without a category_id' do
       expect(build(:beer, category_id: nil)).not_to be_valid
     end
