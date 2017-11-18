@@ -34,8 +34,7 @@ Brewery
   + Or just set creator_id = user.id ??
   + Properties
     + Name
-    + State
-    + City
+    + Location (city, state)
     + Description
     + creator_id
 

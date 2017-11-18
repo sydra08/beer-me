@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :category do
-    name "MyString"
-    description "MyText"
+    name Faker::Beer.style
+    description Faker::Hipster.paragraph(3)
   end
 end
