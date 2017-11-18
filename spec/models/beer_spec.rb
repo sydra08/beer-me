@@ -22,7 +22,7 @@ RSpec.describe Beer, type: :model do
     end
 
     it 'has a unique name, case insensitive' do
-      beer1 = create(:beer, name: "Avery White Rascal")
+      beer = create(:beer, name: "Avery White Rascal")
       expect(build(:beer, name: "avery white rascal")).not_to be_valid
       expect(build(:beer, name: "AVERY WHITE RASCAL")).not_to be_valid
     end
