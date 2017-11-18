@@ -2,16 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Brewery, type: :model do
   describe 'test factory' do
-    it 'has a name' do
-      expect(create(:brewery).name).not_to be_blank
-    end
-
-    it 'has a description' do
-      expect(create(:brewery).description).not_to be_blank
-    end
-
-    it 'has a location' do
-      expect(create(:brewery).location).not_to be_blank
+    it "has a valid brewery factory with a name, description, and location" do
+      expect(build(:brewery).name).not_to be_blank
+      expect(build(:brewery).description).not_to be_blank
+      expect(build(:brewery).location).not_to be_blank
+      expect(build(:beer)).to be_valid
     end
 
     it 'has a creator'
