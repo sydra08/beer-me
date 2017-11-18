@@ -6,8 +6,8 @@
 [x] Review rspec (http://rspec.info/)
 [ ] Review config/database.yml from other labs
 
-[ ] Create repo in github
-[ ] Generate new rails app (rails new beer-me)
+[x] Create repo in github
+[x] Generate new rails app (rails new beer-me)
 [ ] create db (rake db:create - not needed when you have a test suite)
 [ ] Write tests
     + Ideally for features and models, but start with models and see how that goes
