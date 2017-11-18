@@ -10,14 +10,23 @@
 [x] Generate new rails app (rails new beer-me)
 [ ] create db (rake db:create - not needed when you have a test suite)
 [ ] Write tests
-    + Ideally for features and models, but start with models and see how that goes
     [ ] Models
-      [x] User
-      [ ] Beer
-      [ ] Brewery
+      [x] User (validations and associations)
+      [ ] Beer (validations and associations)
+      [x] Brewery (validations and associations)
+      [x] Category (validations and associations)
+      [ ] User_Beers (validations and associations)
+    [ ] Features  
+      [ ] User
       [ ] Category
-      [ ] User_Beers
+      [ ] Brewery
+      [ ] Beer
 [ ] Write migrations
+  [x] User
+  [x] Beer
+  [x] Brewery
+  [x] Category
+  [ ] User_Beers
 [ ] Create seed data using Faker (look at Flatiron Store for example)
   + beer info https://github.com/stympy/faker/blob/master/doc/beer.md
   + brewery location   https://github.com/stympy/faker/blob/master/doc/address.md
@@ -25,6 +34,7 @@
   + category/beer/brewery descriptions https://github.com/stympy/faker/blob/master/doc/hipster.md
   + maybe this for Omniauth https://github.com/stympy/faker/blob/master/doc/omniauth.md
   + beer category: `Faker::Beer.style`
+[ ] figure out how to set up associations via factory and/or get seed data to be used in test env
 [ ] Set up models and associations
 [ ] Create root path (welcome#home)
 [ ] Omniauth

@@ -13,6 +13,8 @@ RSpec.describe Brewery, type: :model do
     it 'has a location' do
       expect(create(:brewery).location).not_to be_blank
     end
+
+    it 'has a creator'
   end
 
   describe 'associations' do
