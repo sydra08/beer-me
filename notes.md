@@ -4,10 +4,11 @@
 User
   + User has_many :beers, through: :user_beers
   + User has_many :user_beers
+  + think I will have to alias this as "Creator" or "Owner" in order to use it to determine who is allowed to modify something
   + Properties:
-    + Name
-    + Email
-    + Password
+    + Name (string)
+    + Email (string)
+    + Password_Digest (string) #going to use bcrypt for this and not devise
     + Admin, boolean (phase 2)
   + User can log in with Google (omni auth google)
   + Maybe Facebook too (phase 2?)
@@ -18,24 +19,24 @@ Beer
   + Beer belongs_to :category
   + Beer has_one :owner, class_name: “User” ??
   + Properties
-    + Name
-    + Brewery_id
-    + Category_id
-    + Description
-    + ABV
-    + owner_id (this is set when a user creates a new beer, default: nil ?)
+    + Name (string)
+    + Brewery_id (integer)
+    + Category_id (integer)
+    + Description (text)
+    + ABV (float? decimal? string?)
+    + creator_id (this is set when a user creates a new beer, default: nil ?) (integer)
     + image (phase 2)
 
 Brewery
   + Brewery has_many :beers
   + Brewery has_one :owner, class_name: “User” ??
-  + Or just set owner_id = user.id ??
+  + Or just set creator_id = user.id ??
   + Properties
     + Name
     + State
     + City
     + Description
-    + owner_id
+    + creator_id
 
 Category
   + Category has_many :beers
