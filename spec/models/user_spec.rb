@@ -40,7 +40,7 @@ RSpec.describe User, type: :model do
       end
 
       it "encrypts the user password" do
-        user = build(:user).save
+        user = create(:user)
         expect(user.password_digest).not_to eq(user.password)
       end
 
