@@ -26,6 +26,7 @@ Beer
     + ABV (float? decimal? string?)
     + creator_id (this is set when a user creates a new beer, default: nil ?) (integer)
     + image (phase 2)
+      + could use Faker placeholder images?
 
 Brewery
   + Brewery has_many :beers

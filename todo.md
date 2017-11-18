@@ -11,8 +11,20 @@
 [ ] create db (rake db:create - not needed when you have a test suite)
 [ ] Write tests
     + Ideally for features and models, but start with models and see how that goes
+    [ ] Models
+      [x] User
+      [ ] Beer
+      [ ] Brewery
+      [ ] Category
+      [ ] User_Beers
 [ ] Write migrations
-[ ] Create seed data
+[ ] Create seed data using Faker (look at Flatiron Store for example)
+  + beer info https://github.com/stympy/faker/blob/master/doc/beer.md
+  + brewery location   https://github.com/stympy/faker/blob/master/doc/address.md
+  + brewery name https://github.com/stympy/faker/blob/master/doc/company.md
+  + category/beer/brewery descriptions https://github.com/stympy/faker/blob/master/doc/hipster.md
+  + maybe this for Omniauth https://github.com/stympy/faker/blob/master/doc/omniauth.md
+  + beer category: `Faker::Beer.style`
 [ ] Set up models and associations
 [ ] Create root path (welcome#home)
 [ ] Omniauth
