@@ -5,6 +5,8 @@ RSpec.describe User, type: :model do
 
     describe "test factory" do
       it "has a valid user factory with a first_name, last_name, email, and password" do
+        expect(build(:user).first_name).not_to be_blank
+        expect(build(:user).last_name).not_to be_blank
         expect(build(:user)).to be_valid
       end
     end
@@ -50,12 +52,6 @@ RSpec.describe User, type: :model do
   describe "relationships" do
     it "has many user_beers"
     it "has many beers through user_beers"
-  end
-
-  describe "class methods" do
-  end
-
-  describe "instance methods" do
   end
 
 end

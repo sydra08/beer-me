@@ -5,14 +5,15 @@
 [ ] Review filters
 [x] Review rspec (http://rspec.info/)
 [ ] Review config/database.yml from other labs
+[ ] figure out how to set up associations via factory and/or get seed data to be used in test env
+[ ] consider using let() to set up the data for the test scenarios instead of FactoryGirl
 
 [x] Create repo in github
 [x] Generate new rails app (rails new beer-me)
-[ ] create db (rake db:create - not needed when you have a test suite)
 [ ] Write tests
     [ ] Models
       [x] User (validations and associations)
-      [ ] Beer (validations and associations)
+      [x] Beer (validations and associations)
       [x] Brewery (validations and associations)
       [x] Category (validations and associations)
       [ ] User_Beers (validations and associations)
@@ -34,7 +35,6 @@
   + category/beer/brewery descriptions https://github.com/stympy/faker/blob/master/doc/hipster.md
   + maybe this for Omniauth https://github.com/stympy/faker/blob/master/doc/omniauth.md
   + beer category: `Faker::Beer.style`
-[ ] figure out how to set up associations via factory and/or get seed data to be used in test env
 [ ] Set up models and associations
 [ ] Create root path (welcome#home)
 [ ] Omniauth

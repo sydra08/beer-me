@@ -1,10 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe Brewery, type: :model do
+  before(:each) do
+    @brewery = create(:brewery)
+    @category = create(:category)
+    @beer = create(:beer, brewery: @brewery, category: @category)
+  end
+
   describe 'test factory' do
     it "has a valid brewery factory with a name, description, and location" do
       expect(build(:brewery).description).not_to be_blank
-      expect(build(:beer)).to be_valid
+      expect(build(:brewery)).to be_valid
     end
 
     it 'has a creator'
@@ -25,7 +31,12 @@ RSpec.describe Brewery, type: :model do
   end
 
   describe 'associations' do
-    it 'has many beers'
-    it 'has many categories through beers'
+    it 'has many beers' do
+      expect(@brewery.beers).to include(@beer)
+    end
+
+    it 'has many categories through beers' do
+      expect(@brewery.categories).to include(@category)
+    end
   end
 end
