@@ -5,8 +5,10 @@ RSpec.describe Beer, type: :model do
     @brewery = create(:brewery)
     @category = create(:category)
     @beer = create(:beer, brewery: @brewery, category: @category)
+    @user = create(:user)
+    @user_beer = create(:user_beer, user: @user, beer: @beer, status: true)
   end
-
+  
   describe 'test factory' do
     it "has a valid beer factory with a name, description, brewery_id, category_id, and abv" do
 
@@ -47,6 +49,8 @@ RSpec.describe Beer, type: :model do
       expect(@beer.category).to eq(@category)
     end
 
-    it 'has many user_beers'
+    it 'has many user_beers' do
+      expect(@beer.user_beers).to include(@user_beer)
+    end
   end
 end

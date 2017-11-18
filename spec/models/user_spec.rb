@@ -1,8 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  describe "validations" do
+  before(:each) do
+    @brewery = create(:brewery)
+    @category = create(:category)
+    @beer = create(:beer, brewery: @brewery, category: @category)
+    @user = create(:user)
+    @user_beer = create(:user_beer, user: @user, beer: @beer, status: true)
+  end
 
+  describe "validations" do
     describe "test factory" do
       it "has a valid user factory with a first_name, last_name, email, and password" do
         expect(build(:user).first_name).not_to be_blank
@@ -49,9 +56,22 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe "relationships" do
-    it "has many user_beers"
-    it "has many beers through user_beers"
+  describe "associations" do
+    before do
+      @brewery = create(:brewery)
+      @category = create(:category)
+      @beer = create(:beer, brewery: @brewery, category: @category)
+      @user = create(:user)
+      @user_beer = create(:user_beer, user: @user, beer: @beer, status: true)
+    end
+
+    it "has many user_beers" do
+      expect(@user.user_beers).to include(@user_beer)
+    end
+
+    it "has many beers through user_beers" do
+      expect(@user.beers).to include(@beer)
+    end
   end
 
 end
