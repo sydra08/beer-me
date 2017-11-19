@@ -1,4 +1,4 @@
-10.times do
+5.times do
   Category.create(
     name: Faker::Beer.style,
     description: Faker::Hipster.paragraph(3)
@@ -12,7 +12,7 @@
 end
 
 counter = 1
-10.times do
+5.times do
   Beer.create(
     name: Faker::Beer.name,
     description: Faker::Hipster.paragraph(3),
@@ -22,3 +22,5 @@ counter = 1
   )
   counter += 1
 end
+
+# need to adjust seed data so that it creates unique items
