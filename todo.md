@@ -15,7 +15,7 @@
 [Project]
 [x] Create repo in github
 [x] Generate new rails app (rails new beer-me)
-[ ] Write tests
+[x] Write tests
     [x] Models
       [x] User
       [x] Beer
@@ -35,10 +35,10 @@
   + category/beer/brewery descriptions https://github.com/stympy/faker/blob/master/doc/hipster.md
   + maybe this for Omniauth https://github.com/stympy/faker/blob/master/doc/omniauth.md
   + beer category: `Faker::Beer.style`
-[ ] may need to add my own seed data instead of using faker for everything so that i can control the unique names, etc 
+[ ] may need to add my own seed data instead of using faker for everything so that i can control the unique names, etc
 [x] Set up models and associations
 [ ] Write feature tests
-  [ ] without auth
+  [x] without auth
     [x] User
     [x] Category
     [x] Brewery

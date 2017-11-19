@@ -4,7 +4,7 @@ Category.create(name: "Belgian Wheat Ale", description:  Faker::Hipster.paragrap
 Category.create(name: "Pilsner", description:  Faker::Hipster.paragraph(3))
 Category.create(name: "Lager", description:  Faker::Hipster.paragraph(3))
 
-5.times do
+3.times do
   Brewery.create(
     name: Faker::Company.name,
     description: Faker::Hipster.paragraph(5),
@@ -13,7 +13,7 @@ Category.create(name: "Lager", description:  Faker::Hipster.paragraph(3))
 end
 
 counter = 1
-5.times do
+3.times do
   Beer.create(
     name: Faker::Beer.name,
     description: Faker::Hipster.paragraph(3),
@@ -23,5 +23,14 @@ counter = 1
   )
   counter += 1
 end
+
+user = User.create(
+    first_name: "Rick",
+    last_name: "Sanchez",
+    email: "picklerick@test.com",
+    password: "password"
+  )
+
+user.beers << Beer.all
 
 # need to adjust seed data so that it creates unique items
