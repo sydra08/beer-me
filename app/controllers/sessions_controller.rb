@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       # set session
       session[:user_id] = @user.id
       # redirect to user homepage
-      redirect_to user_page(@user)
+      redirect_to user_path(@user)
     else
       render :new
     end

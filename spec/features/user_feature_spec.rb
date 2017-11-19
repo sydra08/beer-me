@@ -52,8 +52,28 @@ describe 'Feature Test: User', :type => :feature do
   end
 
   describe "Login" do
+    before do
+      @user = User.create(
+        first_name: "Sydney",
+        last_name: "C",
+        email: "sydney@example.com",
+        password: "password"
+      )
+      # visit sign up page
+      visit new_session_path
+      # fill in first name
+      fill_in "user[email]", with: @user.email
+      # fill in password
+      fill_in "user[password]", with: @user.password
+      # click "Register"
+      click_button "Log In"
+    end
+
     it 'sets session[:user_id]'
-    it 'redirects to user page'
+
+    it 'redirects to user page' do
+      expect(current_path).to eq(user_path(@user))
+    end
   end
 
   describe "Logout" do
