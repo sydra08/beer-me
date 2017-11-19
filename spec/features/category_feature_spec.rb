@@ -11,7 +11,7 @@ describe 'Feature Test: Category', :type => :feature do
 
     it 'lists all categories' do
       # expect the page to have all the categories as links
-      Categories.all.each do |c|
+      Category.all.each do |c|
         expect(page).to have_link(c.name, href: category_path(c))
       end
     end
