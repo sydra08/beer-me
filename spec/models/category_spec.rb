@@ -23,6 +23,8 @@ RSpec.describe Category, type: :model do
       expect(cat3).not_to be_valid
       expect(cat3.errors.full_messages).to include("Name has already been taken")
     end
+
+    it 'has a creator'
   end
 
   describe 'associations' do

@@ -22,6 +22,8 @@ describe 'Feature Test: Category', :type => :feature do
   end
 
   describe 'Beer List' do
+    # sometimes these fail when the category or brewery already exists
+    # need to figure out how to not use the FactoryGirl for these
     before(:each) do
       @category = create(:category)
       @brewery = create(:brewery)
