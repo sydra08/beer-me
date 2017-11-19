@@ -1,4 +1,5 @@
 *To Do*
+[Research]
 [ ] Read docs on ActionView helper methods
 [ ] Review nested forms
 [ ] Review nested resources
@@ -7,18 +8,19 @@
 [ ] Review config/database.yml from other labs
 [ ] figure out how to set up associations via factory and/or get seed data to be used in test env
 [ ] consider using let() to set up the data for the test scenarios instead of FactoryGirl
+[ ] figure out how to get seed data used in tests vs FactoryGirl
 [ ] research Database Cleaner
-[ ] figure out how to get seed data used in tests
 
+[Project]
 [x] Create repo in github
 [x] Generate new rails app (rails new beer-me)
 [ ] Write tests
-    [x] Models
-      [x] User (validations and associations)
-      [x] Beer (validations and associations)
-      [x] Brewery (validations and associations)
-      [x] Category (validations and associations)
-      [x] User_Beers (validations and associations)
+    [x] Models 
+      [x] User 
+      [x] Beer 
+      [x] Brewery 
+      [x] Category 
+      [x] User_Beers 
 [x] Write migrations
   [x] User
   [x] Beer

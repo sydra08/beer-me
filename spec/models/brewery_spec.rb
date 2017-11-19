@@ -10,6 +10,7 @@ RSpec.describe Brewery, type: :model do
   describe 'test factory' do
     it "has a valid brewery factory with a name, description, and location" do
       expect(build(:brewery).description).not_to be_blank
+      expect(build(:brewery).location).not_to be_blank
       expect(build(:brewery)).to be_valid
     end
 
@@ -17,9 +18,8 @@ RSpec.describe Brewery, type: :model do
   end
 
   describe 'validations' do
-    it 'is invalid without a name or location' do
+    it 'is invalid without a name' do
       expect(build(:brewery, name: nil)).not_to be_valid
-      expect(build(:brewery, location: nil)).not_to be_valid
     end
 
     it 'has a unique name, case insensitive' do

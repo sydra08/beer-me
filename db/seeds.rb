@@ -1,9 +1,10 @@
-5.times do
-  Category.create(
-    name: Faker::Beer.style,
-    description: Faker::Hipster.paragraph(3)
-  )
+Category.create(name: "India Pale Ale", description:  Faker::Hipster.paragraph(3))
+Category.create(name: "Red Ale", description:  Faker::Hipster.paragraph(3))
+Category.create(name: "Belgian Wheat Ale", description:  Faker::Hipster.paragraph(3))
+Category.create(name: "Pilsner", description:  Faker::Hipster.paragraph(3))
+Category.create(name: "Lager", description:  Faker::Hipster.paragraph(3))
 
+5.times do
   Brewery.create(
     name: Faker::Company.name,
     description: Faker::Hipster.paragraph(5),
@@ -16,8 +17,8 @@ counter = 1
   Beer.create(
     name: Faker::Beer.name,
     description: Faker::Hipster.paragraph(3),
-    brewery_id: counter,
-    category_id: counter,
+    brewery: Brewery.find_by(id: counter),
+    category: Category.find_by(id: counter),
     abv: Faker::Beer.alcohol
   )
   counter += 1

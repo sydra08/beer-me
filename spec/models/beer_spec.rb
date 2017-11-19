@@ -8,12 +8,13 @@ RSpec.describe Beer, type: :model do
     @user = create(:user)
     @user_beer = create(:user_beer, user: @user, beer: @beer, status: true)
   end
-  
+
   describe 'test factory' do
     it "has a valid beer factory with a name, description, brewery_id, category_id, and abv" do
 
       expect(@beer.description).not_to be_blank
       expect(@beer.abv).not_to be_blank
+      expect(@beer.category).not_to be_blank
       expect(build(:beer)).to be_valid
     end
 
@@ -21,9 +22,8 @@ RSpec.describe Beer, type: :model do
   end
 
   describe 'validations' do
-    it 'is invalid without a name, category_id, and brewery_id' do
+    it 'is invalid without a name and brewery' do
       expect(build(:beer, name: nil)).not_to be_valid
-      expect(build(:beer, category_id: nil)).not_to be_valid
       expect(build(:beer, brewery_id: nil)).not_to be_valid
     end
 

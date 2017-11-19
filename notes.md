@@ -12,6 +12,9 @@ User
     + Admin, boolean (phase 2)
   + User can log in with Google (omni auth google)
   + Maybe Facebook too (phase 2?)
+  + Validations
+    + email (unique and present)
+    + password (at least 8 characters)
 
 Beer
   + Beer has_many :users, through: :user_beers
@@ -27,6 +30,10 @@ Beer
     + creator_id (this is set when a user creates a new beer, default: nil ?) (integer)
     + image (phase 2)
       + could use Faker placeholder images?
+  + Validations
+    + name (unique and present)
+    + brewery (present)
+
 
 Brewery
   + Brewery has_many :beers
