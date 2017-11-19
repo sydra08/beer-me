@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root to: 'welcome#home'
+  
   resources :beers, only: [:show]
   resources :breweries, only: [:index, :show]
   resources :sessions, only: [:new, :create, :destroy]
