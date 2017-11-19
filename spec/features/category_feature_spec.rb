@@ -1,6 +1,6 @@
 describe 'Feature Test: Category', :type => :feature do
 
-  describe 'Category List' do
+  describe 'Index' do
     before(:each) do
       5.times do
         create(:category)
@@ -44,18 +44,6 @@ describe 'Feature Test: Category', :type => :feature do
       end
     end
 
-    context 'logged in' do
-      # before log user in
-      it 'displays "add to list" buttons' do
-        # navigate to a category page
-        visit category_path(@category)
-        # expect the page to have button 'tried'
-        expect(page).to have_selector("input[type=submit][value='Tried']")
-        # expect page to have button 'want to try'
-        expect(page).to have_selector("input[type=submit][value='Want to Try']")
-      end
-    end
-
     context 'logged out' do
       it 'does not display "add to list" buttons' do
         # navigate to a category page
@@ -65,6 +53,20 @@ describe 'Feature Test: Category', :type => :feature do
           # expect page not to have button 'want to try'
         expect(page).not_to have_selector("input[type=submit][value='Want to Try']")
       end
+    end
+
+    context 'logged in' do
+      # before log user in
+      it 'displays "add to list" buttons'
+        # # navigate to a category page
+        # visit category_path(@category)
+        # # expect the page to have button 'tried'
+        # expect(page).to have_selector("input[type=submit][value='Tried']")
+        # # expect page to have button 'want to try'
+        # expect(page).to have_selector("input[type=submit][value='Want to Try']")
+
+      it 'displays beer status if available'
+
     end
   end
 end
