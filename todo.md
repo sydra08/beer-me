@@ -10,6 +10,8 @@
 [ ] consider using let() to set up the data for the test scenarios instead of FactoryGirl
 [ ] figure out how to get seed data used in tests vs FactoryGirl
 [ ] research Database Cleaner
+[ ] research using auto complete instead of drop down menu for brewery and category select
+[ ] review associations and rails section (probably worth watching video)
 [ ] Look into CSS templates to use for front end
 
 [Project]

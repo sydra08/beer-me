@@ -12,7 +12,6 @@ class BeersController < ApplicationController
     @beer = Beer.new(beer_params)
     @beer.brewery = Brewery.find_by(id: params[:beer][:brewery])
     @beer.category = Category.find_by(id: params[:beer][:category])
-    binding.pry
     if @beer.save
       redirect_to user_path(current_user)
     else
