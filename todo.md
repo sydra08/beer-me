@@ -16,7 +16,7 @@
       [x] Beer (validations and associations)
       [x] Brewery (validations and associations)
       [x] Category (validations and associations)
-      [ ] User_Beers (validations and associations)
+      [x] User_Beers (validations and associations)
     [ ] Features  
       [ ] User
       [ ] Category
@@ -27,7 +27,7 @@
   [x] Beer
   [x] Brewery
   [x] Category
-  [ ] User_Beers
+  [x] User_Beers
 [ ] Create seed data using Faker (look at Flatiron Store for example)
   + beer info https://github.com/stympy/faker/blob/master/doc/beer.md
   + brewery location   https://github.com/stympy/faker/blob/master/doc/address.md

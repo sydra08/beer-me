@@ -57,14 +57,6 @@ RSpec.describe User, type: :model do
   end
 
   describe "associations" do
-    before do
-      @brewery = create(:brewery)
-      @category = create(:category)
-      @beer = create(:beer, brewery: @brewery, category: @category)
-      @user = create(:user)
-      @user_beer = create(:user_beer, user: @user, beer: @beer, status: true)
-    end
-
     it "has many user_beers" do
       expect(@user.user_beers).to include(@user_beer)
     end
