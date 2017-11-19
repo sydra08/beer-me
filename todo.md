@@ -10,6 +10,7 @@
 [ ] consider using let() to set up the data for the test scenarios instead of FactoryGirl
 [ ] figure out how to get seed data used in tests vs FactoryGirl
 [ ] research Database Cleaner
+[ ] Look into CSS templates to use for front end
 
 [Project]
 [x] Create repo in github
@@ -38,21 +39,29 @@
 [x] Set up models and associations
 [ ] Write feature tests
   [ ] without auth
-    [ ] User
-    [ ] Category
-    [ ] Brewery
-    [ ] Beer
+    [x] User
+    [x] Category
+    [x] Brewery
+    [x] Beer
   [ ] Add Auth to feature tests  
     [ ] User
     [ ] Category
     [ ] Brewery
     [ ] Beer
     [ ] consider using a helper for login/logout/signup actions
-[ ] Create root path (welcome#home)
+[x] Create root path (welcome#home)
 [ ] Omniauth
-[ ] Pick easier routes to deal with and start there
+[ ] User can add a beer to their collection
+[ ] User can add a new beer to their collection and the database
+  [ ] When adding a new beer to their collection they can also add a new Brewery to the database
+  [ ] When adding a new beer to their collection they can also add a new Category to the database
 [ ] May want to consider adding bootstrap early on if I want responsive design?
-[ ] Look into CSS templates to use for front end
+[ ] Logout
+[ ] User authentication and authorization
+[ ] User can only add beers to their own collection
+[ ] User cannot edit the details for a beer that they didn't add to the database   
+[ ] User cannot edit the details for a brewery that they didn't add to the database   
+[ ] User cannot edit the details for a category that they didn't add to the database   
 
 *Helper Methods*
 + pluralize(number, phrase/word)
