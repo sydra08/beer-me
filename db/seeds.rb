@@ -10,3 +10,15 @@
     location: "#{Faker::Address.city}, #{Faker::Address.state_abbr}"
   )
 end
+
+counter = 1
+10.times do
+  Beer.create(
+    name: Faker::Beer.name,
+    description: Faker::Hipster.paragraph(3),
+    brewery_id: counter,
+    category_id: counter,
+    abv: Faker::Beer.alcohol
+  )
+  counter += 1
+end
