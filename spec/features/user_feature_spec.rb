@@ -50,4 +50,15 @@ describe 'Feature Test: User', :type => :feature do
         # expect to be redirected to user homepage
     end
   end
+
+  describe "Login" do
+    it 'sets session[:user_id]'
+    it 'redirects to user page'
+  end
+
+  describe "Logout" do
+    it 'clears session[:user_id]'
+    it 'redirects to root path'
+  end
+
 end
