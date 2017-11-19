@@ -53,8 +53,8 @@
 [ ] Omniauth
 [ ] User can add a beer to their collection
 [ ] User can add a new beer to their collection and the database
-  [ ] When adding a new beer to their collection they can also add a new Brewery to the database
-  [ ] When adding a new beer to their collection they can also add a new Category to the database
+  [ ] When adding a new beer to their collection they can also add a new Brewery to the database (use fieldset)
+  [ ] When adding a new beer to their collection they can also add a new Category to the database (use fieldset)
 [ ] May want to consider adding bootstrap early on if I want responsive design?
 [ ] Logout
 [ ] User authentication and authorization

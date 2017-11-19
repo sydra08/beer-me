@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
   root to: 'welcome#home'
-  
-  resources :beers, only: [:show]
+
+  resources :beers, only: [:show, :new, :create]
   resources :breweries, only: [:index, :show]
   resources :sessions, only: [:new, :create, :destroy]
   resources :categories, only: [:index, :show]
