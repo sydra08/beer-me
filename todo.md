@@ -7,35 +7,44 @@
 [ ] Review config/database.yml from other labs
 [ ] figure out how to set up associations via factory and/or get seed data to be used in test env
 [ ] consider using let() to set up the data for the test scenarios instead of FactoryGirl
+[ ] research Database Cleaner
+[ ] figure out how to get seed data used in tests
 
 [x] Create repo in github
 [x] Generate new rails app (rails new beer-me)
 [ ] Write tests
-    [ ] Models
+    [x] Models
       [x] User (validations and associations)
       [x] Beer (validations and associations)
       [x] Brewery (validations and associations)
       [x] Category (validations and associations)
       [x] User_Beers (validations and associations)
-    [ ] Features  
-      [ ] User
-      [ ] Category
-      [ ] Brewery
-      [ ] Beer
-[ ] Write migrations
+[x] Write migrations
   [x] User
   [x] Beer
   [x] Brewery
   [x] Category
   [x] User_Beers
-[ ] Create seed data using Faker (look at Flatiron Store for example)
+[x] Create seed data using Faker (look at Flatiron Store for example)
   + beer info https://github.com/stympy/faker/blob/master/doc/beer.md
   + brewery location   https://github.com/stympy/faker/blob/master/doc/address.md
   + brewery name https://github.com/stympy/faker/blob/master/doc/company.md
   + category/beer/brewery descriptions https://github.com/stympy/faker/blob/master/doc/hipster.md
   + maybe this for Omniauth https://github.com/stympy/faker/blob/master/doc/omniauth.md
   + beer category: `Faker::Beer.style`
-[ ] Set up models and associations
+[ ] may need to add my own seed data instead of using faker for everything so that i can control the unique names, etc
+[x] Set up models and associations
+[ ] Write feature tests
+  [ ] without auth
+    [ ] User
+    [ ] Category
+    [ ] Brewery
+    [ ] Beer
+  [ ] Add Auth to feature tests  
+    [ ] User
+    [ ] Category
+    [ ] Brewery
+    [ ] Beer
 [ ] Create root path (welcome#home)
 [ ] Omniauth
 [ ] Pick easier routes to deal with and start there
