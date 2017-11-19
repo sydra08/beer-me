@@ -1,10 +1,17 @@
 describe 'Feature Test: Category', :type => :feature do
+  before(:each) do
+    3.times do
+      create(:category)
+    end
+    @category = Category.first
+    @brewery = create(:brewery)
+    3.times do
+      create(:beer, brewery: @brewery, category: @category)
+    end
+  end
 
-  describe 'Index' do
+  describe 'Index Page' do
     before(:each) do
-      5.times do
-        create(:category)
-      end
       # navigate to page
       visit categories_path
     end
@@ -21,15 +28,10 @@ describe 'Feature Test: Category', :type => :feature do
       # expect page to have category (# beers)
   end
 
-  describe 'Beer List' do
+  describe 'Show Page' do
     # sometimes these fail when the category or brewery already exists
     # need to figure out how to not use the FactoryGirl for these
     before(:each) do
-      @category = create(:category)
-      @brewery = create(:brewery)
-      5.times do
-        create(:beer, brewery: @brewery, category: @category)
-      end
       visit category_path(@category)
     end
 
@@ -45,6 +47,9 @@ describe 'Feature Test: Category', :type => :feature do
         expect(page).to have_link(beer.name, href: beer_path(beer))
       end
     end
+
+    it 'allows you to filter the beer list by brewery'
+    it 'allows you to sort the beer list alphabetically by name'
 
     context 'logged out' do
       it 'does not display "add to list" buttons' do
