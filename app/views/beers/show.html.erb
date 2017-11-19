@@ -1,0 +1,5 @@
+<h1><%= @beer.name %></h1>
+<h3>Brewery: <%= link_to @beer.brewery.name, brewery_path(@beer.brewery) %></h3>
+<h3>Style: <%= @beer.category.name %></h3>
+<h3>ABV: <%= @beer.abv%> </h3>
+<p>Description: <%= @beer.description %></p>

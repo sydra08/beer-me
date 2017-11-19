@@ -5,6 +5,6 @@
 <h3>Beers</h3>
 <ul>
   <% @brewery.beers.each do |beer| %>
-    <li><%= beer.name %> (<%= beer.abv %>)</li>
+    <li><%= link_to beer.name, beer_path(beer) %> (<%= beer.abv %>)</li>
   <% end %>
 </ul>

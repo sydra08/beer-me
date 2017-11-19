@@ -4,6 +4,6 @@
 <h3>Beers</h3>
 <ul>
   <% @category.beers.each do |beer| %>
-    <li><%= beer.brewery.name %>: <%= beer.name %> (<%= beer.abv %>)</li>
+    <li><%= link_to beer.brewery.name, brewery_path(beer.brewery) %>: <%= link_to beer.name, beer_path(beer) %> (<%= beer.abv %>)</li>
   <% end %>
 </ul>
