@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :breweries
   resources :sessions, only: [:new, :create, :destroy]
   resources :categories, only: [:index, :show]
   resources :users

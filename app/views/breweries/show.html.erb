@@ -1,0 +1,10 @@
+<h1><%= @brewery.name %></h1>
+<h4><%= @brewery.location %></h4>
+<p><%= @brewery.description %></p>
+
+<h3>Beers</h3>
+<ul>
+  <% @brewery.beers.each do |beer| %>
+    <li><%= beer.name %> (<%= beer.abv %>)</li>
+  <% end %>
+</ul>

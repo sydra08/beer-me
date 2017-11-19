@@ -1,0 +1,6 @@
+<h1>Breweries</h1>
+<ul>
+  <% @breweries.each do |brewery| %>
+    <li><%= link_to brewery.name, brewery_path(brewery) %> <%= "(#{brewery.beers.count})" if brewery.beers %></li>
+  <% end %>
+</ul>
