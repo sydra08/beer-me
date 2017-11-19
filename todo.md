@@ -15,12 +15,12 @@
 [x] Create repo in github
 [x] Generate new rails app (rails new beer-me)
 [ ] Write tests
-    [x] Models 
-      [x] User 
-      [x] Beer 
-      [x] Brewery 
-      [x] Category 
-      [x] User_Beers 
+    [x] Models
+      [x] User
+      [x] Beer
+      [x] Brewery
+      [x] Category
+      [x] User_Beers
 [x] Write migrations
   [x] User
   [x] Beer
@@ -47,6 +47,7 @@
     [ ] Category
     [ ] Brewery
     [ ] Beer
+    [ ] consider using a helper for login/logout/signup actions
 [ ] Create root path (welcome#home)
 [ ] Omniauth
 [ ] Pick easier routes to deal with and start there
