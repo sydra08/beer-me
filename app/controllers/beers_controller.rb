@@ -8,10 +8,9 @@ class BeersController < ApplicationController
   end
 
   def create
-    #create a new beer in the database (does not associate beer with user yet)
+    #create a new beer in the database along with brewery and category (does not associate beer with user yet)
     @beer = Beer.new(beer_params)
-    @beer.brewery = Brewery.find_by(id: params[:beer][:brewery])
-    @beer.category = Category.find_by(id: params[:beer][:category])
+    binding.pry
     if @beer.save
       redirect_to user_path(current_user)
     else
@@ -22,6 +21,6 @@ class BeersController < ApplicationController
   private
 
   def beer_params
-    params.require(:beer).permit(:name, :abv, :description)
+    params.require(:beer).permit(:name, :abv, :description, :brewery_name, :category_name)
   end
 end
