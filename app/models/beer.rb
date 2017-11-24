@@ -9,11 +9,11 @@ class Beer < ApplicationRecord
 
   def brewery_name=(name)
     # figure out how to write a proper where statement
-    self.brewery = Brewery.find_or_create_by(name: name)
+    self.brewery = Brewery.where(name: name).first_or_create
   end
 
   def category_name=(name)
-    self.category = Category.find_or_create_by(name: name)
+    self.category = Category.where(name: name).first_or_create
   end
 
   def brewery_name
