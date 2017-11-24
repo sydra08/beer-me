@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
       # redirect to user homepage
       redirect_to user_path(@user)
     else
-      render :new, notice: "Invalid email address"
+      redirect_to new_session_path, notice: "Error: Invalid email address or password"
     end
   end
 
