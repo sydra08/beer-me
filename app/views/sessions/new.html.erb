@@ -1,9 +1,5 @@
 <h1>Log In</h1>
 
-<% if flash[:notice] %>
-  <p><em><%= flash[:notice] %></em></p>
-<% end %>
-
 <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
   <label>Email</label> <br>
   <input type="text" name="user[email]"> <br> </br>

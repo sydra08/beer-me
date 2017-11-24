@@ -1,4 +1,6 @@
 class BeersController < ApplicationController
+  before_action :require_login, only: [:new, :create]
+
   def show
     @beer = Beer.find_by(id: params[:id])
   end
@@ -8,15 +10,15 @@ class BeersController < ApplicationController
   end
 
   def create
-    binding.pry
     # consolidate this to be find or create the beer
     if @beer = Beer.find_by(name: params[:beer][:name])
+      binding.pry
       current_user.beers << @beer
       redirect_to user_path(current_user)
     else
     #create a new beer in the database along with brewery and category and add to user
-      @beer = Beer.new(beer_params)
       binding.pry
+      @beer = Beer.new(beer_params)
       if @beer.save
         current_user.beers << @beer
         # this is giving a validation error that the brewery must exist
