@@ -15,7 +15,12 @@
   <% end %>
 
   <%= f.label :name %>
-  <%= f.text_field :name %> <br> </br>
+  <%= f.text_field :name, list: "beers_autocomplete" %>
+  <datalist id="beers_autocomplete">
+    <% Beer.all.each do |beer| %>
+      <option value="<%= beer.name %>">
+    <% end %>
+  </datalist> <br> </br>
 
   <%= f.label :description %>
   <%= f.text_area :description %> <br> </br>
@@ -25,6 +30,7 @@
 
   <!-- text field with auto complete, also drop down menu -->
   <!-- will need to convert this to a nested form -->
+
   <%= f.label :brewery_name %>
   <%= f.text_field :brewery_name, list: "breweries_autocomplete" %>
   <datalist id="breweries_autocomplete">

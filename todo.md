@@ -10,8 +10,8 @@
 [ ] consider using let() to set up the data for the test scenarios instead of FactoryGirl
 [ ] figure out how to get seed data used in tests vs FactoryGirl
 [ ] research Database Cleaner
-[ ] research using auto complete instead of drop down menu for brewery and category select
-[ ] review associations and rails section (probably worth watching video)
+[x] research using auto complete instead of drop down menu for brewery and category select
+[x] review associations and rails section (probably worth watching video)
 [ ] Look into CSS templates to use for front end
 
 [Project]
@@ -53,10 +53,14 @@
     [ ] consider using a helper for login/logout/signup actions
 [x] Create root path (welcome#home)
 [ ] Omniauth
-[ ] User can add a beer to their collection
+[ ] User can add a beer to their collection (user clicks on button and submits form to create new user_beer)
+  - should this be handled via beer or user? or straight thru user_beer?
+    - since this can occur via brewery or category page, should just happen there? where do the views go for this? assuming would be better as a partial since the button will appear in more than one place
 [ ] User can add a new beer to their collection and the database
   [ ] When adding a new beer to their collection they can also add a new Brewery to the database (use fieldset)
+    - need to figure out the proper way to handle this
   [ ] When adding a new beer to their collection they can also add a new Category to the database (use fieldset)
+    - need to figure out the proper way to handle this
 [ ] May want to consider adding bootstrap early on if I want responsive design?
 [ ] Logout
 [ ] User authentication and authorization

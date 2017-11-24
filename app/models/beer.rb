@@ -6,8 +6,9 @@ class Beer < ApplicationRecord
   validates :name, uniqueness: { case_sensitive: false }, presence: true
 
   # custom setters for brewery and category so that dupes are avoided
-  
+
   def brewery_name=(name)
+    # figure out how to write a proper where statement
     self.brewery = Brewery.find_or_create_by(name: name)
   end
 
