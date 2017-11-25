@@ -9,7 +9,7 @@ class Beer < ApplicationRecord
 
   def brewery_attributes=(brewery_attributes)
     self.brewery = Brewery.find_or_create_by(name: brewery_attributes[:name])
-    self.brewery.update(location: brewery_attributes[:location])
+    self.brewery.update(location: brewery_attributes)
   end
 
   def category_attributes=(category_attributes)

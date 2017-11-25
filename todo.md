@@ -53,7 +53,7 @@
     [ ] consider using a helper for login/logout/signup actions
 [x] Create root path (welcome#home)
 [ ] Omniauth
-[ ] User can add a beer to their collection (user clicks on button and submits form to create new user_beer)
+[x] User can add a beer to their collection (user clicks on button and submits form to create new user_beer)
   - should this be handled via beer or user? or straight thru user_beer?
     - since this can occur via brewery or category page, should just happen there? where do the views go for this? assuming would be better as a partial since the button will appear in more than one place
 [ ] User can add a new beer to their collection and the database
