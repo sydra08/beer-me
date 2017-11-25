@@ -7,6 +7,8 @@ class BeersController < ApplicationController
 
   def new
     @beer = Beer.new
+    @beer.build_brewery
+    @beer.build_category
   end
 
   def create
@@ -20,6 +22,8 @@ class BeersController < ApplicationController
       binding.pry
       @beer = Beer.new(beer_params)
       if @beer.save
+        binding.pry
+
         current_user.beers << @beer
         # this is giving a validation error that the brewery must exist
         # maybe change the custom setter to use where(name == name).first_or_create
@@ -33,6 +37,7 @@ class BeersController < ApplicationController
   private
 
   def beer_params
-    params.require(:beer).permit(:name, :abv, :description, :brewery_name, :category_name)
+    # i think there's an error here where it's looking for the brewery/category id instead forming the association via object
+    params.require(:beer).permit(:name, :abv, :description, brewery_attributes: [:name, :location], category_attributes: [:name])
   end
 end

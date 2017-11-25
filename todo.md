@@ -62,12 +62,13 @@
   [ ] When adding a new beer to their collection they can also add a new Category to the database (use fieldset)
     - need to figure out the proper way to handle this
 [ ] May want to consider adding bootstrap early on if I want responsive design?
-[ ] Logout
+[x] Logout
 [ ] User authentication and authorization
 [ ] User can only add beers to their own collection
 [ ] User cannot edit the details for a beer that they didn't add to the database   
 [ ] User cannot edit the details for a brewery that they didn't add to the database   
 [ ] User cannot edit the details for a category that they didn't add to the database   
+[ ] navbar
 
 *Helper Methods*
 + pluralize(number, phrase/word)

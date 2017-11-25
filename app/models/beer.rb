@@ -7,21 +7,13 @@ class Beer < ApplicationRecord
 
   # custom setters for brewery and category so that dupes are avoided
 
-  def brewery_name=(name)
-    # figure out how to write a proper where statement
-    self.brewery = Brewery.where(name: name).first_or_create
+  def brewery_attributes=(brewery_attributes)
+    self.brewery = Brewery.find_or_create_by(name: brewery_attributes[:name])
+    self.brewery.update(location: brewery_attributes[:location])
   end
 
-  def category_name=(name)
-    self.category = Category.where(name: name).first_or_create
-  end
-
-  def brewery_name
-    self.brewery.name if self.brewery
-  end
-
-  def category_name
-    self.category.name if self.category
+  def category_attributes=(category_attributes)
+    self.category = Category.find_or_create_by(name: category_attributes[:name])
   end
 
 end

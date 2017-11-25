@@ -31,23 +31,29 @@
   <!-- text field with auto complete, also drop down menu -->
   <!-- will need to convert this to a nested form -->
 
-  <%= f.label :brewery_name %>
-  <%= f.text_field :brewery_name, list: "breweries_autocomplete" %>
-  <datalist id="breweries_autocomplete">
-    <% Brewery.all.each do |brewery| %>
-      <option value="<%= brewery.name %>">
-    <% end %>
-  </datalist> <br> </br>
+  <%= f.fields_for :brewery do |b| %>
+    <%= b.label "Brewery Name" %>
+    <%= b.text_field :name, list: "breweries_autocomplete" %>
+    <datalist id="breweries_autocomplete">
+      <% Brewery.all.each do |brewery| %>
+        <option value="<%= brewery.name %>">
+      <% end %>
+    </datalist> <br> </br>
+    <%= b.label :location %>
+    <%= b.text_field :location %> <br> </br>
+  <% end %>
 
   <!-- text field with auto complete, also drop down menu -->
   <!-- will need to convert this to a nested form -->
-  <%= f.label :category_name %>
-  <%= f.text_field :category_name, list: "categories_autocomplete" %>
-  <datalist id="categories_autocomplete">
-    <% Category.all.each do |category| %>
-      <option value="<%= category.name %>">
-    <% end %>
-  </datalist> <br> </br>
+  <%= f.fields_for :category do |c| %>
+    <%= c.label "Category Name" %>
+    <%= c.text_field :name, list: "categories_autocomplete" %>
+    <datalist id="categories_autocomplete">
+      <% Category.all.each do |category| %>
+        <option value="<%= category.name %>">
+      <% end %>
+    </datalist> <br> </br>
+  <% end %>
 
   <%= f.submit "Add Beer" %>
 <% end %>
