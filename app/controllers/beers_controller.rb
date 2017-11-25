@@ -13,6 +13,7 @@ class BeersController < ApplicationController
 
   def create
     @beer = Beer.find_or_create_by(name: params[:beer][:name])
+    # need to assign the creator_ids here as well
     if @beer.update(beer_params)
       binding.pry
       current_user.beers << @beer
