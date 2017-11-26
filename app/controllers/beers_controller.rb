@@ -23,6 +23,10 @@ class BeersController < ApplicationController
 
   def show
     @beer = Beer.find_by(id: params[:id])
+    if params[:user_id]
+      @status = current_user.user_beers.find_by(id: @beer).status
+      @notes = current_user.user_beers.find_by(id: @beer).notes
+    end
   end
 
   def new

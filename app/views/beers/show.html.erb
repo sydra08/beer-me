@@ -4,3 +4,9 @@
 <h3>ABV: <%= @beer.abv%> </h3>
 <h3>Description: </h3>
 <p><%= @beer.description %></p>
+
+<% if @status %>
+  <h4>Info</h4>
+  <p>Status: <%= @status %></p>
+  <p>Notes: <%= @notes %></p>
+<% end %>

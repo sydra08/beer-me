@@ -16,10 +16,18 @@
   <% if @beers.empty? %>
     <p><em>No results</em></p>
   <% else %>
-    <ul>
-      <% @beers.each do |beer| %>
-        <li><%= link_to beer.brewery.name, brewery_path(beer.brewery) %>: <%= link_to beer.name, beer_path(beer) %> (<%= beer.abv %>)</li>
-      <% end %>
-    </ul>
+    <% if current_user %>
+      <ul>
+        <% @beers.each do |beer| %>
+          <li><%= link_to beer.brewery.name, brewery_path(beer.brewery) %>: <%= link_to beer.name, user_beer_path(current_user, beer) %> (<%= beer.abv %>)</li>
+        <% end %>
+      </ul>
+    <% else %>
+      <ul>
+        <% @beers.each do |beer| %>
+          <li><%= link_to beer.brewery.name, brewery_path(beer.brewery) %>: <%= link_to beer.name, beer_path(beer) %> (<%= beer.abv %>)</li>
+        <% end %>
+      </ul>
+    <% end %>
   <% end %>
 </div>
