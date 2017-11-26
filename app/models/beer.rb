@@ -16,4 +16,12 @@ class Beer < ApplicationRecord
     self.category = Category.find_or_create_by(name: category_attributes[:name])
   end
 
+  def self.by_category(category_id)
+    where(category: category_id)
+  end
+
+  def self.by_brewery(brewery_id)
+    where(brewery: brewery_id)
+  end
+
 end

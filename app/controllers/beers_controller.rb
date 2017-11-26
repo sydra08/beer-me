@@ -1,6 +1,18 @@
 class BeersController < ApplicationController
   before_action :require_login, only: [:new, :create]
 
+  def index
+    @categories = Category.all
+    @breweries = Brewery.all
+    if !params[:category].blank?
+      @beers = Beer.by_category(params[:category])
+    elsif !params[:brewery].blank?
+      @beers = Beer.by_brewery(params[:brewery])
+    else
+      @beers = Beer.all
+    end
+  end
+
   def show
     @beer = Beer.find_by(id: params[:id])
   end

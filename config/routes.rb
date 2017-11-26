@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   delete '/signout', to: 'sessions#destroy'
 
 
-  resources :beers, only: [:show, :new, :create]
+  resources :beers, only: [:index, :show, :new, :create]
   resources :breweries, only: [:index, :show]
   resources :categories, only: [:index, :show]
   resources :users
