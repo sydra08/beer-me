@@ -2,9 +2,15 @@ class BeersController < ApplicationController
   before_action :require_login, only: [:new, :create]
 
   def index
+    # set for filters
     @categories = Category.all
     @breweries = Brewery.all
-    if !params[:category].blank? && !params[:brewery].blank?
+
+    # this is for the nested route
+    if params[:user_id]
+      @beers = User.find_by(id: params[:user_id]).beers
+    # this is for the filters
+    elsif !params[:category].blank? && !params[:brewery].blank?
       @beers = Beer.by_category_and_brewery(params[:category], params[:brewery])
     elsif !params[:category].blank?
       @beers = Beer.by_category(params[:category])

@@ -7,10 +7,14 @@ Rails.application.routes.draw do
   post '/sessions', to: 'sessions#create'
   delete '/signout', to: 'sessions#destroy'
 
+  # nested resources
+  resources :users, only: [:show] do
+    resources :beers
+  end
 
   resources :beers, only: [:index, :show, :new, :create]
   resources :breweries, only: [:index, :show]
   resources :categories, only: [:index, :show]
-  resources :users
+  resources :users, only: [:new, :create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

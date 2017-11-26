@@ -1,9 +1,10 @@
 *To Do*
 [Research]
 [ ] Read docs on ActionView helper methods
-[ ] Review nested forms
+[x] Review nested forms
 [ ] Review nested resources
-[ ] Review filters
+[x] Review AR query methods
+[x] Review filters
 [x] Review rspec (http://rspec.info/)
 [ ] Review config/database.yml from other labs
 [ ] figure out how to set up associations via factory and/or get seed data to be used in test env
