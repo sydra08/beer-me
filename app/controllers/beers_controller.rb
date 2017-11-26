@@ -4,7 +4,9 @@ class BeersController < ApplicationController
   def index
     @categories = Category.all
     @breweries = Brewery.all
-    if !params[:category].blank?
+    if !params[:category].blank? && !params[:brewery].blank?
+      @beers = Beer.by_category_and_brewery(params[:category], params[:brewery])
+    elsif !params[:category].blank?
       @beers = Beer.by_category(params[:category])
     elsif !params[:brewery].blank?
       @beers = Beer.by_brewery(params[:brewery])
