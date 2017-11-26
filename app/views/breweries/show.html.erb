@@ -12,8 +12,14 @@
   <% end %>
 </div>
 
-<ul>
-  <% @beers.each do |beer| %>
-    <li><%= link_to beer.name, beer_path(beer) %> (<%= beer.abv %>)</li>
+<div class="list">
+  <% if @beers.empty? %>
+    <p><em>No results</em></p>
+  <% else %>
+    <ul>
+      <% @beers.each do |beer| %>
+        <li><%= link_to beer.name, beer_path(beer) %> (<%= beer.abv %>)</li>
+      <% end %>
+    </ul>
   <% end %>
-</ul>
+</div>

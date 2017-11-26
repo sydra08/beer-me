@@ -4,4 +4,8 @@ class Category < ApplicationRecord
 
   validates :name, presence: true
   validates :name, uniqueness: { case_sensitive: false }
+
+  def by_brewery(brewery_id)
+    beers.where(brewery: brewery_id)
+  end
 end

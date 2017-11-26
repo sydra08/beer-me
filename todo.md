@@ -65,6 +65,12 @@
 [ ] test the adding beer functionality
 [ ] add status and notes fields to beer form...this will involve tapping into the user_beer model which complicates things bc the new beer form is part of the beer controller...
 [ ] nested route for adding a new user beer (which will encapsulate the current new beer form)
+[ ] filters (maybe create a partial for each filter?)
+  [x] beers#index (category or brewery or both)
+  [ ] breweries#index (category)
+  [x] breweries#show (by category)
+  [ ] categories#index (brewery)
+  [x] categories#show (brewery)
 [x] Logout
 [ ] User authentication and authorization
 [ ] User can only add beers to their own collection
