@@ -1,6 +1,7 @@
 class BreweriesController < ApplicationController
   def index
     @breweries = Brewery.all
+    @categories = Category.all
   end
 
   def show
