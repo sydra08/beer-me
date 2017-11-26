@@ -28,4 +28,17 @@ class Beer < ApplicationRecord
     where(brewery: brewery_id)
   end
 
+
+  def by_category_and_brewery(category_id, brewery_id)
+    where("category_id = ? AND brewery_id = ?", category_id, brewery_id)
+  end
+
+  def by_category(category_id)
+    where(category: category_id)
+  end
+
+  def by_brewery(brewery_id)
+    where(brewery: brewery_id)
+  end
+
 end

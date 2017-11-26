@@ -4,6 +4,7 @@
     </li>
     <li><%= link_to "My Beers", user_beers_path(current_user) %></li>
     <li><%= link_to "Add New Beer", new_beer_path %></li>
+    <li></li>
   <% else %>
     <li><%= link_to "Sign Up", new_user_path %></li>
     <li><%= link_to "Sign In", signin_path %></li>

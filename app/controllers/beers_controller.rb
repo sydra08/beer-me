@@ -8,21 +8,34 @@ class BeersController < ApplicationController
 
     # this is for the nested route
     if params[:user_id]
-      @beers = User.find_by(id: params[:user_id]).beers
-    # this is for the filters
-    elsif !params[:category].blank? && !params[:brewery].blank?
-      @beers = Beer.by_category_and_brewery(params[:category], params[:brewery])
-    elsif !params[:category].blank?
-      @beers = Beer.by_category(params[:category])
-    elsif !params[:brewery].blank?
-      @beers = Beer.by_brewery(params[:brewery])
+      user_beers = User.find_by(id: params[:user_id]).beers
+      if !params[:category].blank? && !params[:brewery].blank?
+        @beers = user_beers.by_category_and_brewery(params[:category], params[:brewery])
+      elsif !params[:category].blank?
+        @beers = user_beers.by_category(params[:category])
+      elsif !params[:brewery].blank?
+        @beers = user_beers.by_brewery(params[:brewery])
+      else
+        @beers = user_beers
+      end
     else
-      @beers = Beer.all
+      # for regular index page
+      if !params[:category].blank? && !params[:brewery].blank?
+        @beers = Beer.by_category_and_brewery(params[:category], params[:brewery])
+      elsif !params[:category].blank?
+        @beers = Beer.by_category(params[:category])
+      elsif !params[:brewery].blank?
+        @beers = Beer.by_brewery(params[:brewery])
+      else
+        @beers = Beer.all
+      end
     end
   end
 
   def show
     @beer = Beer.find_by(id: params[:id])
+    # ideally don't want this only accessible via My Beers
+    # want to show the status and notes for a beer all the time, not just via special link
     if params[:user_id]
       @status = current_user.user_beers.find_by(id: @beer).status
       @notes = current_user.user_beers.find_by(id: @beer).notes
