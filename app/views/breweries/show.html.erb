@@ -2,9 +2,18 @@
 <h4><%= @brewery.location %></h4>
 <p><%= @brewery.description %></p>
 
-<h3>Beers</h3>
+<h2>Beers</h2>
+
+<div class="filter">
+  <h4>Filter By Category</h4>
+  <%= form_tag("/breweries/#{@brewery.id}", method: "get") do %>
+    <%= select_tag "category", options_from_collection_for_select(@categories, "id", "name"), include_blank: true %>
+    <%= submit_tag "Filter" %>
+  <% end %>
+</div>
+
 <ul>
-  <% @brewery.beers.each do |beer| %>
+  <% @beers.each do |beer| %>
     <li><%= link_to beer.name, beer_path(beer) %> (<%= beer.abv %>)</li>
   <% end %>
 </ul>

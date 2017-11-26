@@ -1,18 +1,7 @@
 <h1>Breweries</h1>
 
-<div class="filter">
-  <h4>Filter Breweries:</h4>
-  <%= form_tag("/breweries", method: "get") do %>
-    <%= select_tag "brewery", options_from_collection_for_select(@breweries, "id", "name"), include_blank: true %>
-    <%= select_tag "category", options_from_collection_for_select(@categories, "id", "name"), include_blank: true %>
-    <%= submit_tag "Filter" %>
+<ul>
+  <% @breweries.each do |brewery| %>
+    <li><%= link_to brewery.name, brewery_path(brewery) %></li>
   <% end %>
-</div>
-
-<div class="list">
-  <ul>
-    <% @breweries.each do |brewery| %>
-      <li><%= link_to brewery.name, brewery_path(brewery) %></li>
-    <% end %>
-  </ul>
-</div>
+</ul>
