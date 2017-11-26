@@ -2,12 +2,13 @@
   <% if current_user %>
     <li><%= link_to "Log Out", signout_path, method: :delete%>
     </li>
+    <li><%= link_to "My Beers", user_beers_path(current_user) %></li>
     <li><%= link_to "Add New Beer", new_beer_path %></li>
   <% else %>
     <li><%= link_to "Sign Up", new_user_path %></li>
     <li><%= link_to "Sign In", signin_path %></li>
   <% end %>
-  <li><%= link_to "Beers", beers_path %></li>
-  <li><%= link_to "Breweries", breweries_path %></li>
-  <li><%= link_to "Categories", categories_path %></li>
+  <li><%= link_to "All Beers", beers_path %></li>
+  <li><%= link_to "All Breweries", breweries_path %></li>
+  <li><%= link_to "All Categories", categories_path %></li>
 </ul>
