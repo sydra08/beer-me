@@ -33,4 +33,7 @@ user = User.create(
 
 user.beers << Beer.all
 
+user_beer = user.user_beers.first
+user_beer.update(status: true, notes: "I love this beer")
+
 # need to adjust seed data so that it creates unique items
