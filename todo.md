@@ -79,6 +79,7 @@
 [ ] User cannot edit the details for a brewery that they didn't add to the database   
 [ ] User cannot edit the details for a category that they didn't add to the database   
 [ ] navbar
+[ ] refactor beers#index (filtering)
 
 *Helper Methods*
 + pluralize(number, phrase/word)

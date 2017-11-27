@@ -2,6 +2,7 @@ class BeersController < ApplicationController
   before_action :require_login, only: [:new, :create]
 
   def index
+    flash[:alert] = "NEED TO REFACTOR PAGE"
     # set for filters
     @categories = Category.all
     @breweries = Brewery.all
@@ -48,12 +49,12 @@ class BeersController < ApplicationController
   end
 
   def create
+    binding.pry
     @beer = Beer.find_or_create_by(name: params[:beer][:name])
     # need to assign the creator_ids here as well
     if @beer.update(beer_params)
-      binding.pry
       current_user.beers << @beer
-      redirect_to user_path(current_user)
+      redirect_to user_beers_path(current_user)
     else
       render :new
     end
