@@ -15,9 +15,9 @@ class SessionsController < ApplicationController
     # auth['provider'] => "google_oauth2"
     # auth['uid'] => "114605032996416049559"
     if !auth.nil?
-      raise params.inspect
       # did the user use OAuth?
       @user = User.find_or_create_from_auth_hash(auth)
+      binding.pry
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
