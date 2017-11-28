@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   # omniauth
   get '/auth/google_oauth2/callback', to: 'sessions#create'
+  get 'auth/failure', to: 'welcome#home'
 
   # nested resources
   resources :users, only: [:show] do
