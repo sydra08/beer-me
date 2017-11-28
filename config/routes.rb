@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   post '/sessions', to: 'sessions#create'
   delete '/signout', to: 'sessions#destroy'
 
+  # omniauth
+  get '/auth/google_oauth2/callback', to: 'sessions#create'
+
   # nested resources
   resources :users, only: [:show] do
     resources :beers
