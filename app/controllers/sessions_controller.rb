@@ -7,7 +7,9 @@ class SessionsController < ApplicationController
   def create
     # if the user doesn't exist then you need to render new
     # find the user by the email address
+    raise params.inspect
     @user = User.find_by(email: params[:user][:email])
+    # also
     # check if password is correct
     if !@user.nil? && @user.authenticate(params[:user][:password])
       # if password is correct
