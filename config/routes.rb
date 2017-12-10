@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   get '/auth/google_oauth2/callback', to: 'sessions#create'
   get 'auth/failure', to: 'welcome#home'
 
+  # need to keep this up here otherwise it doesn't work
+  resources :users, only: [:new, :create]
+
   # nested resources
   resources :users, only: [:show] do
     resources :beers
