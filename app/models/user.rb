@@ -23,6 +23,7 @@ class User < ApplicationRecord
 			user.first_name = auth_hash.info.first_name
 			user.last_name = auth_hash.info.last_name
 			user.email = auth_hash.info.email
+      # create a random password for the user in order to satisfy bcrypt
       user.password = SecureRandom.hex
 			user.save!
       # issue is that when you use omniauth, the user doesn't have a password and bcrypt doesn't like that...

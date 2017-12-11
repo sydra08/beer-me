@@ -60,7 +60,7 @@ describe 'Feature Test: User', :type => :feature do
         password: "password"
       )
       # visit sign up page
-      visit new_session_path
+      visit signin_path
       # fill in first name
       fill_in "user[email]", with: @user.email
       # fill in password
