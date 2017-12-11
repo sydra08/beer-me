@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
       @user = User.find_or_create_from_auth_hash(auth)
       binding.pry
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to user_beers_path(@user)
     else
       # if not sign in the normal way
       @user = User.find_by(email: params[:user][:email])
@@ -28,9 +28,9 @@ class SessionsController < ApplicationController
         # set session
         session[:user_id] = @user.id
         # redirect to user homepage
-        redirect_to user_path(@user)
+        redirect_to user_beers_path(@user)
       else
-        redirect_to new_session_path, notice: "Error: Invalid email address or password"
+        redirect_to signin_path, notice: "Error: Invalid email address or password"
       end
     end
   end

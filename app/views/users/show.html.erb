@@ -1,7 +1,7 @@
+<!-- this page is not being used -->
 <h1><%= @user.first_name %>'s Beers</h1>
 
 <% if !@user.beers.empty? %>
-  <h4>Your Beers</h4>
   <ul>
     <% @user.beers.each do |beer| %>
       <li><%= link_to beer.name, beer_path(beer) %></li>
