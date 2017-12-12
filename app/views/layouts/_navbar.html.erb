@@ -1,7 +1,7 @@
 <ul>
   <% if current_user %>
-    <li><%= link_to "My Beers", user_beers_path(current_user) %></li>
-    <li><%= link_to "Add New Beer", new_user_beer_path(current_user) %></li>
+    <li><%= link_to "My Beers", user_user_beers_path(current_user) %></li>
+    <li><%= link_to "Add New Beer", new_beer_path(current_user) %></li>
     <li><%= link_to "Log Out", signout_path, method: :delete%>
     </li>
   <% else %>

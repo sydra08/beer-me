@@ -8,32 +8,16 @@ class BeersController < ApplicationController
     @breweries = Brewery.all
     # this is for the nested route
     # do we need to create a userbeer?
-    if params[:user_id]
-      # set category and brewery
-      if !params[:category].blank? && !params[:brewery].blank?
-        @userbeers = Beer.by_user_and_brewery_and_category(params[:user_id], params[:brewery], params[:category])
-        # set just category
-      elsif !params[:category].blank?
-        @userbeers = Beer.by_user_and_category(params[:user_id], params[:category])
-        # set just brewery
-      elsif !params[:brewery].blank?
-        @userbeers = Beer.by_user_and_brewery(params[:user_id], params[:brewery])
-      else
-        # find a beer that user already has in their collection
-        @userbeers = User.find_by(id: params[:user_id]).beers
-      end
-    else
       # for regular index page
-      if !params[:category].blank? && !params[:brewery].blank?
-        binding.pry
-        @beers = Beer.by_category_and_brewery(params[:category], params[:brewery])
-      elsif !params[:category].blank?
-        @beers = Beer.by_category(params[:category])
-      elsif !params[:brewery].blank?
-        @beers = Beer.by_brewery(params[:brewery])
-      else
-        @beers = Beer.all
-      end
+    if !params[:category].blank? && !params[:brewery].blank?
+      binding.pry
+      @beers = Beer.by_category_and_brewery(params[:category], params[:brewery])
+    elsif !params[:category].blank?
+      @beers = Beer.by_category(params[:category])
+    elsif !params[:brewery].blank?
+      @beers = Beer.by_brewery(params[:brewery])
+    else
+      @beers = Beer.all
     end
   end
 

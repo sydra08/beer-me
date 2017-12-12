@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     if @user.save
       # set session (aka log user in)
       session[:user_id] = @user.id
-      redirect_to user_beers_path(@user)
+      redirect_to user_user_beers_path(@user)
     else
       # show errors on registration page
       render :new
