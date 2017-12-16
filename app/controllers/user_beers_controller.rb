@@ -31,4 +31,11 @@ class UserBeersController < ApplicationController
 
   def create
   end
+
+  def edit
+  end
+
+  def update
+    raise params.inspect
+  end
 end

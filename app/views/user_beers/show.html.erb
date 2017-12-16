@@ -9,11 +9,11 @@
 <h3>My notes:</h3>
 <% if @userbeer.notes %>
   <p><%= @userbeer.notes%></p>
-  <%= link_to "Edit", edit_user_user_beer_path(current_user, @userbeer) %>
 <% else %>
-  <%= form_tag user_user_beers_path %>
+  <%= form_tag user_user_beer_path(current_user, @userbeer) do %>
     <%= text_area_tag :notes, nil, size: "60x5"%> <br>
     <%= submit_tag "Add Note" %>
+  <% end %>
 <% end %>
 
 <!-- show edit link for notes -->
