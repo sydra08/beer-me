@@ -39,7 +39,7 @@ class BeersController < ApplicationController
     # need to work on adding beer notes and/or status
     if @beer.update(beer_params)
       current_user.beers << @beer
-      redirect_to user_beers_path(current_user)
+      redirect_to user_user_beer_path(current_user)
     else
       render :new
     end

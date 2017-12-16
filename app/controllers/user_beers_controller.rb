@@ -21,13 +21,9 @@ class UserBeersController < ApplicationController
   end
 
   def show
-    @userbeer = Beer.find_by(id: params[:id])
+    @userbeer = UserBeer.find_by(id: params[:id])
     # ideally don't want this only accessible via My Beers
     # want to show the status and notes for a beer all the time, not just via special link
-    # if params[:user_id]
-    #   @status = current_user.user_beers.find_by(id: @userbeer).status
-    #   @notes = current_user.user_beers.find_by(id: @userbeer).notes
-    # end
   end
 
   def new

@@ -1,10 +1,12 @@
-<h1><%= @userbeer.name %></h1>
-<h3>Brewery: <%= link_to @userbeer.brewery.name, brewery_path(@userbeer.brewery) %></h3>
-<h3>Style: <%= link_to @userbeer.category.name, category_path(@userbeer.category) %></h3>
-<h3>ABV: <%= @userbeer.abv%> </h3>
+<h1><%= @userbeer.beer.name %></h1>
+<h3>Status: <%= @userbeer.verbose_status if @userbeer.status %></h3>
+<h3>Brewery: <%= link_to @userbeer.beer.brewery.name, brewery_path(@userbeer.beer.brewery) %></h3>
+<h3>Style: <%= link_to @userbeer.beer.category.name, category_path(@userbeer.beer.category) %></h3>
+<h3>ABV: <%= @userbeer.beer.abv%> </h3>
 <h3>Description: </h3>
-<p><%= @userbeer.description %></p>
+<p><%= @userbeer.beer.description %></p>
 
-<h4>Info</h4>
-<p>Status: <%= @userbeer.status if @usebeer.status %></p>
-<p>Notes: <%= @userbeer.notes if @usebeer.notes %></p>
+<h3>My notes:</h3>
+<p><%= @userbeer.notes if @userbeer.notes %></p>
+
+<!-- show edit link for notes -->
