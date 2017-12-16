@@ -55,5 +55,13 @@
     </datalist> <br> </br>
   <% end %>
 
-  <%= f.submit "Add Beer" %>
+  <%= f.fields_for :user_beer do |u| %>
+    <%= u.label :status, "Tried", :value => true %>
+    <%= u.radio_button :status, true %>
+
+    <%= u.label :status, "Want to try", :value => false %>
+    <%= u.radio_button :status, false %>
+  <% end %> <br> </br>
+
+  <%= f.submit "Add Beer To My List" %>
 <% end %>

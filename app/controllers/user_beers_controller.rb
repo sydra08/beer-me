@@ -22,8 +22,8 @@ class UserBeersController < ApplicationController
 
   def show
     @userbeer = UserBeer.find_by(id: params[:id])
-    # ideally don't want this only accessible via My Beers
     # want to show the status and notes for a beer all the time, not just via special link
+    # via beers#show if current_user.beers.includes(@beer) then show extra? user needs to be able to see all the info at all times, regardless how they view it
   end
 
   def new

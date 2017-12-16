@@ -29,6 +29,7 @@ class BeersController < ApplicationController
     @beer = Beer.new
     @beer.build_brewery
     @beer.build_category
+    @beer.user_beers.build
   end
 
   def create
@@ -38,8 +39,14 @@ class BeersController < ApplicationController
     # when you create a beer you are always assigning it to the user
     # need to work on adding beer notes and/or status
     if @beer.update(beer_params)
-      current_user.beers << @beer
-      redirect_to user_user_beer_path(current_user)
+      # this doesn't save the user_beer instance even if current_user.save later
+      # current_user.user_beers.build(beer_id: @beer.id, status: params[:beer][:user_beer][:status])
+
+      # this successfully creates a user_beer, but what happens if a user tries to add a beer that they already have in their collection?
+
+      current_user.user_beers.create(beer_id: @beer.id, status: params[:beer][:user_beer][:status])
+
+      redirect_to user_user_beer_path(current_user, @beer)
     else
       render :new
     end
