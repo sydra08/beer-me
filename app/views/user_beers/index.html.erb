@@ -15,9 +15,8 @@
 
 <br> </br>
 <div class="list">
-  <!-- need to figure out to refactor this so that the links go to the right place -->
   <!-- need to work it out so that this page can be used as user landing and beer index...partial? -->
-  <% if @userbeers && !@userbeers.empty? %>
+  <% if !@userbeers.empty? %>
     <ul>
       <% @userbeers.each do |beer| %>
         <li><%= link_to beer.brewery.name, brewery_path(beer.brewery) %>: <%= link_to beer.name, user_user_beer_path(current_user, beer) %> (<%= beer.abv %>)</li>
