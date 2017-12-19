@@ -2,16 +2,17 @@
 <!-- will this be a nested route? -->
 <!-- need to create user_beer and then set the status -->
 
-<form action="/userbeers" method="post">
-  <!-- send beer_id as a hidden param -->
-  <input type="hidden" name="hidden" value="beer.id">
-  <!-- submitting form sets status of tried -->
-  <input type="submit" name="Tried" value="true">
-</form>
+<!-- this only takes care of when it is on the user beer page  -->
+<% if beer.verbose_status == "Want to try" %>
+  <form action="/userbeers" method="post">
+    <!-- send beer_id as a hidden param -->
+    <input type="hidden" name="hidden" value="beer.id">
+    <!-- submitting form sets status of tried -->
+    <input type="submit" name="Tried" value="true">
+  </form>
+<% end %>
 
-<form action="#{new_user_beer_path}" method="post">
-  <!-- send beer_id as a hidden param -->
+<!-- <form action="#{new_user_beer_path}" method="post">
   <input type="hidden" name="hidden" value="beer.id">
-  <!-- submitting form sets status of tried -->
-  <input type="submit" name="Want To Try" value="false">
-</form>
+  <input type="submit" name="Want to try" value="false">
+</form> -->

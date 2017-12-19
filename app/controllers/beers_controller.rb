@@ -39,7 +39,7 @@ class BeersController < ApplicationController
     # need to work on adding beer notes and/or status
     if @beer.update(beer_params)
       # this successfully creates a user_beer, but what happens if a user tries to add a beer that they already have in their collection?
-
+      # note - when a user adds a beer the default status is want to try, should probably reflect that in the UI 
       @userbeer = current_user.user_beers.create(beer_id: @beer.id, status: params[:beer][:user_beer][:status])
 
       redirect_to user_user_beer_path(current_user, @userbeer)

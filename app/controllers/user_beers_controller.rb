@@ -36,6 +36,7 @@ class UserBeersController < ApplicationController
   end
 
   def update
+    # will need to update this when you are allowed to toggle the beer status on the show page
     @userbeer = UserBeer.find_by(id: params[:id])
     if params[:user_beer][:notes] != ""
       @userbeer.update(user_beer_params)
