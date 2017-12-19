@@ -33,20 +33,16 @@ class BeersController < ApplicationController
   end
 
   def create
-    binding.pry
     @beer = Beer.find_or_create_by(name: params[:beer][:name])
     # need to assign the creator_ids here as well
     # when you create a beer you are always assigning it to the user
     # need to work on adding beer notes and/or status
     if @beer.update(beer_params)
-      # this doesn't save the user_beer instance even if current_user.save later
-      # current_user.user_beers.build(beer_id: @beer.id, status: params[:beer][:user_beer][:status])
-
       # this successfully creates a user_beer, but what happens if a user tries to add a beer that they already have in their collection?
 
-      current_user.user_beers.create(beer_id: @beer.id, status: params[:beer][:user_beer][:status])
+      @userbeer = current_user.user_beers.create(beer_id: @beer.id, status: params[:beer][:user_beer][:status])
 
-      redirect_to user_user_beer_path(current_user, @beer)
+      redirect_to user_user_beer_path(current_user, @userbeer)
     else
       render :new
     end
