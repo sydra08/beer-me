@@ -36,6 +36,18 @@ class UserBeersController < ApplicationController
   end
 
   def update
-    raise params.inspect
+    @userbeer = UserBeer.find_by(id: params[:id])
+    if params[:user_beer][:notes] != ""
+      @userbeer.update(user_beer_params)
+      redirect_to user_user_beer_path(current_user, @userbeer)
+    else
+      render :show
+    end
+  end
+
+  private
+
+  def user_beer_params
+    params.require(:user_beer).permit(:notes)
   end
 end

@@ -10,8 +10,9 @@
 <% if @userbeer.notes %>
   <p><%= @userbeer.notes%></p>
 <% else %>
-  <%= form_tag user_user_beer_path(current_user, @userbeer) do %>
-    <%= text_area_tag :notes, nil, size: "60x5"%> <br>
+  <%= form_tag user_user_beer_path(current_user.id, @userbeer.id) do %>
+    <%= hidden_field_tag('_method', 'put') %>
+    <%= text_area_tag "user_beer[notes]", nil, size: "60x5"%> <br>
     <%= submit_tag "Add Note" %>
   <% end %>
 <% end %>
