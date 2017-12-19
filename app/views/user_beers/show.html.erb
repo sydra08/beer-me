@@ -1,5 +1,5 @@
 <h1><%= @userbeer.beer.name %></h1>
-<h3>Status: <%= @userbeer.verbose_status if @userbeer.status %></h3>
+<h3>Status: <%= @userbeer.verbose_status %></h3>
 <h3>Brewery: <%= link_to @userbeer.beer.brewery.name, brewery_path(@userbeer.beer.brewery) %></h3>
 <h3>Style: <%= link_to @userbeer.beer.category.name, category_path(@userbeer.beer.category) %></h3>
 <h3>ABV: <%= @userbeer.beer.abv%> </h3>
