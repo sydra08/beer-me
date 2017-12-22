@@ -3,14 +3,20 @@
 <!-- need to create user_beer and then set the status -->
 
 <!-- this only takes care of when it is on the user beer page  -->
-<% if beer.verbose_status == "Want to try" %>
-  <form action="/userbeers" method="post">
-    <!-- send beer_id as a hidden param -->
-    <input type="hidden" name="hidden" value="beer.id">
-    <!-- submitting form sets status of tried -->
-    <input type="submit" name="Tried" value="true">
-  </form>
+<% if !beer.status %>
+  <%= form_tag user_user_beer_path(user.id, beer.id) do %>
+    <%= hidden_field_tag('_method', 'put') %>
+    <%= hidden_field_tag beer.id %>
+    <%= hidden_field_tag "user_beer[status]", true %>
+    <%= submit_tag "Tried" %>
+  <% end %>
 <% end %>
+
+  <!-- <form action="<%=user_user_beer_path(user, beer)%>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <input type="hidden" name="hidden" value="<%=beer.id%>">
+    <input type="submit" name="Tried" value="Tried">
+  </form> -->
 
 <!-- <form action="#{new_user_beer_path}" method="post">
   <input type="hidden" name="hidden" value="beer.id">

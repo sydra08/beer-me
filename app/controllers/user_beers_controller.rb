@@ -36,9 +36,13 @@ class UserBeersController < ApplicationController
   end
 
   def update
+    binding.pry
     # will need to update this when you are allowed to toggle the beer status on the show page
     @userbeer = UserBeer.find_by(id: params[:id])
     if params[:user_beer][:notes] != ""
+      @userbeer.update(user_beer_params)
+      redirect_to user_user_beer_path(current_user, @userbeer)
+    elsif params[:user_beer][:status] != ""
       @userbeer.update(user_beer_params)
       redirect_to user_user_beer_path(current_user, @userbeer)
     else
@@ -49,6 +53,6 @@ class UserBeersController < ApplicationController
   private
 
   def user_beer_params
-    params.require(:user_beer).permit(:notes)
+    params.require(:user_beer).permit(:notes, :status)
   end
 end
