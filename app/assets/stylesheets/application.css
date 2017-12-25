@@ -1919,6 +1919,17 @@
  				width: 50%;
  			}
 
+      .flex.flex-3 {
+   			-moz-justify-content: space-between;
+   			-webkit-justify-content: space-between;
+   			-ms-justify-content: space-between;
+   			justify-content: space-between;
+   		}
+
+   			.flex.flex-3 article {
+   				width: 33.333%;
+   			}
+
  		@media screen and (max-width: 980px) {
 
  			.flex.flex-2 article {
