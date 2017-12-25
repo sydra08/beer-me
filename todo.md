@@ -1,3 +1,19 @@
+*December 11 Goals*
+[ ] think through the refactoring of the beers#index
+  + the userbeer vs beer filtering is cumbersome and probably not the best way to do this...but you can't really combine it because userbeer vs beer objects are different
+  + beers#index is the only index page that has filtering
+  + can't remove filtering on this view of the page bc then it's inconsistent with the rest of the site
+  + what if the user landing page is slightly different and you have to choose by status first?
+  + maybe the userbeers#index page should exist? then it would handle all of the userbeers vs beers in general - that could help cut down on the amount of code in the beers controller...but is that even a thing you do?
+[ ] figure out how to get notes and status added to beers when user adds new one to collection
+  + can i create a stand in userbeer instance that can be used to generate the fields_for area of the add_beer form?
+  + then when you add a new beer to your collection it adds the notes and status to the created userbeer instance
+  + can there be a join table controller? or is that bad practice?
+  + https://softwareengineering.stackexchange.com/questions/245392/do-rails-join-models-get-controllers
+[ ] user can update notes and status of beer in collection
+[ ] user can filter by status of beer
+
+
 *To Do*
 [Research]
 [ ] Read docs on ActionView helper methods
@@ -14,6 +30,7 @@
 [x] research using auto complete instead of drop down menu for brewery and category select
 [x] review associations and rails section (probably worth watching video)
 [ ] Look into CSS templates to use for front end
+[ ] rewatch the ToDo Omniauth video before assessment
 
 [Project]
 [x] Create repo in github
@@ -53,7 +70,7 @@
     [ ] Beer
     [ ] consider using a helper for login/logout/signup actions
 [x] Create root path (welcome#home)
-[ ] Omniauth
+[x] Omniauth
 [x] User can add a beer to their collection (user clicks on button and submits form to create new user_beer)
   - should this be handled via beer or user? or straight thru user_beer?
     - since this can occur via brewery or category page, should just happen there? where do the views go for this? assuming would be better as a partial since the button will appear in more than one place
@@ -66,11 +83,11 @@
 [ ] test the adding beer functionality
 [ ] add status and notes fields to beer form...this will involve tapping into the user_beer model which complicates things bc the new beer form is part of the beer controller...
 [x] nested route for adding a new user beer (which will encapsulate the current new beer form)
-[ ] filters (maybe create a partial for each filter?)
+[x] filters (maybe create a partial for each filter?)
   [x] beers#index (category or brewery or both)
-  [ ] breweries#index (category)
+  -[ ] breweries#index (category)-
   [x] breweries#show (by category)
-  [ ] categories#index (brewery)
+  -[ ] categories#index (brewery)-
   [x] categories#show (brewery)
 [x] Logout
 [ ] User authentication and authorization
@@ -78,9 +95,27 @@
 [ ] User cannot edit the details for a beer that they didn't add to the database   
 [ ] User cannot edit the details for a brewery that they didn't add to the database   
 [ ] User cannot edit the details for a category that they didn't add to the database   
+-[ ] clear filter button (may not be entirely necessary)-
 [ ] navbar
-[ ] refactor beers#index (filtering)
-[ ] need to figure out how to add status and notes when you add a beer
+[x] refactor beers#index (filtering)
+  [x] need to change page because it will also be used as the landing page for users when they log in
+[x] need to figure out how to add status and notes when you add a beer
+*[ ] what happens if a user tries to add a beer that they already have in their collection?*
+  + there should probably be a safe guard against that. like if a user tries to add a beer to their list that they already have, should be a validation error. so maybe need something that says you need to have unique beer_ids within a users user_beers
+[ ] figure out how the beers#show and user_beers#show can be combined?
+[x] allow user to add notes for user_beer
+[ ] allow edit notes for user_beer
+[x] why are the nested routes coming up as .id?
+[ ] when a user adds a beer the default status is want to try, should probably reflect that in the UI
+[x] allow users to change a beer's status to Tried from userbeers#show
+[ ] add filter on userbeer#index so that a user can filter by status
+[ ] consider incorporating the ratings feature so that there's a better scope method example
+*[ ] make list of questions for one-on-one session*
+[x] fix styling of home page
+[x] add pictures to home_page
+[ ] figure out the proper navbar set up for home vs not
+[ ] figure out how to get the drop down menu arrows to always show up
+[ ] fix styling for forms
 
 *Helper Methods*
 + pluralize(number, phrase/word)
