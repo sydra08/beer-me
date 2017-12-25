@@ -9,9 +9,11 @@
   </head>
 
   <body>
-
+    <section id="banner">
+      <img src="../app/assets/images/beer_taps.jpeg" alt="beer taps">
+    </section>
     <%= render partial: 'layouts/navbar' %>
-    
+
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, class: name %>
     <% end %>
