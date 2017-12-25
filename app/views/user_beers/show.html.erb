@@ -1,10 +1,16 @@
-<h1><%= @userbeer.beer.name %></h1>
-<h3>Status: <%= @userbeer.verbose_status %><%= render partial: "beers/beer_buttons", locals: {user: current_user, beer: @userbeer} %> </h3>
-<h3>Brewery: <%= link_to @userbeer.beer.brewery.name, brewery_path(@userbeer.beer.brewery) %></h3>
-<h3>Style: <%= link_to @userbeer.beer.category.name, category_path(@userbeer.beer.category) %></h3>
-<h3>ABV: <%= @userbeer.beer.abv%> </h3>
-<h3>Description: </h3>
-<p><%= @userbeer.beer.description %></p>
+<header class="align-center">
+	<h2><%= @userbeer.beer.name %></h2>
+
+</header>
+
+<div class="box">
+  <!-- need to update button styling -->
+  <p>Status: <%= @userbeer.verbose_status %><%= render partial: "beers/beer_buttons", locals: {user: current_user, beer: @userbeer} %> </p>
+  <p><strong>Brewery: </strong><%= link_to @userbeer.beer.brewery.name, brewery_path(@userbeer.beer.brewery) %></p>
+  <p><strong>Style: </strong><%= link_to @userbeer.beer.category.name, category_path(@userbeer.beer.category) %></p>
+  <p><strong>ABV: </strong><%= @userbeer.beer.abv%> </p>
+  <p><strong>Description: </strong><%= @userbeer.beer.description %></p>
+</div>
 
 <h3>My notes:</h3>
 <% if @userbeer.notes %>

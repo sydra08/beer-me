@@ -1,10 +1,17 @@
-<h1><%= @category.name %></h1>
-<p><%= @category.description %></p>
+<header class="align-center">
+	<h2><%= @category.name %></h2>
+</header>
+
+<% if @category.description %>
+  <div class="box">
+    <p><%= @category.description %></p>
+  </div>
+<% end %>
 
 <h3>Beers</h3>
 
 <div class="filter">
-  <h4>Filter By Brewery</h4>
+  <h5>Filter By Brewery</h5>
   <div class="select-wrapper 6u$ 12u$(medium)">
     <%= form_tag("/categories/#{@category.id}", method: "get") do %>
       <%= select_tag "brewery", options_from_collection_for_select(@breweries, "id", "name"), prompt: "All" %> <br>
