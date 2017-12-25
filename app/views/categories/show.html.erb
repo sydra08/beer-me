@@ -1,24 +1,26 @@
-<h1><%= @category.name %></h1>
-<p><%= @category.description %></p>
+<div class="inner">
+  <h1><%= @category.name %></h1>
+  <p><%= @category.description %></p>
 
-<h3>Beers</h3>
+  <h3>Beers</h3>
 
-<div class="filter">
-  <h4>Filter By Brewery</h4>
-  <%= form_tag("/categories/#{@category.id}", method: "get") do %>
-    <%= select_tag "brewery", options_from_collection_for_select(@breweries, "id", "name"), include_blank: true %>
-    <%= submit_tag "Filter" %>
-  <% end %>
-</div>
+  <div class="filter">
+    <h4>Filter By Brewery</h4>
+    <%= form_tag("/categories/#{@category.id}", method: "get") do %>
+      <%= select_tag "brewery", options_from_collection_for_select(@breweries, "id", "name"), include_blank: true %>
+      <%= submit_tag "Filter" %>
+    <% end %>
+  </div>
 
-<div class="list">
-  <% if @beers.empty? %>
-    <p><em>No results</em></p>
-  <% else %>
-    <ul>
-      <% @beers.each do |beer| %>
-        <li><%= link_to beer.brewery.name, brewery_path(beer.brewery) %>: <%= link_to beer.name, beer_path(beer) %> (<%= beer.abv %>)</li>
-      <% end %>
-    </ul>
-  <% end %>
+  <div class="list">
+    <% if @beers.empty? %>
+      <p><em>No results</em></p>
+    <% else %>
+      <ul>
+        <% @beers.each do |beer| %>
+          <li><%= link_to beer.brewery.name, brewery_path(beer.brewery) %>: <%= link_to beer.name, beer_path(beer) %> (<%= beer.abv %>)</li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
 </div>

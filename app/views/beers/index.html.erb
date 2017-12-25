@@ -1,44 +1,47 @@
-<h1>Beers</h1>
+<div class="inner">
+  <h1>Beers</h1>
 
-<div class="filter">
-  <h4>Filter Beer List:</h4>
-  <% if @userbeers %>
-    <%= form_tag(user_beers_path, method: "get") do %>
-      <%= label_tag "Category" %>
-      <%= select_tag "category", options_from_collection_for_select(@categories, "id", "name"), include_blank: true %>
-      <%= label_tag "Brewery" %>
-      <%= select_tag "brewery", options_from_collection_for_select(@breweries, "id", "name"), include_blank: true %>
-      <%= submit_tag "Apply Filter" %>
-    <% end %>
-  <% else %>
-    <%= form_tag(beers_path, method: "get") do %>
-      <%= label_tag "Category" %>
-      <%= select_tag "category", options_from_collection_for_select(@categories, "id", "name"), include_blank: true %>
-      <%= label_tag "Brewery" %>
-      <%= select_tag "brewery", options_from_collection_for_select(@breweries, "id", "name"), include_blank: true %>
-      <%= submit_tag "Apply Filter" %>
-    <% end %>
-  <% end %>
-</div>
-
-<br> </br>
-<div class="list">
-  <!-- need to figure out to refactor this so that the links go to the right place -->
-  <!-- need to work it out so that this page can be used as user landing and beer index...partial? -->
-
-  <% if @beers && !@beers.empty? %>
-    <ul>
-      <% @beers.each do |beer| %>
-        <li><%= link_to beer.brewery.name, brewery_path(beer.brewery) %>: <%= link_to beer.name, beer_path(beer) %> (<%= beer.abv %>)</li>
+  <div class="filter">
+    <h4>Filter Beer List:</h4>
+    <% if @userbeers %>
+      <%= form_tag(user_beers_path, method: "get") do %>
+        <%= label_tag "Category" %>
+        <%= select_tag "category", options_from_collection_for_select(@categories, "id", "name"), include_blank: true %>
+        <%= label_tag "Brewery" %>
+        <%= select_tag "brewery", options_from_collection_for_select(@breweries, "id", "name"), include_blank: true %>
+        <%= submit_tag "Apply Filter" %>
       <% end %>
-    </ul>
-  <% elsif @userbeers && !@userbeers.empty? %>
-    <ul>
-      <% @userbeers.each do |beer| %>
-        <li><%= link_to beer.brewery.name, brewery_path(beer.brewery) %>: <%= link_to beer.name, user_beer_path(current_user, beer) %> (<%= beer.abv %>)</li>
+    <% else %>
+      <%= form_tag(beers_path, method: "get") do %>
+        <%= label_tag "Category" %>
+        <%= select_tag "category", options_from_collection_for_select(@categories, "id", "name"), include_blank: true %>
+        <%= label_tag "Brewery" %>
+        <%= select_tag "brewery", options_from_collection_for_select(@breweries, "id", "name"), include_blank: true %>
+        <%= submit_tag "Apply Filter" %>
       <% end %>
-    </ul>
-  <% else %>
-    <p><em>No results</em></p>
-  <% end %>
+    <% end %>
+  </div>
+
+  <br> </br>
+  <div class="list">
+    <!-- need to figure out to refactor this so that the links go to the right place -->
+    <!-- need to work it out so that this page can be used as user landing and beer index...partial? -->
+
+    <% if @beers && !@beers.empty? %>
+      <ul>
+        <% @beers.each do |beer| %>
+          <li><%= link_to beer.brewery.name, brewery_path(beer.brewery) %>: <%= link_to beer.name, beer_path(beer) %> (<%= beer.abv %>)</li>
+        <% end %>
+      </ul>
+    <% elsif @userbeers && !@userbeers.empty? %>
+      <ul>
+        <% @userbeers.each do |beer| %>
+          <li><%= link_to beer.brewery.name, brewery_path(beer.brewery) %>: <%= link_to beer.name, user_beer_path(current_user, beer) %> (<%= beer.abv %>)</li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p><em>No results</em></p>
+    <% end %>
+  </div>
+
 </div>

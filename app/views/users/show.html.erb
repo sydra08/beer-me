@@ -1,13 +1,15 @@
-<!-- this page is not being used -->
-<h1><%= @user.first_name %>'s Beers</h1>
+<div class="inner">
+  <!-- this page is not being used -->
+  <h1><%= @user.first_name %>'s Beers</h1>
 
-<% if !@user.beers.empty? %>
-  <ul>
-    <% @user.beers.each do |beer| %>
-      <li><%= link_to beer.name, beer_path(beer) %></li>
-    <% end %>
-  </ul>
-<% else %>
-  <h4>You don't have any beers!</h4>
-  <p>This is button to click on to add a beer to your collection</p>
-<% end %>
+  <% if !@user.beers.empty? %>
+    <ul>
+      <% @user.beers.each do |beer| %>
+        <li><%= link_to beer.name, beer_path(beer) %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <h4>You don't have any beers!</h4>
+    <p>This is button to click on to add a beer to your collection</p>
+  <% end %>
+</div>

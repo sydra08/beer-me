@@ -1,6 +1,8 @@
-<h1>Beer Categories</h1>
-<ul>
-  <% @categories.each do |category| %>
-    <li><%= link_to category.name, category_path(category) %> <%= "(#{category.beers.count})" if category.beers %></li>
-  <% end %>
-</ul>
+<div class="inner">
+  <h1>Beer Categories</h1>
+  <ul>
+    <% @categories.each do |category| %>
+      <li><%= link_to category.name, category_path(category) %> <%= "(#{category.beers.count})" if category.beers %></li>
+    <% end %>
+  </ul>
+</div>
