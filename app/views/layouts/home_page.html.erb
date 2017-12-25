@@ -11,7 +11,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 	</head>
-	<body class="subpage">
+	<body>
 
 		<!-- Header -->
 		<header id="header">
@@ -23,15 +23,7 @@
 			</div>
 		</header>
 
-		<section id="three" class="wrapper">
-	    <div class="inner">
-	      <% flash.each do |name, msg| %>
-	        <%= content_tag :div, msg, class: name %>
-	      <% end %>
-
-				<%= yield %>
-	    </div>
-		</section>
+		<%= yield %>
 
 		<!-- Footer -->
 			<footer id="footer">
