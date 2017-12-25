@@ -7,7 +7,7 @@
   <h4>Filter By Brewery</h4>
   <div class="select-wrapper 6u$ 12u$(medium)">
     <%= form_tag("/categories/#{@category.id}", method: "get") do %>
-      <%= select_tag "brewery", options_from_collection_for_select(@breweries, "id", "name"), include_blank: true %> <br>
+      <%= select_tag "brewery", options_from_collection_for_select(@breweries, "id", "name"), prompt: "All" %> <br>
       <%= submit_tag "Apply Filter" %>
     <% end %>
   </div>
