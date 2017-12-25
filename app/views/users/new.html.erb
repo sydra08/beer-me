@@ -2,18 +2,28 @@
 	<h2>Register for a BeerMe Account</h2>
 </header>
 
-<%= form_for(@user) do |f| %>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %> <br>
+<div class="12u$">
+	<%= form_for(@user) do |f| %>
+	<!-- want to center the fields without centering text -->
+		<div class="6u 12u$(xsmall)">
+			<%= f.label :first_name %>
+			<%= f.text_field :first_name %>
+		</div>
+		<div class="6u 12u$(xsmall)">
+		  <%= f.label :last_name %>
+		  <%= f.text_field :last_name %>
+		</div>
+		<div class="6u 12u$(xsmall)">
+			<%= f.label :email %>
+		  <%= f.text_field :email %>
+		</div>
+		<div class="6u 12u$(xsmall)">
+			<%= f.label :password %>
+		  <%= f.text_field :password %>
+		</div>
 
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %> <br>
-
-  <%= f.label :email %>
-  <%= f.text_field :email %> <br>
-
-  <%= f.label :password %>
-  <%= f.text_field :password %> <br>
-
-  <%= f.submit "Register" %>
-<% end %>
+		<ul class="actions">
+			<br><li><%= f.submit "Register" %></li>
+		</ul>
+	<% end %>
+</div>
