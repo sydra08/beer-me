@@ -4,7 +4,7 @@ class Beer < ApplicationRecord
   has_many :user_beers
 
   validates :name, uniqueness: { case_sensitive: false }, presence: true
-
+  validates :abv, numericality: {less_than_or_equal_to: 100.00}
   # custom setters for brewery and category so that dupes are avoided
 
   def brewery_attributes=(brewery_attributes)
