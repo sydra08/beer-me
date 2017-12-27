@@ -14,34 +14,44 @@
     </div>
   <% end %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name, list: "beers_autocomplete" %>
-  <datalist id="beers_autocomplete">
-    <% Beer.all.each do |beer| %>
-      <option value="<%= beer.name %>">
-    <% end %>
-  </datalist> <br> </br>
-
-  <%= f.label :description %>
-  <%= f.text_area :description %> <br> </br>
-
-  <%= f.label :abv %>
-  <%= f.text_field :abv %> <br> </br>
-
   <!-- text field with auto complete, also drop down menu -->
   <!-- will need to convert this to a nested form -->
 
-  <%= f.fields_for :brewery do |b| %>
-    <%= b.label "Brewery Name" %>
-    <%= b.text_field :name, list: "breweries_autocomplete" %>
-    <datalist id="breweries_autocomplete">
-      <% Brewery.all.each do |brewery| %>
-        <option value="<%= brewery.name %>">
+  <fieldset class="box">
+    <legend>Brewery</legend>
+    <%= f.fields_for :brewery do |b| %>
+      <%= b.label "Name" %>
+      <%= b.text_field :name, list: "breweries_autocomplete" %>
+      <datalist id="breweries_autocomplete">
+        <% Brewery.all.each do |brewery| %>
+          <option value="<%= brewery.name %>">
+        <% end %>
+      </datalist> <br />
+      <!-- ideally want location to autopopulate if user chooses existing brewery -->
+      <%= b.label :location %>
+      <%= b.text_field :location %> <br />
+    <% end %>
+  </fieldset>
+
+  <!-- can you do a fields_for the beer? -->
+  <fieldset class="box">
+    <legend>Beer</legend>
+    <%= f.label :name %>
+    <%= f.text_field :name, list: "beers_autocomplete" %>
+    <datalist id="beers_autocomplete">
+      <% Beer.all.each do |beer| %>
+        <option value="<%= beer.name %>">
       <% end %>
-    </datalist> <br> </br>
-    <%= b.label :location %>
-    <%= b.text_field :location %> <br> </br>
-  <% end %>
+    </datalist> <br />
+
+    <!-- ideally want these fields to autopopulate if user chooses existing beer -->
+    <%= f.label :description %>
+    <%= f.text_area :description %> <br />
+
+    <%= f.label :abv %>
+    <%= f.text_field :abv %> <br />
+  </fieldset>
+
 
   <!-- text field with auto complete, also drop down menu -->
   <!-- will need to convert this to a nested form -->
