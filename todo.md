@@ -8,8 +8,7 @@
 [ ] figure out how to get notes and status added to beers when user adds new one to collection
   + can i create a stand in userbeer instance that can be used to generate the fields_for area of the add_beer form?
   + then when you add a new beer to your collection it adds the notes and status to the created userbeer instance
-  + can there be a join table controller? or is that bad practice?
-  + https://softwareengineering.stackexchange.com/questions/245392/do-rails-join-models-get-controllers
+  + can there be a join table controller? or is that bad practice? https://softwareengineering.stackexchange.com/questions/245392/do-rails-join-models-get-controllers
 [ ] user can update notes and status of beer in collection
 [ ] user can filter by status of beer
 
@@ -111,11 +110,36 @@
 [ ] add filter on userbeer#index so that a user can filter by status
 [ ] consider incorporating the ratings feature so that there's a better scope method example
 *[ ] make list of questions for one-on-one session*
+[ ] add generic/standard beer types to seed data
+
+UX/UI
+[ ] adding beer > when you type there shouldn't be an arrow in the box anymore, only when you're first seeing the fields_for
+[ ] add a styling for fields_with_errors
+[ ] make error message appearance consistent
+[ ] center fields on sign up and sign in pages
+[ ] if user doesn't have beer there shouldn't be filters - figure out a better way to handle this. if you filter and there are no results you don't see filters...
 [x] fix styling of home page
 [x] add pictures to home_page
 [ ] figure out the proper navbar set up for home vs not
-[ ] figure out how to get the drop down menu arrows to always show up
 [ ] fix styling for forms
+  [x] update sign up
+  [x] update sign in
+  - [ ] update add beer so that there are placeholders
+[ ] styling for the flash messages  
+
+BUGS
+[/] error messaging on sign up page
+  - added more obvious error messaging, may want to add a styling for fields_with_errors
+[x] adding beer > maybe put the brewery at the top so it's easier to understand?
+[ ] validation should be on unique brewery vs unique beer name (more realistic)
+  - can you conditionalize a validation? do i have to write a custom one here?
+    - if name exists + brewery matches => don't create record
+    - else if name exists + brewery doesn't match => create new record
+    - need to make sure to only show unique values in selection list, otherwise it would look bad with dupes
+[x] restrict abv to be under 100.00
+[ ] user's notes aren't showing up - just showing other notes
+[ ] still issues with adding a new beer, clicking on it and it taking you to previously created beer
+[ ] hanging on filters   
 
 *Helper Methods*
 + pluralize(number, phrase/word)
