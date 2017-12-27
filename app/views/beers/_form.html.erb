@@ -13,12 +13,11 @@
       </ul>
     </div>
   <% end %>
-
-  <!-- text field with auto complete, also drop down menu -->
-  <!-- will need to convert this to a nested form -->
-
+  <!-- not sure if i should keep the fieldsets bc it's weird to have a section for everything -->
   <fieldset class="box">
     <legend>Brewery</legend>
+    <!-- text field with auto complete, also drop down menu -->
+    <!-- will need to convert this to a nested form -->
     <%= f.fields_for :brewery do |b| %>
       <%= b.label "Name" %>
       <%= b.text_field :name, list: "breweries_autocomplete" %>
@@ -29,7 +28,7 @@
       </datalist> <br />
       <!-- ideally want location to autopopulate if user chooses existing brewery -->
       <%= b.label :location %>
-      <%= b.text_field :location %> <br />
+      <%= b.text_field :location %>
     <% end %>
   </fieldset>
 
@@ -45,37 +44,36 @@
     </datalist> <br />
 
     <!-- ideally want these fields to autopopulate if user chooses existing beer -->
+    <!-- text field with auto complete, also drop down menu -->
+    <!-- will need to convert this to a nested form -->
+    <%= f.fields_for :category do |c| %>
+      <%= c.label "Type" %>
+      <%= c.text_field :name, list: "categories_autocomplete" %>
+      <datalist id="categories_autocomplete">
+        <% Category.all.each do |category| %>
+          <option value="<%= category.name %>">
+        <% end %>
+      </datalist> <br />
+    <% end %>
+    <%= f.label :abv %>
+    <%= f.text_field :abv %> <br />
+
     <%= f.label :description %>
     <%= f.text_area :description %> <br />
 
-    <%= f.label :abv %>
-    <%= f.text_field :abv %> <br />
-  </fieldset>
-
-
-  <!-- text field with auto complete, also drop down menu -->
-  <!-- will need to convert this to a nested form -->
-  <%= f.fields_for :category do |c| %>
-    <%= c.label "Category Name" %>
-    <%= c.text_field :name, list: "categories_autocomplete" %>
-    <datalist id="categories_autocomplete">
-      <% Category.all.each do |category| %>
-        <option value="<%= category.name %>">
+    <div class="row uniform">
+      <%= f.fields_for :user_beer do |u| %>
+        <div class="4u 12u$(small)">
+          <%= u.radio_button :status, true %>
+          <%= u.label :status, "Tried", :value => true %>
+        </div>
+        <div class="4u 12u$(small)">
+          <%= u.radio_button :status, false, :checked => 'checked' %>
+          <%= u.label :status, "Want to try", :value => false %>
+        </div>
       <% end %>
-    </datalist> <br> </br>
-  <% end %>
-
-  <div class="row uniform">
-    <%= f.fields_for :user_beer do |u| %>
-      <div class="4u 12u$(small)">
-        <%= u.radio_button :status, true %>
-        <%= u.label :status, "Tried", :value => true %>
-      </div>
-      <div class="4u 12u$(small)">
-        <%= u.radio_button :status, false, :checked => 'checked' %>
-        <%= u.label :status, "Want to try", :value => false %>
-      </div>
-    <% end %>
-  </div>
-  <br><%= f.submit "Add Beer To My List" %>
+    </div>
+  </fieldset>
+  
+  <%= f.submit "Add Beer To My List" %>
 <% end %>
