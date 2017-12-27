@@ -28,7 +28,7 @@
   <% if !@userbeers.empty? %>
     <ul>
       <% @userbeers.each do |beer| %>
-        <li><%= link_to beer.brewery.name, brewery_path(beer.brewery) %>: <%= link_to beer.name, user_user_beer_path(current_user, beer) %> (<%= beer.abv %>)</li>
+        <li><%= link_to beer.brewery.name, brewery_path(beer.brewery) %>: <%= link_to beer.name, user_user_beer_path(current_user, beer) %> (abv: <%= beer.abv %>%)</li>
       <% end %>
     </ul>
   <% else %>

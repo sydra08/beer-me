@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   # nested resources
   resources :users, only: [:show] do
-    resources :user_beers
+    resources :user_beers, only: [:index, :show, :edit, :update]
   end
 
   resources :beers, only: [:index, :show, :new, :create]

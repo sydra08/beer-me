@@ -2,17 +2,14 @@
 	<h2>Log In</h2>
 </header>
 
-<div class="12u$">
+<div class="box 6u 12u$(xsmall)">
 	<%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
-	<div class="6u 12u$(xsmall)">
-		<label>Email</label>
-	  <input type="text" name="user[email]">
-	</div>
 
-	<div class="6u 12u$(xsmall)">
-	  <label>Password</label>
-	  <input type="password" name="user[password]">
-	</div>
+	<label>Email</label>
+  <input type="text" name="user[email]"> <br />
+
+  <label>Password</label>
+  <input type="password" name="user[password]">
 
 	<ul class="actions">
 		<br><li><input type="submit" value="Log In"></li>
