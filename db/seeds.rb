@@ -19,7 +19,7 @@ counter = 1
     description: Faker::Hipster.paragraph(3),
     brewery: Brewery.find_by(id: counter),
     category: Category.find_by(id: counter),
-    abv: Faker::Beer.alcohol
+    abv: Faker::Beer.alcohol.sub(/%/,"")
   )
   counter += 1
 end
