@@ -2160,6 +2160,10 @@ color: #c4e5d3 !important;
 opacity: 1.0;
 }
 
+#error_explanation {
+	border: solid 1.5px red;
+}
+
 /* Box */
 
 .box {

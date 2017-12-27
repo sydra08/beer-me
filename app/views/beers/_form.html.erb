@@ -1,7 +1,7 @@
 <%= form_for(beer) do |f| %>
 
   <% if beer.errors.any? %>
-    <div id="error_explanation">
+    <div class="box" id="error_explanation">
       <h2>
         <%= pluralize(beer.errors.count, "error") %> prohibited this beer from being saved:
       </h2>
@@ -74,6 +74,6 @@
       <% end %>
     </div>
   </fieldset>
-  
+
   <%= f.submit "Add Beer To My List" %>
 <% end %>
