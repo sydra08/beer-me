@@ -2,7 +2,7 @@ class UserBeersController < ApplicationController
   def index
     @categories = Category.all
     @breweries = Brewery.all
-
+    # filters return beer objects not userbeer ones
     if params[:user_id]
       # set category and brewery
       if !params[:category].blank? && !params[:brewery].blank?

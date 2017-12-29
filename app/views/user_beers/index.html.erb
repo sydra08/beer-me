@@ -27,8 +27,9 @@
   <!-- need to work it out so that this page can be used as user landing and beer index...partial? -->
   <% if !@userbeers.empty? %>
     <ul>
-      <% @userbeers.each do |beer| %>
-        <li><%= link_to beer.brewery.name, brewery_path(beer.brewery) %>: <%= link_to beer.name, user_user_beer_path(current_user, beer) %> (abv: <%= beer.abv %>%)</li>
+			<!-- need to fix so that it uses the user_beer id not the beer id -->
+      <% @userbeers.each do |userbeer| %>
+        <li><%= link_to userbeer.brewery.name, brewery_path(userbeer.brewery) %>: <%= link_to userbeer.name, user_user_beer_path(current_user, userbeer.id) %> (abv: <%= userbeer.abv %>%)</li>
       <% end %>
     </ul>
   <% else %>
