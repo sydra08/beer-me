@@ -34,18 +34,43 @@ class BeersController < ApplicationController
 
   def create
     @beer = Beer.find_or_create_by(name: params[:beer][:name])
-    # need to assign the creator_ids here as well
-    # when you create a beer you are always assigning it to the user
-    # need to work on adding beer notes and/or status
-    if @beer.update(beer_params)
-      # this successfully creates a user_beer, but what happens if a user tries to add a beer that they already have in their collection?
-      # note - when a user adds a beer the default status is want to try, should probably reflect that in the UI
-      @userbeer = current_user.user_beers.create(beer_id: @beer.id, status: params[:beer][:user_beer][:status])
-
-      redirect_to user_user_beer_path(current_user, @userbeer)
+    binding.pry
+    # check if an object is new or not - if it's a new object it can't already be on the user's list
+    if @beer.new_record?
+      # if it's new, add the details
+      if @beer.update(beer_params)
+          @userbeer = current_user.user_beers.create(beer_id: @beer.id, status: params[:beer][:user_beer][:status])
+          redirect_to user_user_beer_path(current_user, @userbeer)
+      end
+    elsif !@beer.new_record?
+      # does the user already have the beer on their list?
+      if current_user.user_beers.find_by(beer_id: @beer)
+        redirect_to new_user_beer_path, notice: "#{params[:beer][:name]} is already on your list"
+      else
+        @userbeer = current_user.user_beers.create(beer_id: @beer.id, status: params[:beer][:user_beer][:status])
+        redirect_to user_user_beer_path(current_user, @userbeer)
+        # if it's not new then just create the userbeer, but now it lets you create another record for a beer that you already have, need to add another conditional
+      end
     else
       render :new
     end
+    # need to assign the creator_ids here as well
+    # when you create a beer you are always assigning it to the user
+    # need to work on adding beer notes and/or status
+  end
+      # this successfully creates a user_beer, but what happens if a user tries to add a beer that they already have in their collection?
+      # note - when a user adds a beer the default status is want to try, should probably reflect that in the UI
+      # add in a conditional for what happens if they select a beer that's already in their collection
+        # if in collection => then show message "Beer is already on your list"
+        # if not in collection => create userbeer object
+
+
+  def edit
+  end
+
+  def update
+    raise params.inspect
+    render :new, notice: "Error: Invalid email address or password"
   end
 
   private
