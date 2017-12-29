@@ -10,7 +10,6 @@ class BeersController < ApplicationController
     # do we need to create a userbeer?
       # for regular index page
     if !params[:category].blank? && !params[:brewery].blank?
-      binding.pry
       @beers = Beer.by_category_and_brewery(params[:category], params[:brewery])
     elsif !params[:category].blank?
       @beers = Beer.by_category(params[:category])

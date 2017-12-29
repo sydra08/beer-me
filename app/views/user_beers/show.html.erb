@@ -16,8 +16,8 @@
 <% if @userbeer.notes %>
   <p><%= @userbeer.notes%></p>
 <% else %>
-	<%= form_for (@userbeer) do |f| %>
-		<%= f.text_area :notes, nil, size: "60x5"%> <br>
+	<%= form_for ([current_user, @userbeer]) do |f| %>
+		<%= f.text_area :notes, size: "60x5"%> <br>
 		<%= f.submit "Add Note" %>
 	<% end %>
   <!-- <%= form_tag user_user_beer_path(current_user.id, @userbeer.id) do %>

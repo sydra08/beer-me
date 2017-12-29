@@ -6,7 +6,6 @@
 <% if !beer.status %>
   <%= form_tag user_user_beer_path(user.id, beer.id) do %>
     <%= hidden_field_tag('_method', 'put') %>
-    <%= hidden_field_tag beer.id %>
     <%= hidden_field_tag "user_beer[status]", true %>
     <%= submit_tag "Tried" %>
   <% end %>

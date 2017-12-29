@@ -19,9 +19,12 @@ Rails.application.routes.draw do
     resources :user_beers, only: [:index, :show, :edit, :update]
   end
 
-  resources :beers, only: [:index, :show, :new, :create]
+  resources :users, only: [:show] do
+    resources :beers, only: [:new, :create, :edit, :update]
+  end
+
+  resources :beers, only: [:index, :show]
   resources :breweries, only: [:index, :show]
   resources :categories, only: [:index, :show]
-  resources :users, only: [:new, :create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
