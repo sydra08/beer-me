@@ -25,6 +25,7 @@ class BeersController < ApplicationController
   end
 
   def new
+    @user = current_user
     @beer = Beer.new
     @beer.build_brewery
     @beer.build_category

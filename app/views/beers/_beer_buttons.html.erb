@@ -1,8 +1,6 @@
 <!-- have a button for tried and for want to try -->
-<!-- will this be a nested route? -->
-<!-- need to create user_beer and then set the status -->
 
-<!-- this only takes care of when it is on the user beer page  -->
+<!-- this only takes care of when it is on the user beer page -->
 <% if !beer.status %>
   <%= form_tag user_user_beer_path(user.id, beer.id) do %>
     <%= hidden_field_tag('_method', 'put') %>
