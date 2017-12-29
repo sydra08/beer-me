@@ -15,7 +15,7 @@ class UserBeersController < ApplicationController
         @userbeers = UserBeer.by_user_and_brewery(params[:user_id], params[:brewery])
       else
         # find a beer that user already has in their collection
-        @userbeers = User.find_by(id: params[:user_id]).beers
+        @userbeers = UserBeer.by_user(params[:user_id])
       end
     end
   end
