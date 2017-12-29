@@ -95,22 +95,43 @@
 [ ] User cannot edit the details for a brewery that they didn't add to the database   
 [ ] User cannot edit the details for a category that they didn't add to the database   
 -[ ] clear filter button (may not be entirely necessary)-
-[ ] navbar
+[x] navbar
+[x] fix beers/new to be nested under users
 [x] refactor beers#index (filtering)
   [x] need to change page because it will also be used as the landing page for users when they log in
 [x] need to figure out how to add status and notes when you add a beer
-*[ ] what happens if a user tries to add a beer that they already have in their collection?*
-  + there should probably be a safe guard against that. like if a user tries to add a beer to their list that they already have, should be a validation error. so maybe need something that says you need to have unique beer_ids within a users user_beers
 [ ] figure out how the beers#show and user_beers#show can be combined?
 [x] allow user to add notes for user_beer
-[ ] allow edit notes for user_beer
 [x] why are the nested routes coming up as .id?
-[ ] when a user adds a beer the default status is want to try, should probably reflect that in the UI
+[x] when a user adds a beer the default status is want to try, should probably reflect that in the UI
 [x] allow users to change a beer's status to Tried from userbeers#show
+[ ] consider incorporating the ratings feature so that there's a better scope method example (phase 2)
+[x] make list of questions for one-on-one session
 [ ] add filter on userbeer#index so that a user can filter by status
-[ ] consider incorporating the ratings feature so that there's a better scope method example
-*[ ] make list of questions for one-on-one session*
 [ ] add generic/standard beer types to seed data
+[ ] add in more conditionals for when a user visits a beers#show page so that it's not different from when they view a beer via the userbeers#index page
+[ ] change abv to be a float in the DB
+[ ] allow edit notes for user_beer
+*[ ] what happens if a user tries to add a beer that they already have in their collection?*
+  + there should probably be a safe guard against that. like if a user tries to add a beer to their list that they already have, should be a validation error. so maybe need something that says you need to have unique beer_ids within a users user_beers
+  + bc it's a form_for it knows to update the record so need to update that portion of the beer controller
+*[ ] validation should be on unique brewery vs unique beer name (more realistic)*
+  - can you conditionalize a validation? do i have to write a custom one here?
+    - if name exists + brewery matches => don't create record
+    - else if name exists + brewery doesn't match => create new record
+    - need to make sure to only show unique values in selection list, otherwise it would look bad with dupes
+
+BUGS
+[/] error messaging on sign up page
+  - added more obvious error messaging, may want to add a styling for fields_with_errors
+[x] adding beer > maybe put the brewery at the top so it's easier to understand?
+[x] restrict abv to be under 100.00
+[x] user's notes aren't showing up - just showing other notes
+[x] still issues with adding a new beer, clicking on it and it taking you to previously created beer for the brewery?
+  ie. clicked on "Sunshine Wheat" and it took me to "Stone IPA" which is the other New Belgium beer
+[x] hanging on filters   
+[x] issues with using the "Tried" button for a beer
+[x] fix filters on userbeer#index
 
 UX/UI
 [ ] adding beer > when you type there shouldn't be an arrow in the box anymore, only when you're first seeing the fields_for
@@ -126,20 +147,9 @@ UX/UI
   [x] update sign in
   - [ ] update add beer so that there are placeholders
 [ ] styling for the flash messages  
-
-BUGS
-[/] error messaging on sign up page
-  - added more obvious error messaging, may want to add a styling for fields_with_errors
-[x] adding beer > maybe put the brewery at the top so it's easier to understand?
-[ ] validation should be on unique brewery vs unique beer name (more realistic)
-  - can you conditionalize a validation? do i have to write a custom one here?
-    - if name exists + brewery matches => don't create record
-    - else if name exists + brewery doesn't match => create new record
-    - need to make sure to only show unique values in selection list, otherwise it would look bad with dupes
-[x] restrict abv to be under 100.00
-[ ] user's notes aren't showing up - just showing other notes
-[ ] still issues with adding a new beer, clicking on it and it taking you to previously created beer
-[ ] hanging on filters   
+[ ] fix error messaging on Sign In page so that it's consistent with the rest of the site
+[ ] have filters be side by side
+[ ] have abv be in small caps {font-variant: small-caps;}
 
 *Helper Methods*
 + pluralize(number, phrase/word)

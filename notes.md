@@ -105,6 +105,7 @@ Beer
       + If current_user is the owner of that record, they have the option to edit the record
         + Abv, description, brewery
     + If current_user is an admin, they can delete the record (phase 2)
+    + If a user chooses a brewery that already exists, then the dropdown for beer name is pre-filtered to only show the beers from that brewery (phast 2)
   + Can view list of beers in database *GET /beers*
     + Filter list by Category
     + Filter list by Brewery
