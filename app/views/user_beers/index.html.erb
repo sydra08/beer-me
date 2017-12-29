@@ -29,7 +29,7 @@
     <ul>
 			<!-- need to fix so that it uses the user_beer id not the beer id -->
       <% @userbeers.each do |userbeer| %>
-        <li><%= link_to userbeer.brewery.name, brewery_path(userbeer.brewery) %>: <%= link_to userbeer.name, user_user_beer_path(current_user, userbeer.id) %> (abv: <%= userbeer.abv %>%)</li>
+        <li><%= link_to userbeer.beer.brewery.name, brewery_path(userbeer.beer.brewery) %>: <%= link_to userbeer.beer.name, user_user_beer_path(current_user, userbeer.id) %> (abv: <%= userbeer.beer.abv %>%)</li>
       <% end %>
     </ul>
   <% else %>
