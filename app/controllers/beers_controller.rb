@@ -34,7 +34,7 @@ class BeersController < ApplicationController
 
   def create
     @beer = Beer.find_or_create_by(name: params[:beer][:name])
-    binding.pry
+    # binding.pry
     # check if an object is new or not - if it's a new object it can't already be on the user's list
     if @beer.new_record?
       # if it's new, add the details
