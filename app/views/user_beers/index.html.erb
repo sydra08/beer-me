@@ -14,8 +14,14 @@
 
       <div class="select-wrapper 6u$ 12u$(medium)">
         <%= label_tag "Brewery" %>
-        <%= select_tag "brewery", options_from_collection_for_select(@breweries, "id", "name"), prompt: "All" %> <br>
+        <%= select_tag "brewery", options_from_collection_for_select(@breweries, "id", "name"), prompt: "All" %>
       </div>
+
+			<!-- <div class="select-wrapper 6u$ 12u$(medium)">
+				<%= label_tag "Status" %>
+				<%= select_tag "status", options_for_select([["Tried", true], ["Want to try", false]]), prompt: "All" %> <br>
+			</div> -->
+
       <%= submit_tag "Apply Filter" %>
     <% end %>
   <% end %>

@@ -13,6 +13,10 @@ class UserBeersController < ApplicationController
         # set just brewery
       elsif !params[:brewery].blank?
         @userbeers = UserBeer.by_user_and_brewery(params[:user_id], params[:brewery])
+      # elsif !params[:status].blank?
+      #   binding.pry
+      #   # this isn't working - i have it working in the console but not here
+      #   @userbeers = UserBeer.by_user_and_status(params[:user_id], params[:status])
       else
         # find a beer that user already has in their collection
         @userbeers = UserBeer.by_user(params[:user_id])
