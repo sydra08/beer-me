@@ -16,16 +16,13 @@ class SessionsController < ApplicationController
     # auth['uid'] => "114605032996416049559"
     if !auth.nil?
       # did the user use OAuth?
-      binding.pry
       @user = User.find_by(email: auth.info.email)
       if @user && !@user.provider
-        binding.pry
         # if the user exists and doesnt have a provider then don't allow OAuth
         redirect_to signin_path, notice: "Error: Email address has already been taken."
         # does the user's email address already exist?
       # if they exist w OAuth or don't exist at all
       else
-        binding.pry
         @user = User.find_or_create_from_auth_hash(auth)
         session[:user_id] = @user.id
         redirect_to user_user_beers_path(@user)

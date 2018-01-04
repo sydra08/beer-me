@@ -33,14 +33,18 @@ class BeersController < ApplicationController
   end
 
   def create
+    binding.pry
     @beer = Beer.find_or_create_by(name: params[:beer][:name])
     # binding.pry
     # check if an object is new or not - if it's a new object it can't already be on the user's list
     if @beer.new_record?
       # if it's new, add the details
       if @beer.update(beer_params)
+        # need to figure out how to deal with the errors that could show up
           @userbeer = current_user.user_beers.create(beer_id: @beer.id, status: params[:beer][:user_beer][:status])
           redirect_to user_user_beer_path(current_user, @userbeer)
+      else
+        render :new
       end
     elsif !@beer.new_record?
       # does the user already have the beer on their list?
@@ -51,8 +55,8 @@ class BeersController < ApplicationController
         redirect_to user_user_beer_path(current_user, @userbeer)
         # if it's not new then just create the userbeer, but now it lets you create another record for a beer that you already have, need to add another conditional
       end
-    else
-      render :new
+    # else
+    #   render :new
     end
     # need to assign the creator_ids here as well
     # when you create a beer you are always assigning it to the user
