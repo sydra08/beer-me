@@ -8,4 +8,8 @@ class Brewery < ApplicationRecord
   def by_category(category_id)
     beers.where(category: category_id)
   end
+
+  def self.alpha_sorted
+    order(name: :asc)
+  end
 end

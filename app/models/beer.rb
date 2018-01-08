@@ -31,6 +31,10 @@ class Beer < ApplicationRecord
     self.category = Category.find_or_create_by(name: category_attributes[:name])
   end
 
+  def self.alpha_sorted
+    order(name: :asc)
+  end
+
   # def self.by_category_and_brewery(category_id, brewery_id)
   #   where("category_id = ? AND brewery_id = ?", category_id, brewery_id)
   # end

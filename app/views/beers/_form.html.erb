@@ -22,7 +22,7 @@
       <%= b.label "Name*" %>
       <%= b.text_field :name, list: "breweries_autocomplete", required: true %>
       <datalist id="breweries_autocomplete">
-        <% Brewery.all.each do |brewery| %>
+        <% Brewery.alpha_sorted.each do |brewery| %>
           <option value="<%= brewery.name %>">
         <% end %>
       </datalist> <br />
@@ -38,7 +38,7 @@
     <%= f.label "Name*" %>
     <%= f.text_field :name, list: "beers_autocomplete", required: true %>
     <datalist id="beers_autocomplete">
-      <% Beer.all.each do |beer| %>
+      <% Beer.alpha_sorted.each do |beer| %>
         <option value="<%= beer.name %>">
       <% end %>
     </datalist> <br />
@@ -50,7 +50,7 @@
       <%= c.label "Type*" %>
       <%= c.text_field :name, list: "categories_autocomplete", required: true %>
       <datalist id="categories_autocomplete">
-        <% Category.all.each do |category| %>
+        <% Category.alpha_sorted.each do |category| %>
           <option value="<%= category.name %>">
         <% end %>
       </datalist> <br />

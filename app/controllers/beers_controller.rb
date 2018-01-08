@@ -4,8 +4,8 @@ class BeersController < ApplicationController
   def index
     flash[:alert] = "NEED TO REFACTOR PAGE"
     # set for filters
-    @categories = Category.all
-    @breweries = Brewery.all
+    @categories = Category.alpha_sorted
+    @breweries = Brewery.alpha_sorted
     # this is for the nested route
     # do we need to create a userbeer?
       # for regular index page

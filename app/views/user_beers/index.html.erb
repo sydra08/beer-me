@@ -34,7 +34,7 @@
   <% if !@userbeers.empty? %>
     <ul>
 			<!-- why does this throw an error when you first go to the page vs filters? -->
-      <% @userbeers.each do |userbeer| %>
+      <% @userbeers.alpha_sorted.each do |userbeer| %>
         <li><%= link_to userbeer.beer.brewery.name, brewery_path(userbeer.beer.brewery) %>: <%= link_to userbeer.beer.name, user_user_beer_path(current_user, userbeer.id) %> (abv: <%= userbeer.beer.abv %>%) <%= link_to content_tag(:i, nil, class: "fa fa-trash-o fa-6"), [current_user, userbeer], method: :delete, data: {confirm: "Are you sure you want to delete this beer?"}%></li>
       <% end %>
     </ul>
