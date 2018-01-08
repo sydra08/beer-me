@@ -43,7 +43,7 @@ class Beer < ApplicationRecord
   #   where(brewery: brewery_id)
   # end
   #
-  # 
+  #
   # def self.by_user_and_brewery_and_category(user_id, brewery_id, category_id)
   #   Beer.joins(:user_beers).group("user_beers.user_id").having("beers.brewery_id = ? AND beers.category_id = ? AND user_beers.user_id = ?", brewery_id, category_id, user_id)
   # end

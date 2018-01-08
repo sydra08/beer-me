@@ -16,9 +16,6 @@ class User < ApplicationRecord
   # auth['uid'] => "114605032996416049559"
 
   def self.find_or_create_from_auth_hash(auth_hash)
-    binding.pry
-    # so now you can login via gmail but then your password that you created when you originally signed up is gone
-    # if the email has already been taken show error message, otherwise proceed
     where(email: auth_hash.info.email).first_or_initialize.tap do |user|
 			user.provider = auth_hash.provider
 			user.uid = auth_hash.uid
@@ -27,9 +24,7 @@ class User < ApplicationRecord
 			user.email = auth_hash.info.email
       # create a random password for the user in order to satisfy bcrypt
       user.password = SecureRandom.hex
-      # need to have an error message for when this doesn't work
 			user.save
-      # issue is that when you use omniauth, the user doesn't have a password and bcrypt doesn't like that...
     end
   end
 end

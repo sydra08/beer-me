@@ -35,7 +35,7 @@
     <ul>
 			<!-- why does this throw an error when you first go to the page vs filters? -->
       <% @userbeers.each do |userbeer| %>
-        <li><%= link_to userbeer.beer.brewery.name, brewery_path(userbeer.beer.brewery) %>: <%= link_to userbeer.beer.name, user_user_beer_path(current_user, userbeer.id) %> (abv: <%= userbeer.beer.abv %>%)</li>
+        <li><%= link_to userbeer.beer.brewery.name, brewery_path(userbeer.beer.brewery) %>: <%= link_to userbeer.beer.name, user_user_beer_path(current_user, userbeer.id) %> (abv: <%= userbeer.beer.abv %>%) <%= render partial: 'user_beers/delete_form', locals: {user: current_user, beer: userbeer} %></li>
       <% end %>
     </ul>
   <% else %>

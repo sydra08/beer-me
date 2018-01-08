@@ -24,11 +24,12 @@ class UserBeer < ApplicationRecord
     UserBeer.where(user_id: user_id).joins(:beer).where("beers.brewery_id = ?", brewery_id)
   end
 
+  def self.by_user(user_id)
+    UserBeer.where(user_id: user_id)
+  end
+
   # def self.by_user_and_status(user_id, status)
   #   UserBeer.where(user_id: user_id, status: status)
   # end
 
-  def self.by_user(user_id)
-    UserBeer.where(user_id: user_id)
-  end
 end

@@ -54,6 +54,17 @@ class UserBeersController < ApplicationController
     end
   end
 
+  def destroy
+    binding.pry
+    @userbeer = UserBeer.find_by(id: params[:id])
+    if @userbeer.user_id == current_user.id
+      @userbeer.destroy
+      redirect_to user_user_beers_path(current_user), notice: "#{@userbeer.beer.name} successfully deleted"
+    else
+      redirect_to user_user_beer_path(current_user), notice: "You cannot edit someone else's beer list."
+    end
+  end
+
   private
 
   def user_beer_params
