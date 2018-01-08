@@ -2018,7 +2018,7 @@ textarea:focus {
 
 .select-wrapper {
 text-decoration: none;
-display: block;
+display: inline-grid;
 position: relative;
 }
 
