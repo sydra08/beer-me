@@ -25,6 +25,7 @@
     <%= text_area_tag "user_beer[notes]", nil, size: "60x5"%> <br>
     <%= submit_tag "Add Note" %>
   <% end %> -->
+	<%= render partial: 'user_beers/delete_form', locals: {user: current_user, beer: @userbeer} %>
 <% end %>
 
 <!-- show edit link for notes -->
