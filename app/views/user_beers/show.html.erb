@@ -25,7 +25,9 @@
     <%= text_area_tag "user_beer[notes]", nil, size: "60x5"%> <br>
     <%= submit_tag "Add Note" %>
   <% end %> -->
-	<%= render partial: 'user_beers/delete_form', locals: {user: current_user, beer: @userbeer} %>
+	<i class="fa fa-trash-o fa-6" aria-hidden="true">
+	<%= link_to "Remove Beer From List", [current_user, @userbeer], method: :delete, data: {confirm: "Are you sure you want to delete this beer?"}%></i>
+
 <% end %>
 
 <!-- show edit link for notes -->
