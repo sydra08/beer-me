@@ -28,11 +28,11 @@
 		</div>
 		<div class="6u 12u$(xsmall)">
 			<%= f.label :email %>
-		  <%= f.text_field :email %>
+		  <%= f.email_field :email %>
 		</div>
 		<div class="6u 12u$(xsmall)">
-			<%= f.label :password %>
-		  <%= f.text_field :password %>
+			<%= f.label "Password (at least 8 characters)"%>
+		  <%= f.password_field :password %>
 		</div>
 
 		<ul class="actions">
