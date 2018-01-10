@@ -17,7 +17,7 @@
 [Research]
 [ ] Read docs on ActionView helper methods
 [x] Review nested forms
-[ ] Review nested resources
+[x] Review nested resources
 [x] Review AR query methods
 [x] Review filters
 [x] Review rspec (http://rspec.info/)
@@ -28,7 +28,7 @@
 [ ] research Database Cleaner
 [x] research using auto complete instead of drop down menu for brewery and category select
 [x] review associations and rails section (probably worth watching video)
-[ ] Look into CSS templates to use for front end
+[x] Look into CSS templates to use for front end
 [ ] rewatch the ToDo Omniauth video before assessment
 
 [Project]
@@ -107,19 +107,24 @@
 [x] allow users to change a beer's status to Tried from userbeers#show
 [ ] consider incorporating the ratings feature so that there's a better scope method example (phase 2)
 [x] make list of questions for one-on-one session
-[ ] add filter on userbeer#index so that a user can filter by status
 [ ] add generic/standard beer types to seed data
 [ ] add in more conditionals for when a user visits a beers#show page so that it's not different from when they view a beer via the userbeers#index page
+[ ] add filter on userbeer#index so that a user can filter by status
+[ ] should i change the status to not be boolean?
 [ ] change abv to be a float in the DB
 [ ] allow edit notes for user_beer
-*[ ] what happens if a user tries to add a beer that they already have in their collection?*
+*[x] what happens if a user tries to add a beer that they already have in their collection?*
   + there should probably be a safe guard against that. like if a user tries to add a beer to their list that they already have, should be a validation error. so maybe need something that says you need to have unique beer_ids within a users user_beers
   + bc it's a form_for it knows to update the record so need to update that portion of the beer controller
+[x] make it so that if a user selects a brewery or beer that already exists it doesn't update the object (may need to add in the owner_id thing)
 *[ ] validation should be on unique brewery vs unique beer name (more realistic)*
   - can you conditionalize a validation? do i have to write a custom one here?
     - if name exists + brewery matches => don't create record
     - else if name exists + brewery doesn't match => create new record
     - need to make sure to only show unique values in selection list, otherwise it would look bad with dupes
+[ ] edit notes
+[x] delete beers
+[ ] change beer status
 
 BUGS
 [/] error messaging on sign up page
@@ -134,6 +139,8 @@ BUGS
 [x] fix filters on userbeer#index
 
 UX/UI
+[x] make index pages look consistent
+[ ] if you don't have any beers you should have a better CTA on home page
 [ ] adding beer > when you type there shouldn't be an arrow in the box anymore, only when you're first seeing the fields_for
 [ ] add a styling for fields_with_errors
 [ ] make error message appearance consistent
@@ -145,10 +152,10 @@ UX/UI
 [ ] fix styling for forms
   [x] update sign up
   [x] update sign in
-  - [ ] update add beer so that there are placeholders
+  <!-- - [x] update add beer so that there are placeholders -->
 [ ] styling for the flash messages  
 [ ] fix error messaging on Sign In page so that it's consistent with the rest of the site
-[ ] have filters be side by side
+[x] have filters be side by side
 [ ] have abv be in small caps {font-variant: small-caps;}
 
 *Helper Methods*
