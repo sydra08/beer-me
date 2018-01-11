@@ -2176,6 +2176,12 @@ opacity: 1.0;
 	border: solid 2px red;
 }
 
+.section-title {
+	font-weight: 600;
+	font-size: 1.5em;
+	color: #555;
+}
+
 /* Box */
 
 .box {

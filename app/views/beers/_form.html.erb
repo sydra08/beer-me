@@ -15,7 +15,7 @@
   <% end %>
   <!-- not sure if i should keep the fieldsets bc it's weird to have a section for everything -->
   <fieldset class="box">
-    <legend>Brewery</legend>
+    <legend class="section-title">Brewery</legend>
     <!-- text field with auto complete, also drop down menu -->
     <!-- will need to convert this to a nested form -->
     <%= f.fields_for :brewery do |b| %>
@@ -34,7 +34,7 @@
 
   <!-- can you do a fields_for the beer? -->
   <fieldset class="box">
-    <legend>Beer</legend>
+    <legend class="section-title">Beer</legend>
     <%= f.label "Name*" %>
     <%= f.text_field :name, list: "beers_autocomplete", required: true %>
     <datalist id="beers_autocomplete">
