@@ -1,4 +1,4 @@
-describe 'Feature Test: User', :type => :feature do
+xdescribe 'Feature Test: User', :type => :feature do
   describe 'Registration' do
     before do
       # visit sign up page
@@ -8,7 +8,7 @@ describe 'Feature Test: User', :type => :feature do
       # fill in last name
       fill_in "Last name", with: "C"
       # fill in email address
-      fill_in "Email", with: "test@example.com"
+      fill_in "Email Address", with: "test@example.com"
       # fill in password
       fill_in "Password", with: "password"
       # click "Register"

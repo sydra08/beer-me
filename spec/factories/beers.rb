@@ -4,6 +4,6 @@ FactoryGirl.define do
     description {Faker::Hipster.paragraph(3)}
     brewery_id 1
     category_id 1
-    abv {Faker::Beer.alcohol}
+    abv {Faker::Beer.alcohol.sub(/%/,"")}
   end
 end

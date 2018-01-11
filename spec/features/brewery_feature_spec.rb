@@ -1,4 +1,4 @@
-describe 'Feature Test: Brewery', :type => :feature do
+xdescribe 'Feature Test: Brewery', :type => :feature do
 
   describe 'Index Page' do
     before(:each) do

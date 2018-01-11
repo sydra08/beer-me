@@ -1,4 +1,4 @@
-describe 'Feature Test: Category', :type => :feature do
+xdescribe 'Feature Test: Category', :type => :feature do
   before(:each) do
     3.times do
       create(:category)
