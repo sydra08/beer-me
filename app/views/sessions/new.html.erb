@@ -2,20 +2,18 @@
 	<h2>Log In</h2>
 </header>
 
-<div class="box 6u 12u$(xsmall)">
+<div class="box center">
 	<%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
 
 	<label>Email</label>
-  <input type="text" name="user[email]"> <br />
+  <input type="text" name="user[email]"> <br>
 
   <label>Password</label>
-  <input type="password" name="user[password]">
+  <input type="password" name="user[password]"> <br>
 
-	<ul class="actions">
-		<br><li><input type="submit" value="Log In"></li>
-	</ul>
-	<% end %>
-
-	<p>or <%= link_to("Sign In via Google+", "/auth/google_oauth2") %>
-	</p>
+	<div class="align-center">
+		<input type="submit" value="Log In">
+		<% end %>
+		<p>or <%= link_to("Sign In via Google+", "/auth/google_oauth2") %></p>
+	</div>
 </div>
