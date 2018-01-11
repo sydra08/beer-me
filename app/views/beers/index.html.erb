@@ -8,8 +8,7 @@
 	</div>
 
 	<div class="6u$ 12u$(medium)">
-	  <!-- need to work it out so that this page can be used as user landing and beer index...partial? -->
-	  <% if @beers && !@beers.empty? %>
+		<% if !@beers.empty? %>
 			<div class="table-wrapper">
 				<table>
 					<thead>
@@ -29,8 +28,8 @@
 					<% end %>
 				</table>
 			</div>
-	  <% else %>
-	    <p><em>No results</em></p>
-	  <% end %>
+		<% else %>
+			<p><em>No results</em></p>
+		<% end %>
 	</div>
 </div>
