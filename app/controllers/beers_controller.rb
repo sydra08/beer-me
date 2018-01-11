@@ -2,7 +2,6 @@ class BeersController < ApplicationController
   before_action :require_login, only: [:new, :create]
 
   def index
-    flash[:alert] = "NEED TO REFACTOR PAGE"
     # set for filters
     @categories = Category.alpha_sorted
     @breweries = Brewery.alpha_sorted

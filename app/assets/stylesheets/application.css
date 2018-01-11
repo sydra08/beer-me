@@ -2164,6 +2164,12 @@ opacity: 1.0;
 	border: solid 1.5px red;
 }
 
+.field_with_errors {
+	/*background: #6cc091;*/
+	border-radius: 10px;
+	border: solid 2px red;
+}
+
 /* Box */
 
 .box {
