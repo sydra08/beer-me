@@ -1,14 +1,20 @@
 <header class="align-center">
-	<h2>Beers</h2>
+  <% if current_user? %>
+    <h2><%= current_user.first_name %>'s Beers</h2>
+  <% else %>
+    <h2>Beers</h2>
+  <% end %>
 </header>
 
 <div class="row 200%">
 	<div class="6u 12u$(medium)">
+    <!-- put the if @beers clause here? -->
 		<%= render partial: 'beers/beer_filters', locals: {path: beers_path, categories: @categories, breweries: @breweries} %>
 	</div>
 
 	<div class="6u$ 12u$(medium)">
 	  <!-- need to work it out so that this page can be used as user landing and beer index...partial? -->
+    <!-- change this to be !@beers.empty? -->
 	  <% if @beers && !@beers.empty? %>
 			<div class="table-wrapper">
 				<table>
@@ -20,8 +26,10 @@
 						</tr>
 					</thead>
 					<tbody>
+          <!-- fix this so that it's the local var -->
 					<% @beers.alpha_sorted.each do |beer| %>
 						<tr>
+              <!-- figure out how to make sure the paths are correct -->
 							<td><%= link_to beer.brewery.name, brewery_path(beer.brewery) %></td>
 							<td><%= link_to beer.name, beer_path(beer) %></td>
 							<td><%= beer.abv %>%</td>
