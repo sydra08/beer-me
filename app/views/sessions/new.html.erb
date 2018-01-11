@@ -3,6 +3,9 @@
 </header>
 
 <div class="box center">
+
+	<%= render partial: 'layouts/flash' %>
+
 	<%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
 
 	<label>Email</label>

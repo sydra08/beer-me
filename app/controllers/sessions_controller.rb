@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
         # if the user exists and doesnt have a provider then don't allow OAuth
         redirect_to signin_path, notice: "Error: Email address has already been taken."
         # does the user's email address already exist?
-      # if they exist w OAuth or don't exist at all
+        # if they exist w OAuth or don't exist at all
       else
         @user = User.find_or_create_from_auth_hash(auth)
         session[:user_id] = @user.id
