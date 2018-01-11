@@ -2,8 +2,21 @@
 	<h2>Breweries</h2>
 </header>
 
-<ul>
-  <% @breweries.each do |brewery| %>
-    <li><%= link_to brewery.name, brewery_path(brewery) %></li>
-  <% end %>
-</ul>
+<div class="center">
+	<table>
+		<thead>
+			<tr>
+				<th>Brewery</th>
+				<th>Location</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @breweries.alpha_sorted.each do |brewery| %>
+				<tr>
+					<td><%= link_to brewery.name, brewery_path(brewery) %></td>
+					<td><%= brewery.location %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

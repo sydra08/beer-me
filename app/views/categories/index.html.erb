@@ -2,8 +2,15 @@
 	<h2>Categories</h2>
 </header>
 
-<ul>
-  <% @categories.each do |category| %>
-    <li><%= link_to category.name, category_path(category) %> <%= "(#{category.beers.count})" if category.beers %></li>
-  <% end %>
-</ul>
+<div class="center">
+	<table>
+		<tbody>
+			<% @categories.alpha_sorted.each do |category| %>
+				<tr>
+					<td><%= link_to category.name, category_path(category) %> <%="(#{category.beers.count})" if category.beers %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+
+</div>
