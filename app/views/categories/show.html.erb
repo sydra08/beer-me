@@ -11,13 +11,16 @@
 <h3>Beers</h3>
 
 <div class="row 200%">
-	<div class="6u 12u$(medium)">
-		<%= form_tag("/categories/#{@category.id}", method: "get") do %>
-			<%= select_tag "brewery", options_from_collection_for_select(@breweries, "id", "name"), prompt: "All Breweries" %> <br>
-			<%= submit_tag "Apply Filter" %>
-		<% end %>
+	<div class="row uniform 6u 12u$(medium)">
+		<div class="select-wrapper 12u$">
+			<%= form_tag("/categories/#{@category.id}", method: "get") do %>
+	      <%= select_tag "brewery", options_from_collection_for_select(@breweries, "id", "name"), prompt: "All Breweries" %>
+	    </div>
+			<div>
+				<%= submit_tag "Apply Filter" %>
+			</div>
+	  <% end %>
 	</div>
-
 
 	<div class="6u$ 12u$(medium)">
 		<% if !@beers.empty? %>
