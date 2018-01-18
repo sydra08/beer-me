@@ -5,9 +5,10 @@ BeerMe is an app that allows you to track beers that you want to try and beers t
 ## Install & Usage Instructions
 
 To install, clone or fork this repository, then run `bundle install` from the terminal prompt.
-To create a new verison of the database, populate it with seed data, and get started, run the following commands from the terminal prompt:
+To create a new version of the database, populate it with seed data, and get started, run the following commands from the terminal prompt:
 
 ```ruby
+rake db:drop
 rake db:migrate
 rake db:seed
 rails s
@@ -25,4 +26,4 @@ This project is available as open source under the terms of the [MIT License](op
 
 ## Credits
 
-Shout out to [Templated.co](https://templated.co/) for the CSS template used in this app. 
+Shout out to [Templated.co](https://templated.co/) for the CSS template used in this app.
