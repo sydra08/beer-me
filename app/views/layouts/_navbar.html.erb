@@ -1,6 +1,6 @@
 <%= link_to "All Beers", beers_path %>
 <%= link_to "All Breweries", breweries_path %>
-<%= link_to "All Categories", categories_path %>
+<%= link_to "All Types", categories_path %>
 <% if current_user %>
   | <%= link_to "My Beers", user_user_beers_path(current_user) %>
   <%= link_to "Add New Beer", new_user_beer_path(current_user) %>

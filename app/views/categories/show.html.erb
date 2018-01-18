@@ -13,7 +13,7 @@
 <div class="row 200%">
 	<div class="6u 12u$(medium)">
 		<%= form_tag("/categories/#{@category.id}", method: "get") do %>
-			<%= select_tag "brewery", options_from_collection_for_select(@breweries, "id", "name"), prompt: "All" %> <br>
+			<%= select_tag "brewery", options_from_collection_for_select(@breweries, "id", "name"), prompt: "All Breweries" %> <br>
 			<%= submit_tag "Apply Filter" %>
 		<% end %>
 	</div>
