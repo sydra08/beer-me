@@ -7,13 +7,6 @@ class SessionsController < ApplicationController
   def create
     # if the user doesn't exist then you need to render new
     # find the user by the email address
-    # request.env['omniauth.auth']
-    # auth['info']['email'] => "sydneycstest@gmail.com"
-    # auth['info']['first_name'] => "Sydney"
-    # auth['info']['image'] => "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"
-    # auth['info']['last_name'] => "Chun"
-    # auth['provider'] => "google_oauth2"
-    # auth['uid'] => "114605032996416049559"
     if !auth.nil?
       # did the user use OAuth?
       @user = User.find_by(email: auth.info.email)

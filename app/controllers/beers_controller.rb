@@ -5,9 +5,7 @@ class BeersController < ApplicationController
     # set for filters
     @categories = Category.alpha_sorted
     @breweries = Brewery.alpha_sorted
-    # this is for the nested route
-    # do we need to create a userbeer?
-      # for regular index page
+
     if !params[:category].blank? && !params[:brewery].blank?
       @beers = Beer.by_category_and_brewery(params[:category], params[:brewery])
     elsif !params[:category].blank?
@@ -33,7 +31,6 @@ class BeersController < ApplicationController
 
   def create
     @beer = Beer.find_or_create_by(name: params[:beer][:name])
-    # binding.pry
     # check if an object is new or not - if it's a new object it can't already be on the user's list
     if @beer.new_record?
       # if it's new, add the details
@@ -49,6 +46,7 @@ class BeersController < ApplicationController
       if current_user.user_beers.find_by(beer_id: @beer)
         redirect_to new_user_beer_path, notice: "#{params[:beer][:name]} is already on your list"
       else
+        binding.pry
         @userbeer = current_user.user_beers.create(beer_id: @beer.id, status: params[:beer][:user_beer][:status])
         redirect_to user_user_beer_path(current_user, @userbeer)
         # if it's not new then just create the userbeer, but now it lets you create another record for a beer that you already have, need to add another conditional
