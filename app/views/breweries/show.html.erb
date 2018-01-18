@@ -41,8 +41,22 @@
 					<% end %>
 				</table>
 			</div>
-		<% else %>
-			<p><em>No results</em></p>
-		<% end %>
+			<% else %>
+				<div class="table-wrapper">
+					<table>
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Abv</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><em>No results</em></td>
+								<td></td>
+							</tr>
+					</table>
+				</div>
+			<% end %>
 	</div>
 </div>
