@@ -1,13 +1,18 @@
 <header class="align-center">
-	<h2>Categories</h2>
+	<h2>Types of Beer</h2>
 </header>
 
 <div class="center">
 	<table>
+		<thead>
+			<th>Name</th>
+			<th># Beers</th>
+		</thead>
 		<tbody>
 			<% @categories.alpha_sorted.each do |category| %>
 				<tr>
-					<td><%= link_to category.name, category_path(category) %> <%="(#{category.beers.count})" if category.beers %></td>
+					<td><%= link_to category.name, category_path(category) %></td>
+					<td><%="(#{category.beers.count})" if category.beers %></td>
 				</tr>
 			<% end %>
 		</tbody>
