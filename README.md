@@ -22,3 +22,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/sydra0
 ## License
 
 This project is available as open source under the terms of the [MIT License](opensource.org/licenses/MIT).
+
+## Credits
+
+Shout out to [Templated.co](https://templated.co/) for the CSS template used in this app. 
