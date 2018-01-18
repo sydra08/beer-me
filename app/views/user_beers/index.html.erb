@@ -4,7 +4,13 @@
 
 <div class="row 200%">
 	<div class="6u 12u$(medium)">
-		<%= render partial: 'beers/beer_filters', locals: {path: user_user_beers_path, categories: @categories, breweries: @breweries} %>
+		<%= form_tag(user_user_beers_path, method: "get") do %>
+			<%= render partial: 'beers/category_filter', locals: {categories: @categories} %>
+			<%= render partial: 'beers/brewery_filter', locals: { breweries: @breweries} %>
+			<div>
+				<%= submit_tag "Apply Filter" %>
+			</div>
+		<% end %>
 	</div>
 
 	<div class="6u$ 12u$(medium)">
