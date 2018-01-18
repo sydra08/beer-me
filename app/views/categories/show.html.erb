@@ -10,7 +10,7 @@
 
 <h3>Beers</h3>
 
-<div class="filter">
+<!-- <div class="filter">
   <h5>Filter By Brewery</h5>
   <div class="select-wrapper 6u$ 12u$(medium)">
     <%= form_tag("/categories/#{@category.id}", method: "get") do %>
@@ -18,9 +18,9 @@
       <%= submit_tag "Apply Filter" %>
     <% end %>
   </div>
-</div>
+</div> -->
 
-<div class="list">
+<!-- <div class="list">
   <% if @beers.empty? %>
     <p><em>No results</em></p>
   <% else %>
@@ -30,4 +30,40 @@
       <% end %>
     </ul>
   <% end %>
+</div> -->
+
+<div class="row 200%">
+	<div class="6u 12u$(medium)">
+		<%= form_tag("/categories/#{@category.id}", method: "get") do %>
+			<%= select_tag "brewery", options_from_collection_for_select(@breweries, "id", "name"), prompt: "All" %> <br>
+			<%= submit_tag "Apply Filter" %>
+		<% end %>
+	</div>
+
+
+	<div class="6u$ 12u$(medium)">
+		<% if !@beers.empty? %>
+			<div class="table-wrapper">
+				<table>
+					<thead>
+						<tr>
+							<th>Brewery</th>
+							<th>Name</th>
+							<th>Abv</th>
+						</tr>
+					</thead>
+					<tbody>
+					<% @beers.alpha_sorted.each do |beer| %>
+						<tr>
+							<td><%= link_to beer.brewery.name, brewery_path(beer.brewery) %></td>
+							<td><%= link_to beer.name, beer_path(beer) %></td>
+							<td><%= beer.abv %>%</td>
+						</tr>
+					<% end %>
+				</table>
+			</div>
+		<% else %>
+			<p><em>No results</em></p>
+		<% end %>
+	</div>
 </div>
