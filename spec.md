@@ -31,10 +31,11 @@ Specs:
   + users/:id/user_beers
 - [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients)
   + users/:id/beers/new
-- [ ] Include form display of validation errors (form URL e.g. /recipes/new)
+- [x] Include form display of validation errors (form URL e.g. /recipes/new)
+  + users/:id/beers/new
 
 Confirm:
-- [ ] The application is pretty DRY
-- [ ] Limited logic in controllers
-- [ ] Views use helper methods if appropriate
-- [ ] Views use partials if appropriate
+- [x] The application is pretty DRY
+- [x] Limited logic in controllers
+- [x] Views use helper methods if appropriate
+- [x] Views use partials if appropriate

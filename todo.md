@@ -112,7 +112,6 @@
 [ ] add filter on userbeer#index so that a user can filter by status
 [ ] should i change the status to not be boolean?
 [ ] change abv to be a float in the DB
-[ ] allow edit notes for user_beer
 *[x] what happens if a user tries to add a beer that they already have in their collection?*
   + there should probably be a safe guard against that. like if a user tries to add a beer to their list that they already have, should be a validation error. so maybe need something that says you need to have unique beer_ids within a users user_beers
   + bc it's a form_for it knows to update the record so need to update that portion of the beer controller
@@ -127,8 +126,8 @@
 [ ] change beer status
 
 BUGS
-[/] error messaging on sign up page
-  - added more obvious error messaging, may want to add a styling for fields_with_errors
+[x] error messaging on sign up page
+  - added more obvious error messaging, may want to *add a styling for fields_with_errors*
 [x] adding beer > maybe put the brewery at the top so it's easier to understand?
 [x] restrict abv to be under 100.00
 [x] user's notes aren't showing up - just showing other notes
@@ -141,22 +140,25 @@ BUGS
 UX/UI
 [x] make index pages look consistent
 [ ] if you don't have any beers you should have a better CTA on home page
-[ ] adding beer > when you type there shouldn't be an arrow in the box anymore, only when you're first seeing the fields_for
-[ ] add a styling for fields_with_errors
-[ ] make error message appearance consistent
-[ ] center fields on sign up and sign in pages
-[ ] if user doesn't have beer there shouldn't be filters - figure out a better way to handle this. if you filter and there are no results you don't see filters...
+-[ ] adding beer > when you type there shouldn't be an arrow in the box anymore, only when you're first seeing the fields_for-
+*[ ] add a styling for fields_with_errors*
+[x] make error message appearance consistent
+[x] center fields on sign up and sign in pages
+-[ ] if user doesn't have beer there shouldn't be filters - figure out a better way to handle this. if you filter and there are no results you don't see filters...-
 [x] fix styling of home page
 [x] add pictures to home_page
-[ ] figure out the proper navbar set up for home vs not
-[ ] fix styling for forms
+[x] figure out the proper navbar set up for home vs not
+[x] fix styling for forms
   [x] update sign up
   [x] update sign in
   <!-- - [x] update add beer so that there are placeholders -->
-[ ] styling for the flash messages  
-[ ] fix error messaging on Sign In page so that it's consistent with the rest of the site
+[x] styling for the flash messages  
+[x] fix error messaging on Sign In page so that it's consistent with the rest of the site
 [x] have filters be side by side
 [ ] have abv be in small caps {font-variant: small-caps;}
+
+REFACTORING
+[ ] use yield in partials in order to DRY up code http://guides.rubyonrails.org/layouts_and_rendering.html#using-partials
 
 *Helper Methods*
 + pluralize(number, phrase/word)
