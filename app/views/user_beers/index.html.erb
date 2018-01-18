@@ -26,7 +26,7 @@
 						</tr>
 					</thead>
 					<tbody>
-					<% @userbeers.alpha_sorted.each do |userbeer| %>
+					<% @userbeers.sort_by_brewery.each do |userbeer| %>
 						<tr>
 							<td><%= link_to userbeer.beer.brewery.name, brewery_path(userbeer.beer.brewery) %></td>
 							<td><%= link_to userbeer.beer.name, user_user_beer_path(current_user, userbeer.id) %></td>
