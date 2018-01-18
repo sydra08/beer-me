@@ -32,7 +32,6 @@ class BeersController < ApplicationController
   end
 
   def create
-    binding.pry
     @beer = Beer.find_or_create_by(name: params[:beer][:name])
     # binding.pry
     # check if an object is new or not - if it's a new object it can't already be on the user's list
@@ -57,23 +56,13 @@ class BeersController < ApplicationController
     # else
     #   render :new
     end
-    # need to assign the creator_ids here as well
-    # when you create a beer you are always assigning it to the user
-    # need to work on adding beer notes and/or status
   end
-      # this successfully creates a user_beer, but what happens if a user tries to add a beer that they already have in their collection?
-      # note - when a user adds a beer the default status is want to try, should probably reflect that in the UI
-      # add in a conditional for what happens if they select a beer that's already in their collection
-        # if in collection => then show message "Beer is already on your list"
-        # if not in collection => create userbeer object
-
 
   def edit
   end
 
   def update
-    raise params.inspect
-    render :new, notice: "Error: Invalid email address or password"
+    render :new, notice: "Error: You don't have permission to do that"
   end
 
   private
