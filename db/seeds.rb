@@ -4,7 +4,7 @@ Category.create(name: "Belgian Wheat Ale", description:  Faker::Hipster.paragrap
 Category.create(name: "Pilsner", description:  Faker::Hipster.paragraph(3))
 Category.create(name: "Lager", description:  Faker::Hipster.paragraph(3))
 
-3.times do
+5.times do
   Brewery.create(
     name: Faker::Company.name,
     description: Faker::Hipster.paragraph(5),
@@ -13,7 +13,7 @@ Category.create(name: "Lager", description:  Faker::Hipster.paragraph(3))
 end
 
 counter = 1
-3.times do
+4.times do
   Beer.create(
     name: Faker::Beer.name,
     description: Faker::Hipster.paragraph(3),
