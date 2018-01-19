@@ -13,11 +13,10 @@
       </ul>
     </div>
   <% end %>
-  <!-- not sure if i should keep the fieldsets bc it's weird to have a section for everything -->
+
   <fieldset class="box">
     <legend class="section-title">Brewery</legend>
     <!-- text field with auto complete, also drop down menu -->
-    <!-- will need to convert this to a nested form -->
     <%= f.fields_for :brewery do |b| %>
       <%= b.label "Name*" %>
       <%= b.text_field :name, list: "breweries_autocomplete", required: true %>
@@ -26,13 +25,12 @@
           <option value="<%= brewery.name %>">
         <% end %>
       </datalist> <br />
-      <!-- ideally want location to autopopulate if user chooses existing brewery -->
+      <!-- ideally want location to autopopulate if user chooses existing brewery bc right now it updates the brewery location-->
       <%= b.label :location %>
       <%= b.text_field :location %>
     <% end %>
   </fieldset>
 
-  <!-- can you do a fields_for the beer? -->
   <fieldset class="box">
     <legend class="section-title">Beer</legend>
     <%= f.label "Name*" %>
@@ -45,7 +43,6 @@
 
     <!-- ideally want these fields to autopopulate if user chooses existing beer -->
     <!-- text field with auto complete, also drop down menu -->
-    <!-- will need to convert this to a nested form -->
     <%= f.fields_for :category do |c| %>
       <%= c.label "Type*" %>
       <%= c.text_field :name, list: "categories_autocomplete", required: true %>
