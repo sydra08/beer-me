@@ -4,31 +4,28 @@
 	<%= render partial: "application/beer_buttons", locals: {user: current_user, beer: @userbeer} %>
 </header>
 
-<div class="box">
-	<ul class="alt">
-		<li><strong>Brewery: </strong><%= link_to @userbeer.beer.brewery.name, brewery_path(@userbeer.beer.brewery) %></li>
-		<li><strong>Style: </strong><%= link_to @userbeer.beer.category.name, category_path(@userbeer.beer.category) %></li>
-		<li><strong>ABV: </strong><%= @userbeer.beer.abv%>% </li>
-		<li><strong>Description: </strong><%= @userbeer.beer.description %></li>
-	</ul>
+<div class="row 200%">
+	<div class="6u 12u$(medium)">
+		<ul class="alt">
+			<li><strong>Brewery: </strong><%= link_to @userbeer.beer.brewery.name, brewery_path(@userbeer.beer.brewery) %></li>
+			<li><strong>Style: </strong><%= link_to @userbeer.beer.category.name, category_path(@userbeer.beer.category) %></li>
+			<li><strong>ABV: </strong><%= @userbeer.beer.abv%>% </li>
+			<li><strong>Description: </strong><%= @userbeer.beer.description %></li>
+		</ul>
+	</div>
+
+	<div class="6u 12u$(medium)">
+		<strong>My notes:</strong>
+		<% if @userbeer.notes %>
+		  <p><%= @userbeer.notes%></p>
+		<% else %>
+			<%= form_for ([current_user, @userbeer]) do |f| %>
+				<%= f.text_area :notes, size: "45x3"%> <br>
+				<%= f.submit "Add Note" %>
+			<% end %>
+		<% end %>
+	</div>
 </div>
 
-<h3>My notes:</h3>
-<% if @userbeer.notes %>
-  <p><%= @userbeer.notes%></p>
-<% else %>
-	<%= form_for ([current_user, @userbeer]) do |f| %>
-		<%= f.text_area :notes, size: "60x5"%> <br>
-		<%= f.submit "Add Note" %>
-	<% end %>
-  <!-- <%= form_tag user_user_beer_path(current_user.id, @userbeer.id) do %>
-    <%= hidden_field_tag('_method', 'put') %>
-    <%= text_area_tag "user_beer[notes]", nil, size: "60x5"%> <br>
-    <%= submit_tag "Add Note" %>
-  <% end %> -->
-	<i class="fa fa-trash-o fa-6" aria-hidden="true">
-	<%= link_to "Remove Beer From List", [current_user, @userbeer], method: :delete, data: {confirm: "Are you sure you want to delete this beer?"}%></i>
-
-<% end %>
 
 <!-- show edit link for notes -->
