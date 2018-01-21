@@ -24,18 +24,7 @@ class UserBeersController < ApplicationController
     @userbeer = UserBeer.find_by(id: params[:id])
   end
 
-  def new
-  end
-
-  def create
-  end
-
-  def edit
-  end
-
   def update
-    binding.pry
-    # will need to update this when you are allowed to toggle the beer status on the show page
     @userbeer = UserBeer.find_by(id: params[:id])
     if params[:user_beer][:notes] != ""
       @userbeer.update(user_beer_params)
@@ -49,7 +38,6 @@ class UserBeersController < ApplicationController
   end
 
   def destroy
-    binding.pry
     @userbeer = UserBeer.find_by(id: params[:id])
     if @userbeer.user_id == current_user.id
       @userbeer.destroy

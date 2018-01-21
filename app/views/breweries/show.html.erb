@@ -23,40 +23,6 @@
 
 
 	<div class="6u$ 12u$">
-		<% if !@beers.empty? %>
-			<div class="table-wrapper">
-				<table>
-					<thead>
-						<tr>
-							<th>Name</th>
-							<th>Abv</th>
-						</tr>
-					</thead>
-					<tbody>
-					<% @beers.alpha_sorted.each do |beer| %>
-						<tr>
-							<td><%= link_to beer.name, beer_path(beer) %></td>
-							<td><%= beer.abv %>%</td>
-						</tr>
-					<% end %>
-				</table>
-			</div>
-			<% else %>
-				<div class="table-wrapper">
-					<table>
-						<thead>
-							<tr>
-								<th>Name</th>
-								<th>Abv</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><em>No results</em></td>
-								<td></td>
-							</tr>
-					</table>
-				</div>
-			<% end %>
+		<%= render partial: 'application/beer_table', locals: {beers: @beers} %>
 	</div>
 </div>
