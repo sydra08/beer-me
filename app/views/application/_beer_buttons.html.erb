@@ -2,6 +2,28 @@
 <!-- this only takes care of when it is on the user beer page -->
 
 <% if beer.verbose_status == "Want to try" %>
+  <%= form_for ([user, beer]) do |f| %>
+    <%= f.radio_button :status, true %>
+    <%= f.label :status, "Tried", :value => true %>
+
+    <%= f.radio_button :status, false, :checked => 'checked' %>
+    <%= f.label :status, "Want to try", :value => false %> <br>
+
+    <%= f.submit 'update' %>
+  <% end %>
+<% else %>
+  <%= form_for ([user, beer]) do |f| %>
+    <%= f.radio_button :status, true, :checked => 'checked' %>
+    <%= f.label :status, "Tried", :value => true %>
+
+    <%= f.radio_button :status, false %>
+    <%= f.label :status, "Want to try", :value => false %> <br>
+
+    <%= f.submit 'update' %>
+  <% end %>
+<% end %>
+
+<!-- <% if beer.verbose_status == "Want to try" %>
   <%= form_tag user_user_beer_path(user.id, beer.id) do %>
     <%= hidden_field_tag('_method', 'put') %>
     <%= radio_button_tag 'status', true %>
@@ -18,7 +40,13 @@
     <%= label_tag :status, "Tried", :value => true %>
 
     <%= radio_button_tag :status, false %>
-    <%= label_tag 'status', "Want to try", :value => false %>
+    <%= label_tag 'status', "Want to try", :value => false %> <br>
     <%= submit_tag('update', class: 'small') %>
   <% end %>
-<% end %>
+<% end %> -->
+
+<!-- <%= form_tag user_user_beer_path(user.id, beer.id) do %>
+  <%= hidden_field_tag('_method', 'put') %>
+  <%= hidden_field_tag "user_beer[status]", true %>
+  <%= submit_tag "Tried" %>
+<% end %> -->

@@ -123,7 +123,8 @@
     - need to make sure to only show unique values in selection list, otherwise it would look bad with dupes
 [ ] edit notes
 [x] delete beers
-[ ] change beer status
+[x] change beer status back from Tried
+[x] create partial for beer tables?
 
 BUGS
 [x] error messaging on sign up page
@@ -136,6 +137,7 @@ BUGS
 [x] hanging on filters   
 [x] issues with using the "Tried" button for a beer
 [x] fix filters on userbeer#index
+[ ] radio buttons not functional
 
 UX/UI
 [x] make index pages look consistent
@@ -156,6 +158,7 @@ UX/UI
 [x] fix error messaging on Sign In page so that it's consistent with the rest of the site
 [x] have filters be side by side
 [ ] have abv be in small caps {font-variant: small-caps;}
+[x] change the button on the UserBeers#Show page to be inline
 
 REFACTORING
 [ ] use yield in partials in order to DRY up code http://guides.rubyonrails.org/layouts_and_rendering.html#using-partials
