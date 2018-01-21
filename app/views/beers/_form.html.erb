@@ -12,6 +12,10 @@
       <% end %>
       </ul>
     </div>
+  <% elsif flash.any? %>
+    <div class="box" id="error_explanation">
+      <%= render partial: 'layouts/flash' %>
+    </div>
   <% end %>
 
   <fieldset class="box">
