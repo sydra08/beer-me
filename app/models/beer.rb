@@ -6,7 +6,6 @@ class Beer < ApplicationRecord
   validates :name, uniqueness: { case_sensitive: false }, presence: true
   validates :abv, numericality: { less_than_or_equal_to: 100.00 }
 
-  # custom setters for brewery and category so that dupes are avoided
   scope :by_category_and_brewery, ->(category_id, brewery_id) { where("category_id = ? AND brewery_id = ?", category_id, brewery_id) }
 
   scope :by_category, ->(category_id) { where(category: category_id) }

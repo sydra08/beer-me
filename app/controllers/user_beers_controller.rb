@@ -2,7 +2,7 @@ class UserBeersController < ApplicationController
   def index
     @categories = Category.alpha_sorted
     @breweries = Brewery.alpha_sorted
-    # filters return beer objects not userbeer ones
+  
     if params[:user_id]
       # set category and brewery
       if !params[:category].blank? && !params[:brewery].blank?
