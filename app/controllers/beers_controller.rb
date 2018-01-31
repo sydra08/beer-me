@@ -35,7 +35,6 @@ class BeersController < ApplicationController
     if @beer.new_record?
       # if it's new, add the details
       if @beer.update(beer_params)
-        # need to figure out how to deal with the errors that could show up
           @userbeer = current_user.user_beers.create(beer_id: @beer.id, status: params[:beer][:user_beer][:status])
           redirect_to user_user_beer_path(current_user, @userbeer)
       else
@@ -46,21 +45,11 @@ class BeersController < ApplicationController
       if current_user.user_beers.find_by(beer_id: @beer)
         redirect_to new_user_beer_path, notice: "#{params[:beer][:name]} is already on your list"
       else
-        binding.pry
         @userbeer = current_user.user_beers.create(beer_id: @beer.id, status: params[:beer][:user_beer][:status])
         redirect_to user_user_beer_path(current_user, @userbeer)
         # if it's not new then just create the userbeer, but now it lets you create another record for a beer that you already have, need to add another conditional
       end
-    # else
-    #   render :new
     end
-  end
-
-  def edit
-  end
-
-  def update
-    render :new, notice: "Error: You don't have permission to do that"
   end
 
   private
