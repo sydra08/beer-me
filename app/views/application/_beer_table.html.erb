@@ -11,7 +11,7 @@
       <tbody>
       <% beers.sort_by_brewery.each do |beer| %>
         <tr>
-          <td><%= link_to beer.brewery.name, brewery_path(beer.brewery) %></td>
+          <td><%= link_to beer.brewery_name, brewery_path(beer.brewery) %></td>
           <td><%= link_to beer.name, beer_path(beer) %></td>
           <td><%= beer.abv %>%</td>
         </tr>

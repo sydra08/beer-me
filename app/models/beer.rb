@@ -29,4 +29,8 @@ class Beer < ApplicationRecord
     joins(:brewery).order("breweries.name")
   end
 
+  def brewery_name
+    brewery.name
+  end
+
 end
