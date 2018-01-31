@@ -27,4 +27,8 @@ class User < ApplicationRecord
 			user.save
     end
   end
+
+  def create_userbeer(beer, status)
+    user_beers.create(beer_id: beer.id, status: status)
+  end
 end
