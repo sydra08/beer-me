@@ -47,7 +47,6 @@ class BeersController < ApplicationController
       else
         @userbeer = current_user.create_userbeer(@beer, params[:beer][:user_beer][:status])
         redirect_to user_user_beer_path(current_user, @userbeer)
-        # if it's not new then just create the userbeer, but now it lets you create another record for a beer that you already have, need to add another conditional
       end
     end
   end

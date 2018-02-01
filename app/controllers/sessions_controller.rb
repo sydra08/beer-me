@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    # if the user doesn't exist then you need to render new
     # find the user by the email address
     if !auth.nil?
       # did the user use OAuth?
@@ -22,8 +21,7 @@ class SessionsController < ApplicationController
       # if not sign in the normal way
       @user = User.find_by(email: params[:user][:email])
       if !@user.nil? && @user.authenticate(params[:user][:password])
-        # if password is correct
-        # set session
+        # if password is correct set session
         session[:user_id] = @user.id
         # redirect to user homepage
         redirect_to user_user_beers_path(@user)

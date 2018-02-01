@@ -1,6 +1,5 @@
 <header class="align-center">
 	<h2><%= @userbeer.name %></h2>
-	<!-- need to update button styling -->
 	<%= render partial: "application/beer_buttons", locals: {user: current_user, beer: @userbeer} %>
 </header>
 
@@ -26,6 +25,3 @@
 		<% end %>
 	</div>
 </div>
-
-
-<!-- show edit link for notes -->
