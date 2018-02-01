@@ -39,4 +39,13 @@ class UserBeer < ApplicationRecord
   def category_name
     beer.category.name
   end
+
+  def abv
+    beer.abv
+  end
+
+  def name
+    beer.name
+  end
+  
 end

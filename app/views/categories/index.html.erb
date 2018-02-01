@@ -12,7 +12,7 @@
 			<% @categories.alpha_sorted.each do |category| %>
 				<tr>
 					<td><%= link_to category.name, category_path(category) %></td>
-					<td><%="(#{category.beers.count})" if category.beers %></td>
+					<td><%="(#{category.beer_count})" if category.beers %></td>
 				</tr>
 			<% end %>
 		</tbody>

@@ -12,4 +12,9 @@ class Category < ApplicationRecord
   def self.alpha_sorted
     order(name: :asc)
   end
+
+  def beer_count
+    beers.count
+  end
+  
 end
