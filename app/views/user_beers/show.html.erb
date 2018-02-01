@@ -1,5 +1,5 @@
 <header class="align-center">
-	<h2><%= @userbeer.beer.name %></h2>
+	<h2><%= @userbeer.name %></h2>
 	<!-- need to update button styling -->
 	<%= render partial: "application/beer_buttons", locals: {user: current_user, beer: @userbeer} %>
 </header>
@@ -9,7 +9,7 @@
 		<ul class="alt">
 			<li><strong>Brewery: </strong><%= link_to @userbeer.brewery_name, brewery_path(@userbeer.beer.brewery) %></li>
 			<li><strong>Style: </strong><%= link_to @userbeer.category_name, category_path(@userbeer.beer.category) %></li>
-			<li><strong>ABV: </strong><%= @userbeer.beer.abv%>% </li>
+			<li><strong>ABV: </strong><%= @userbeer.abv%>% </li>
 			<li><strong>Description: </strong><%= @userbeer.beer.description %></li>
 		</ul>
 	</div>
