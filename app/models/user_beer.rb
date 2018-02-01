@@ -47,5 +47,8 @@ class UserBeer < ApplicationRecord
   def name
     beer.name
   end
-  
+
+  def description
+    beer.description
+  end
 end

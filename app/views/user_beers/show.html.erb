@@ -10,7 +10,7 @@
 			<li><strong>Brewery: </strong><%= link_to @userbeer.brewery_name, brewery_path(@userbeer.beer.brewery) %></li>
 			<li><strong>Style: </strong><%= link_to @userbeer.category_name, category_path(@userbeer.beer.category) %></li>
 			<li><strong>ABV: </strong><%= @userbeer.abv%>% </li>
-			<li><strong>Description: </strong><%= @userbeer.beer.description %></li>
+			<li><strong>Description: </strong><%= @userbeer.description %></li>
 		</ul>
 	</div>
 
