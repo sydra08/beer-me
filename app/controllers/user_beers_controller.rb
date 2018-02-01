@@ -2,7 +2,7 @@ class UserBeersController < ApplicationController
   def index
     @categories = Category.alpha_sorted
     @breweries = Brewery.alpha_sorted
-  
+
     if params[:user_id]
       # set category and brewery
       if !params[:category].blank? && !params[:brewery].blank?
@@ -25,7 +25,7 @@ class UserBeersController < ApplicationController
   end
 
   def update
-    @userbeer = UserBeer.find_by(id: params[:id])
+    @userbeer = current_user.user_beers.find_by(id: params[:id])
     if params[:user_beer][:notes] != ""
       @userbeer.update(user_beer_params)
       redirect_to user_user_beer_path(current_user, @userbeer)
