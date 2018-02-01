@@ -7,8 +7,8 @@
 <div class="row 200%">
 	<div class="6u 12u$(medium)">
 		<ul class="alt">
-			<li><strong>Brewery: </strong><%= link_to @userbeer.beer.brewery.name, brewery_path(@userbeer.beer.brewery) %></li>
-			<li><strong>Style: </strong><%= link_to @userbeer.beer.category.name, category_path(@userbeer.beer.category) %></li>
+			<li><strong>Brewery: </strong><%= link_to @userbeer.brewery_name, brewery_path(@userbeer.beer.brewery) %></li>
+			<li><strong>Style: </strong><%= link_to @userbeer.category_name, category_path(@userbeer.beer.category) %></li>
 			<li><strong>ABV: </strong><%= @userbeer.beer.abv%>% </li>
 			<li><strong>Description: </strong><%= @userbeer.beer.description %></li>
 		</ul>

@@ -1,10 +1,10 @@
 <header class="align-center">
 	<h2><%= @beer.name %></h2>
-  <p>Brewery: <%= link_to @beer.brewery.name, brewery_path(@beer.brewery) %>  </p>
+  <p>Brewery: <%= link_to @beer.brewery_name, brewery_path(@beer.brewery) %>  </p>
 </header>
 
 <div class="box">
-  <p><strong>Style: </strong><%= link_to @beer.category.name, category_path(@beer.category) %></p>
+  <p><strong>Style: </strong><%= link_to @beer.category_name, category_path(@beer.category) %></p>
   <p><strong>ABV: </strong><%= @beer.abv%>% </p>
   <p><strong>Description: </strong><%= @beer.description %></p>
 </div>

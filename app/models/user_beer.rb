@@ -28,12 +28,15 @@ class UserBeer < ApplicationRecord
     UserBeer.where(user_id: user_id)
   end
 
-  # def self.alpha_sorted
-  #   joins(:beer).order("beers.name")
-  # end
-
   def self.sort_by_brewery
     joins(beer: :brewery).order("breweries.name")
   end
 
+  def brewery_name
+    beer.brewery.name
+  end
+
+  def category_name
+    beer.category.name
+  end
 end

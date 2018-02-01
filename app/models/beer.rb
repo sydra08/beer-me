@@ -33,4 +33,8 @@ class Beer < ApplicationRecord
     brewery.name
   end
 
+  def category_name
+    category.name
+  end
+
 end
