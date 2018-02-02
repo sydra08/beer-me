@@ -1,0 +1,18 @@
+<div class="center">
+	<table>
+		<thead>
+			<tr>
+				<th>Brewery</th>
+				<th>Location</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% breweries.alpha_sorted.each do |brewery| %>
+				<tr>
+					<td><%= link_to brewery.name, brewery_path(brewery) %></td>
+					<td><%= brewery.location %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

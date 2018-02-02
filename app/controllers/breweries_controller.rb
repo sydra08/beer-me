@@ -15,4 +15,9 @@ class BreweriesController < ApplicationController
       @beers = @brewery.beers
     end
   end
+
+  def co_brew
+    @breweries = Brewery.by_colorado
+  end
+
 end

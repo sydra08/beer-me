@@ -107,7 +107,7 @@
 [x] allow users to change a beer's status to Tried from userbeers#show
 [ ] consider incorporating the ratings feature so that there's a better scope method example (phase 2)
 [x] make list of questions for one-on-one session
-[ ] add generic/standard beer types to seed data
+[x] add generic/standard beer types to seed data
 [ ] add in more conditionals for when a user visits a beers#show page so that it's not different from when they view a beer via the userbeers#index page
 [ ] add filter on userbeer#index so that a user can filter by status
 [ ] should i change the status to not be boolean?
@@ -121,6 +121,7 @@
     - if name exists + brewery matches => don't create record
     - else if name exists + brewery doesn't match => create new record
     - need to make sure to only show unique values in selection list, otherwise it would look bad with dupes
+  - interim solution...add a check to see if the beer you're trying to add matches via brewery too? if not, then create the beer. otherwise just go with what was already created. would probably require taking out the validation around beer name uniqueness. 
 [ ] edit notes
 [x] delete beers
 [x] change beer status back from Tried
@@ -137,7 +138,7 @@ BUGS
 [x] hanging on filters   
 [x] issues with using the "Tried" button for a beer
 [x] fix filters on userbeer#index
-[ ] radio buttons not functional
+[x] radio buttons not functional
 
 UX/UI
 [x] make index pages look consistent

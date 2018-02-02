@@ -12,4 +12,8 @@ class Brewery < ApplicationRecord
   def self.alpha_sorted
     order(name: :asc)
   end
+
+  def self.by_colorado
+    where("location = ?", "Fort Collins, CO")
+  end
 end

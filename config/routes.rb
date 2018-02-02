@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     resources :beers, only: [:new, :create]
   end
 
+  get '/co_brew', to: 'breweries#co_brew'
+  
   resources :beers, only: [:index, :show]
   resources :breweries, only: [:index, :show]
   resources :categories, only: [:index, :show]
