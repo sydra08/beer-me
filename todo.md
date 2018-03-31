@@ -1,3 +1,28 @@
+*jQuery project*
+[ ] add AMS to Gemfile
+[ ] clean up /app/assets/javascripts folder
+[ ] add JS and jQuery to app
+[ ] set up manifest file
+[ ] start with beers list 
+
+[ ] render index page w jQuery and AMS:
+  [ ] **/beers** when you filter beers based on category it renders the index update without a page refresh
+  [ ] **/beers** when you filter beers based on brewery it renders the index update without a page refresh
+  [ ] **/users/:id/user_beers** when you filter beers based on category it renders the index update without a page refresh
+  [ ] **/users/:id/user_beers** when you filter beers based on brewery it renders the index update without a page refresh
+  [ ] **/breweries/:id** when you filter beers based on category it renders the index update without a page refresh
+[ ] render show page w jQuery and AMS:
+  [ ] **/breweries/:id** PREV/NEXT buttons on the page to view the other breweries (need to make sure this works within the filter concept...)
+  [ ] **/beers/:id** PREV/NEXT buttons on the page to view the other beers...but maybe only the beers from that brewery? or something...
+  [ ] **/users/:id/user_beers/:id** PREV/NEXT buttons on the page to view the other user beers
+[ ] has-many relationship
+[ ] use Rails API and a form to create a resource and render it without page refresh    
+  [ ] **/users/:id/user_beers/:id** add notes to beer
+  [ ] **/users/:id/user_beers/:id** update status of beer (this isn't really as interesting bc you can see the visual status change before you update it anyways. would be minor to have the button not be disabled for a bit, but a good add)
+  [ ] can I incorporate something in here that helps when you're adding a new beer to collection
+[ ] translate JSON responses to JS Model Objects with at least one method on the prototype - going to leave this for now until I work through the rest
+
+
 *December 11 Goals*
 [ ] think through the refactoring of the beers#index
   + the userbeer vs beer filtering is cumbersome and probably not the best way to do this...but you can't really combine it because userbeer vs beer objects are different
@@ -121,7 +146,7 @@
     - if name exists + brewery matches => don't create record
     - else if name exists + brewery doesn't match => create new record
     - need to make sure to only show unique values in selection list, otherwise it would look bad with dupes
-  - interim solution...add a check to see if the beer you're trying to add matches via brewery too? if not, then create the beer. otherwise just go with what was already created. would probably require taking out the validation around beer name uniqueness. 
+  - interim solution...add a check to see if the beer you're trying to add matches via brewery too? if not, then create the beer. otherwise just go with what was already created. would probably require taking out the validation around beer name uniqueness.
 [ ] edit notes
 [x] delete beers
 [x] change beer status back from Tried
