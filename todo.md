@@ -1,9 +1,12 @@
 *jQuery project*
-[ ] add AMS to Gemfile
+[x] add AMS to Gemfile
 [ ] clean up /app/assets/javascripts folder
-[ ] add JS and jQuery to app
-[ ] set up manifest file
-[ ] start with beers list 
+[x] add JS and jQuery to app
+[x] set up manifest.js file
+[ ] start with beers list
+[ ] determine whether or not a manifest file is needed for the css
+[ ] figure out how to make sure that the manifests, etc are set up properly
+[ ] create serializer for beers
 
 [ ] render index page w jQuery and AMS:
   [ ] **/beers** when you filter beers based on category it renders the index update without a page refresh

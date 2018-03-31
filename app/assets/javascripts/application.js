@@ -9,7 +9,7 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
+// removed turbolinks because it doesn't play well with jQuery
 //
 //= require rails-ujs
-//= require turbolinks
 //= require_tree .
