@@ -15,6 +15,7 @@ class BeersController < ApplicationController
     else
       @beers = Beer.all
     end
+    render json: @beers
   end
 
   def show

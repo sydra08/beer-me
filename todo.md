@@ -6,9 +6,12 @@
 [ ] start with beers list
 [ ] determine whether or not a manifest file is needed for the css
 [ ] figure out how to make sure that the manifests, etc are set up properly
-[ ] create serializer for beers
 
 [ ] render index page w jQuery and AMS:
+  [ ] **/beers** use Rails API to get data to display
+    [x] create serializer for beers
+    [x] confirm that JSON renders properly
+    [ ] 
   [ ] **/beers** when you filter beers based on category it renders the index update without a page refresh
   [ ] **/beers** when you filter beers based on brewery it renders the index update without a page refresh
   [ ] **/users/:id/user_beers** when you filter beers based on category it renders the index update without a page refresh
