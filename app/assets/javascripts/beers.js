@@ -14,8 +14,7 @@ function getBeers() {
   // make GET request for beer data
   $.get("/beers", function(data){
     // make sure that the button works properly
-    alert("you click on all beers")
-    // make sure that there is data being returned
+    alert("you clicked on all beers")
     displayBeers(data);
   });
 }
@@ -27,7 +26,7 @@ function displayBeers(beerData) {
     let beerAbv = beer.abv;
     // need to add the beer data to the DOM now
     // so need to figure out how to add all of the beers instead of just the last one
-    $('tbody').html(`<tr><td id="breweryName">${breweryName}</td><td id="beerName">${beerName}</td><td id="abv">${beerAbv}</td></tr>`);
+    $('tbody').append(`<tr><td id="breweryName">${breweryName}</td><td id="beerName">${beerName}</td><td id="abv">${beerAbv}</td></tr>`);
     // console.log(`<tr><td id="breweryName">${breweryName}</td><td id="beerName">${beerName}</td><td id="abv">${beerAbv}</td></tr>`);
   })
 }
