@@ -12,5 +12,6 @@
 // removed turbolinks because it doesn't play well with jQuery
 //
 //= require rails-ujs
+//= require jquery
 //= require_tree .
 //= require beers
