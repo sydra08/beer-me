@@ -16,9 +16,13 @@ class BeersController < ApplicationController
       @beers = Beer.all
     end
     respond_to do |format|
-      format.html {render :index}
+      # apparently order matters here
       format.json {render json: @beers}
+      format.html {render :index}
     end
+    # now when you click on All Beers it takes you to JSON view only. how do i make this work so that it knows i'm making JSON requests for the data?
+
+  #   render json: @beers
   end
 
   def show

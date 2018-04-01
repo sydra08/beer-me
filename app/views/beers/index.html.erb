@@ -13,7 +13,22 @@
 			<% end %>
 	</div>
 
-	<div class="6u$ 12u$(medium)">
-		<%= render partial: 'application/beer_table', locals: {beers: @beers} %>
+	<div class="6u 12u$(medium)">
+		<div class="table-wrapper">
+	    <table>
+	      <thead>
+	        <tr>
+	          <th>Brewery</th>
+	          <th>Name</th>
+	          <th>Abv</th>
+	        </tr>
+	      </thead>
+	      <tbody>
+	      </tbody>
+	    </table>
+	  </div>
 	</div>
+	<!-- <div class="6u$ 12u$(medium)">
+		<%= render partial: 'application/beer_table', locals: {beers: @beers} %>
+	</div> -->
 </div>

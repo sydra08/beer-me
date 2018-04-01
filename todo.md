@@ -7,7 +7,7 @@
 [ ] determine whether or not a manifest file is needed for the css
 [ ] figure out how to make sure that the manifests, etc are set up properly
 [ ] probably want a different JS file for each controller?
-[ ] think i need to figure out other assets? 
+[ ] figure out why there are so many errors when the page is loaded
 
 [ ] render index page w jQuery and AMS:
   [ ] **/beers** use Rails API to get data to display
