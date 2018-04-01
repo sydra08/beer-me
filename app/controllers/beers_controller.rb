@@ -15,7 +15,10 @@ class BeersController < ApplicationController
     else
       @beers = Beer.all
     end
-    render json: @beers
+    respond_to do |format|
+      format.html {render :index}
+      format.json {render json: @beers}
+    end
   end
 
   def show

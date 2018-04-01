@@ -6,12 +6,14 @@
 [ ] start with beers list
 [ ] determine whether or not a manifest file is needed for the css
 [ ] figure out how to make sure that the manifests, etc are set up properly
+[ ] probably want a different JS file for each controller?
+[ ] think i need to figure out other assets? 
 
 [ ] render index page w jQuery and AMS:
   [ ] **/beers** use Rails API to get data to display
     [x] create serializer for beers
     [x] confirm that JSON renders properly
-    [ ] 
+    [ ] update page to call a JS function that then makes the API call
   [ ] **/beers** when you filter beers based on category it renders the index update without a page refresh
   [ ] **/beers** when you filter beers based on brewery it renders the index update without a page refresh
   [ ] **/users/:id/user_beers** when you filter beers based on category it renders the index update without a page refresh
