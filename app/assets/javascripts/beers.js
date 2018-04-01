@@ -25,8 +25,10 @@ function displayBeers(beerData) {
     let breweryName = beer.brewery.name;
     let beerName = beer.name;
     let beerAbv = beer.abv;
-
-    console.log(`<tr><td id="breweryName">${breweryName}</td><td id="beerName">${beerName}</td><td id="abv">${beerAbv}</td></tr>`);
+    // need to add the beer data to the DOM now
+    // so need to figure out how to add all of the beers instead of just the last one
+    $('tbody').html(`<tr><td id="breweryName">${breweryName}</td><td id="beerName">${beerName}</td><td id="abv">${beerAbv}</td></tr>`);
+    // console.log(`<tr><td id="breweryName">${breweryName}</td><td id="beerName">${beerName}</td><td id="abv">${beerAbv}</td></tr>`);
   })
 }
 
