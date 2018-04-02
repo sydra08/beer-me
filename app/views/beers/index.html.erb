@@ -9,7 +9,7 @@
 				<%= render partial: 'application/category_filter', locals: {categories: @categories} %>
 				<%= render partial: 'application/brewery_filter', locals: {breweries: @breweries} %>
 				<div>
-					<%= submit_tag "Apply Filter" %>
+					<%= submit_tag "Apply Filter", id: "applyFilter" %>
 				</div>
 			<% end %>
 	</div>
