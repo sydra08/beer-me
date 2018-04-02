@@ -19,21 +19,32 @@ function applyFilterBtn() {
   $('#beerFilter').on("submit", function(e){
     alert("you clicked on apply filter")
     e.preventDefault();
+    let brewery = $("#brewery option:selected").val();
+    let category = $("#cateogry option:selected").val();
+    let formData = {category: category, brewery: brewery}
+    // need to capture the data from the form here
     // need to make sure to pass through the filter param
-    debugger
-    getBeers();
+    console.log(formData)
+    // getBeers();
   })
 }
 
 function getBeers() {
   // make GET request for beer data
-  $.get("/beers", function(data){
-    // make sure that the button works properly
-    // this now shows up whenever a page loads...think I might need to constrain different pages to specific controllers?
-    // or is this because the button it's linked to is in the nav and therefore will get loaded everytime a page is?
-    // if that's the case then maybe the button shouldn't go the API call - just the page
-    alert("making GET request to /beers")
-    // invoke displayBeers() to show the returned data
+  // $.get("/beers", function(data){
+  //   // make sure that the button works properly
+  //   // this now shows up whenever a page loads...think I might need to constrain different pages to specific controllers?
+  //   // or is this because the button it's linked to is in the nav and therefore will get loaded everytime a page is?
+  //   // if that's the case then maybe the button shouldn't go the API call - just the page
+  //   alert("making GET request to /beers")
+  //   // invoke displayBeers() to show the returned data
+  //   displayBeers(data);
+  // });
+  // use option:selected to get the value (aka ID) for the selected filters to send with the request
+  $.ajax({
+    url: "/beers",
+    data: {category: $("#cateogry option:selected").val(), brewery: $("#brewery option:selected").val()}
+  }).done(function(data){
     displayBeers(data);
   });
 }

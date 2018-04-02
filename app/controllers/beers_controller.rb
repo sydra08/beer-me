@@ -5,7 +5,7 @@ class BeersController < ApplicationController
     # set for filters
     @categories = Category.alpha_sorted
     @breweries = Brewery.alpha_sorted
-
+    # how do I make this API call with the proper params?
     if !params[:category].blank? && !params[:brewery].blank?
       @beers = Beer.by_category_and_brewery(params[:category], params[:brewery])
     elsif !params[:category].blank?
