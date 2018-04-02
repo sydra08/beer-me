@@ -24,12 +24,13 @@ function applyFilterBtn() {
     let formData = {category: category, brewery: brewery}
     // need to capture the data from the form here
     // need to make sure to pass through the filter param
-    console.log(formData)
-    // getBeers();
+    // console.log(formData)
+    getBeers(formData);
   })
 }
 
-function getBeers() {
+function getBeers(filters) {
+  console.log(filters);
   // make GET request for beer data
   // $.get("/beers", function(data){
   //   // make sure that the button works properly
@@ -41,15 +42,19 @@ function getBeers() {
   //   displayBeers(data);
   // });
   // use option:selected to get the value (aka ID) for the selected filters to send with the request
+  // not sure if the filter data is actually working properly in the request
   $.ajax({
     url: "/beers",
-    data: {category: $("#cateogry option:selected").val(), brewery: $("#brewery option:selected").val()}
+    data: filters
   }).done(function(data){
     displayBeers(data);
   });
 }
 
 function displayBeers(beerData) {
+  // clear out the beer list before you add new stuff to DOM so that filters work properly
+  $('tbody').empty()
+  // iterate over data to build the list
   beerData.forEach(function(beer){
     let breweryName = beer.brewery.name;
     let breweryId = beer.brewery.id;
@@ -58,7 +63,7 @@ function displayBeers(beerData) {
     let beerId = beer.id;
     // probably want to use a template here
     // this successfully adds all of the beers with the proper links
-    $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="beerName"><a href="/beers/${beerId}">${beerName}</a></td><td id="abv">${beerAbv}</td></tr>`);
+    $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="beerName"><a href="/beers/${beerId}">${beerName}</a></td><td id="abv">${beerAbv}%</td></tr>`);
   })
 }
 
