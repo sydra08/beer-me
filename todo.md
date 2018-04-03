@@ -16,10 +16,12 @@
     [x] update page to call a JS function that then makes the API call
   [x] **/beers** when you filter beers based on category it renders the index update without a page refresh
   [x] **/beers** when you filter beers based on brewery it renders the index update without a page refresh
-    [ ] need to figure out how to get the button to become active again and submit a second filter request
-    [ ] whenever you set the filters I think they need to be reset
-    [ ] figure out how to deal with the apply filter button
-  [ ] consider making the filters apply when you select something from them?   
+    [x] figure out how to deal with the apply filter button - removed it for now
+      [ ] need to figure out how to get the button to become active again and submit a second filter request
+      [ ] whenever you set the filters I think they need to be reset
+    [ ] should there be a reset filter button?
+    [ ] have the filters be disabled until the document is ready and they can be used?
+    [x] consider making the filters apply when you select something from them?   
   [ ] **/users/:id/user_beers** when you filter beers based on category it renders the index update without a page refresh
   [ ] **/users/:id/user_beers** when you filter beers based on brewery it renders the index update without a page refresh
   [ ] **/breweries/:id** when you filter beers based on category it renders the index update without a page refresh

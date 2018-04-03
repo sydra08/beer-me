@@ -69,24 +69,28 @@ function getBeers(filters) {
     // make the apply filter button active again
     displayBeers(data);
     // this isn't working again
-    $('#applyFilter').prop('disabled', false);
+    // $('#applyFilter').prop('disabled', false);
   });
 }
 
 function displayBeers(beerData) {
   // clear out the beer list before you add new stuff to DOM so that filters work properly
   $('tbody').empty()
-  // iterate over data to build the list
-  beerData.forEach(function(beer){
-    let breweryName = beer.brewery.name;
-    let breweryId = beer.brewery.id;
-    let beerName = beer.name;
-    let beerAbv = beer.abv;
-    let beerId = beer.id;
-    // probably want to use a template here
-    // this successfully adds all of the beers with the proper links
-    $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="beerName"><a href="/beers/${beerId}">${beerName}</a></td><td id="abv">${beerAbv}%</td></tr>`);
-  })
+  // when the list is empty it should show you "no results"
+  if (beerData.length === 0) {
+    $('tbody').append("<tr><td><em>No results</em></td><td></td><td></td><td></td></tr>");
+  } else {
+    beerData.forEach(function(beer){
+      let breweryName = beer.brewery.name;
+      let breweryId = beer.brewery.id;
+      let beerName = beer.name;
+      let beerAbv = beer.abv;
+      let beerId = beer.id;
+      // probably want to use a template here
+      // this successfully adds all of the beers with the proper links
+      $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="beerName"><a href="/beers/${beerId}">${beerName}</a></td><td id="abv">${beerAbv}%</td></tr>`);
+    })
+  }
 }
 
 function beerFormat(){
