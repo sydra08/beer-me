@@ -50,8 +50,9 @@ function getBeers(filters) {
     data: filters
   }).done(function(data){
     // make the apply filter button active again
-    $('#applyFilter').prop('disabled', false);
     displayBeers(data);
+    // this isn't working again
+    $('#applyFilter').prop('disabled', false);
   });
 }
 
