@@ -36,6 +36,9 @@ gem 'dotenv-rails'
 gem 'jquery-rails'
 # activemodel serializer
 gem 'active_model_serializers'
+# font awesome
+gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -1,4 +1,8 @@
 /*
+*= require font-awesome
+*/
+
+/*
 Projection by TEMPLATED
 templated.co @templatedc
 Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
@@ -2026,7 +2030,7 @@ position: relative;
 }
 
 .select-wrapper:before {
-	content: "\f078";
+	content: "";
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	font-family: FontAwesome;
