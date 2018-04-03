@@ -1,7 +1,11 @@
 // document ready
 $(function(){
+  // attach event to All Beers in nav - may remove this
   allBeersBtn();
-  applyFilterBtn();
+  // attach event to apply filter button
+  // applyFilterBtn();
+  filterChange();
+  // make the call to GET /beers
   getBeers();
 })
 
@@ -10,6 +14,7 @@ function allBeersBtn() {
   $('#beers').on("click", function(e){
     alert("you clicked on all beers")
     e.preventDefault();
+    // should I reset the filter buttons here just in case you click here after applying a filter?
     getBeers();
   })
 }
@@ -20,6 +25,7 @@ function applyFilterBtn() {
     alert("you clicked on apply filter")
     // without this the filters don't work properly
     e.preventDefault();
+    // use option:selected to get the value (aka ID) for the selected filters to send with the request
     let brewery = $("#brewery option:selected").val();
     let category = $("#category option:selected").val();
     let formData = {category: category, brewery: brewery}
@@ -30,6 +36,18 @@ function applyFilterBtn() {
   });
   // category filters are still broken for some reason but brewery filters are fine
   // should the filters go back to default or should they
+}
+
+function filterChange() {
+  // this works and you don't have to worry about the apply filter button
+  $('#beerFilter').on("change", function(e){
+    alert("you changed a filter");
+    e.preventDefault();
+    let brewery = $("#brewery option:selected").val();
+    let category = $("#category option:selected").val();
+    let formData = {category: category, brewery: brewery}
+    getBeers(formData);
+  })
 }
 
 function getBeers(filters) {
@@ -43,8 +61,7 @@ function getBeers(filters) {
   //   // invoke displayBeers() to show the returned data
   //   displayBeers(data);
   // });
-  // use option:selected to get the value (aka ID) for the selected filters to send with the request
-  // not sure if the filter data is actually working properly in the request
+  // use $.ajax() to send the request so that you can send data in the GET request
   $.ajax({
     url: "/beers",
     data: filters
