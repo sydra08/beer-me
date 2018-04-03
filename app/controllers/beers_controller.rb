@@ -2,13 +2,17 @@ class BeersController < ApplicationController
   before_action :require_login, only: [:new, :create]
 
   def index
+    # looks like only the brewery param is getting passed through from jQuery
+
     # set for filters
     @categories = Category.alpha_sorted
     @breweries = Brewery.alpha_sorted
     # how do I make this API call with the proper params?
     if !params[:category].blank? && !params[:brewery].blank?
+      # when you select a brewery this doesn't happen
       @beers = Beer.by_category_and_brewery(params[:category], params[:brewery])
     elsif !params[:category].blank?
+      # this doesn't get called when a category is selected
       @beers = Beer.by_category(params[:category])
     elsif !params[:brewery].blank?
       @beers = Beer.by_brewery(params[:brewery])

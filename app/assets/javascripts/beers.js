@@ -18,19 +18,21 @@ function applyFilterBtn() {
   // submitting a form now so handle it that way
   $('#beerFilter').on("submit", function(e){
     alert("you clicked on apply filter")
+    // without this the filters don't work properly
     e.preventDefault();
     let brewery = $("#brewery option:selected").val();
-    let category = $("#cateogry option:selected").val();
+    let category = $("#category option:selected").val();
     let formData = {category: category, brewery: brewery}
     // need to capture the data from the form here
     // need to make sure to pass through the filter param
     // console.log(formData)
     getBeers(formData);
-  })
+  });
+  // category filters are still broken for some reason but brewery filters are fine
+  // should the filters go back to default or should they
 }
 
 function getBeers(filters) {
-  console.log(filters);
   // make GET request for beer data
   // $.get("/beers", function(data){
   //   // make sure that the button works properly
@@ -47,6 +49,8 @@ function getBeers(filters) {
     url: "/beers",
     data: filters
   }).done(function(data){
+    // make the apply filter button active again
+    $('#applyFilter').prop('disabled', false);
     displayBeers(data);
   });
 }
