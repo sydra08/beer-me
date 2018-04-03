@@ -3,14 +3,14 @@
 [ ] clean up /app/assets/javascripts folder
 [x] add JS and jQuery to app
 [x] set up manifest.js file
-[s] start with beers list
-[ ] determine whether or not a manifest file is needed for the css
+[X] start with beers list
+[X] determine whether or not a manifest file is needed for the css
   [ ] https://stackoverflow.com/questions/11052398/rails-using-font-awesome
   [ ] https://fontawesome.com/v4.7.0/get-started/
   [ ] http://edgeguides.rubyonrails.org/asset_pipeline.html
-[ ] figure out how to make sure that the manifests, etc are set up properly
+[X] figure out how to make sure that the manifests, etc are set up properly
 [ ] probably want a different JS file for each controller?
-[ ] figure out why there are so many errors when the page is loaded
+[X] figure out why there are so many errors when the page is loaded - removed extra scripts from the bottom of the page
 
 [ ] render index page w jQuery and AMS:
   [x] **/beers** use Rails API to get data to display
