@@ -1,10 +1,6 @@
-@charset "UTF-8";
-@import url(font-awesome.min.css);
-@import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600";
-
 /*
 Projection by TEMPLATED
-templated.co @templatedco
+templated.co @templatedc
 Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 */
 
@@ -2030,7 +2026,7 @@ position: relative;
 }
 
 .select-wrapper:before {
-	content: "";
+	content: "\f078";
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	font-family: FontAwesome;

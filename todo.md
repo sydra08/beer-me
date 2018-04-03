@@ -7,13 +7,13 @@
 [ ] determine whether or not a manifest file is needed for the css
   [ ] https://stackoverflow.com/questions/11052398/rails-using-font-awesome
   [ ] https://fontawesome.com/v4.7.0/get-started/
-  [ ] http://edgeguides.rubyonrails.org/asset_pipeline.html 
+  [ ] http://edgeguides.rubyonrails.org/asset_pipeline.html
 [ ] figure out how to make sure that the manifests, etc are set up properly
 [ ] probably want a different JS file for each controller?
 [ ] figure out why there are so many errors when the page is loaded
 
 [ ] render index page w jQuery and AMS:
-  [ ] **/beers** use Rails API to get data to display
+  [x] **/beers** use Rails API to get data to display
     [x] create serializer for beers
     [x] confirm that JSON renders properly
     [x] update page to call a JS function that then makes the API call
