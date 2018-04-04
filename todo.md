@@ -11,6 +11,8 @@
 [X] figure out how to make sure that the manifests, etc are set up properly
 [ ] probably want a different JS file for each controller?
 [X] figure out why there are so many errors when the page is loaded - removed extra scripts from the bottom of the page
+[ ] more research on ActiveModel Serializers and how they work with brewery-beer relationship
+[ ] why does the breweries#index show the default beers#index layout? - is it because i added the serializer?
 
 [ ] render index page w jQuery and AMS:
   [x] **/beers** use Rails API to get data to display

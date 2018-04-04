@@ -2,13 +2,12 @@ class BreweriesController < ApplicationController
   def index
     @breweries = Brewery.alpha_sorted
 
-    render json: @breweries
-    # respond_to do |format|
-    #   # apparently order matters here
-    #   format.json {render json: @breweries}
-    #   format.html {render :index}
-    #
-    # end
+    # render json: @breweries
+    respond_to do |format|
+      # apparently order matters here
+      format.json {render json: @breweries}
+      format.html {render :index}
+    end
   end
 
   def show
