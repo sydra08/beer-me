@@ -15,3 +15,4 @@
 //= require jquery
 //= require_tree .
 //= require beers
+//= require breweries
