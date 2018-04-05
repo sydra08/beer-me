@@ -67,9 +67,9 @@ function getBeers(filters) {
   $.ajax({
     url: "/beers",
     data: filters
-  }).done(function(data){
+  }).success(function(beerData){
     // make the apply filter button active again
-    displayBeers(data);
+    displayBeers(beerData);
     // this isn't working again
     // $('#applyFilter').prop('disabled', false);
   });
@@ -77,7 +77,7 @@ function getBeers(filters) {
 
 function displayBeers(beerData) {
   // clear out the beer list before you add new stuff to DOM so that filters work properly
-  $('tbody').empty()
+  $('tbody').empty();
   // when the list is empty it should show you "no results"
   if (beerData.length === 0) {
     $('tbody').append("<tr><td><em>No results</em></td><td></td><td></td><td></td></tr>");

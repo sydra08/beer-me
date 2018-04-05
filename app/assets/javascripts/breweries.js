@@ -1,15 +1,11 @@
 // document ready
 $(function(){
-  // this doesn't even hit debugger when you load the page
-  // make call to api when filter changes
-  // maybe have a function that says if it's got an id then load show page stuff?
-  // is there a way to only have the breweries load on a specific page?
   if(window.location.pathname === "/breweries") {
     getBreweries();
   } else {
     getBeers(window.location.pathname);
+    categoryFilterChange();
   }
-
   alert("the stuff from breweries.js was loaded")
 })
 
@@ -43,9 +39,9 @@ function getBeers(url, category) {
   $.ajax({
     url: url,
     data: category
-  }).done(function(data){
+  }).success(function(beerData){
     // make the apply filter button active again
-    displayBeers(data);
+    displayBeers(beerData);
   });
 }
 
