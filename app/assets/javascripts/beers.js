@@ -54,7 +54,8 @@ function filterChange() {
 }
 
 function getBeers(url, filters) {
-  alert("getBeers was called from categoryFilterChange")
+  // update this alert to show what page it was called from
+  alert("getBeers was called from...")
   $.ajax({
     url: url,
     data: filters
