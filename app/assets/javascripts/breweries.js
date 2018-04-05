@@ -1,15 +1,17 @@
 // document ready
 $(function(){
+  // this doesn't even hit debugger when you load the page
   // make call to api when filter changes
-  filterChange();
+  categoryFilterChange();
   // make the call to GET /beers
   // need to make sure that the getBeers() gets the right id on the page load
   getBreweries();
+  alert("the stuff from breweries.js was loaded")
 })
 
-function filterChange() {
+function categoryFilterChange() {
   // this works and you don't have to worry about the apply filter button
-  $('#categoryFilter').on("change", function(e){
+  $('#category').on("change", function(e){
     alert("you changed a filter");
     e.preventDefault();
     // need to capture the brewery too so that you have the id to pass to the controller

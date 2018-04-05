@@ -7,6 +7,8 @@ $(function(){
   filterChange();
   // make the call to GET /beers
   getBeers();
+  alert("the stuff from beers.js was loaded")
+
 })
 
 function allBeersBtn() {
