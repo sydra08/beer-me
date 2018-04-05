@@ -45,33 +45,22 @@ function filterChange() {
   $('#beerFilter').on("change", function(e){
     alert("you changed a filter");
     e.preventDefault();
+    let url = $("form").attr("action");
     let brewery = $("#brewery option:selected").val();
     let category = $("#category option:selected").val();
     let formData = {category: category, brewery: brewery}
-    getBeers(formData);
+    getBeers(url, formData);
   })
 }
 
-function getBeers(filters) {
-  // make GET request for beer data
-  // $.get("/beers", function(data){
-  //   // make sure that the button works properly
-  //   // this now shows up whenever a page loads...think I might need to constrain different pages to specific controllers?
-  //   // or is this because the button it's linked to is in the nav and therefore will get loaded everytime a page is?
-  //   // if that's the case then maybe the button shouldn't go the API call - just the page
-  //   alert("making GET request to /beers")
-  //   // invoke displayBeers() to show the returned data
-  //   displayBeers(data);
-  // });
-  // use $.ajax() to send the request so that you can send data in the GET request
+function getBeers(url, filters) {
+  alert("getBeers was called from categoryFilterChange")
   $.ajax({
-    url: "/beers",
+    url: url,
     data: filters
   }).success(function(beerData){
     // make the apply filter button active again
     displayBeers(beerData);
-    // this isn't working again
-    // $('#applyFilter').prop('disabled', false);
   });
 }
 
