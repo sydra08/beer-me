@@ -15,7 +15,7 @@ function allBeersBtn() {
   // when you click on the button it invokes getBeers()
   $('#beers').on("click", function(e){
     alert("you clicked on all beers")
-    e.preventDefault();
+    // e.preventDefault(); - removing this made the page load after the click
     // should I reset the filter buttons here just in case you click here after applying a filter?
     getBeers();
   })

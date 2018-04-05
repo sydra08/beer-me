@@ -23,22 +23,20 @@ function categoryFilterChange() {
 }
 
 function getBreweries() {
-  debugger
   $.get("/breweries", function(data){
-    console.log(data);
     let breweryData = data;
     $('tbody').empty()
-    breweryData.forEach(function(beer){
-      let breweryName = beer.brewery.name;
-      let breweryLocation = beer.brewery.location;
+    breweryData.forEach(function(brewery){
+      let breweryName = brewery.name;
+      let breweryLocation = brewery.location;
+      let breweryId = brewery.id
       // let beerName = beer.name;
       // let beerAbv = beer.abv;
       // let beerId = beer.id;
       // probably want to use a template here
       // this successfully adds all of the beers with the proper links
       $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="breweryLocation">${breweryLocation}</td></tr>`);
-      })
-    }
+    })
   })
 }
 
