@@ -9,12 +9,6 @@
 			<th># Beers</th>
 		</thead>
 		<tbody>
-			<% @categories.alpha_sorted.each do |category| %>
-				<tr>
-					<td><%= link_to category.name, category_path(category) %></td>
-					<td><%="(#{category.beer_count})" if category.beers %></td>
-				</tr>
-			<% end %>
 		</tbody>
 	</table>
 
