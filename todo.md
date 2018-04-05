@@ -15,9 +15,13 @@
 [ ] why does the breweries#index show the default beers#index layout? - is it because i added the serializer?
 [ ] need to figure out why deleting the breweries.coffee caused everything to break. should everything be in one js file? seems like too much logic in one place?
 + figured out how to revert back to old commit [https://stackoverflow.com/questions/4114095/how-to-revert-git-repository-to-a-previous-commit]
-[ ] need to figure out how to only load the breweries list on the breweries#index page and not the breweries#show page
+[x] need to figure out how to only load the breweries list on the breweries#index page and not the breweries#show page
+[ ] figure out why some functions are being called multiple times on page load when it's not necessary
+[ ] stop some functions from running on specific pages
+[ ] update beer table on breweries#show
+[x] why are the category options appearing on categories#show
 
-[ ] render index page w jQuery and AMS:
+[x] render index page w jQuery and AMS:
   [x] **/beers** use Rails API to get data to display
     [x] create serializer for beers
     [x] confirm that JSON renders properly
@@ -25,14 +29,12 @@
   [x] **/beers** when you filter beers based on category it renders the index update without a page refresh
   [x] **/beers** when you filter beers based on brewery it renders the index update without a page refresh
     [x] figure out how to deal with the apply filter button - removed it for now
-      [ ] need to figure out how to get the button to become active again and submit a second filter request
-      [ ] whenever you set the filters I think they need to be reset
     [ ] should there be a reset filter button?
     [ ] have the filters be disabled until the document is ready and they can be used?
     [x] consider making the filters apply when you select something from them?   
-  [ ] **/users/:id/user_beers** when you filter beers based on category it renders the index update without a page refresh
-  [ ] **/users/:id/user_beers** when you filter beers based on brewery it renders the index update without a page refresh
-  [ ] **/breweries/:id** when you filter beers based on category it renders the index update without a page refresh
+  [x] **/users/:id/user_beers** when you filter beers based on category it renders the index update without a page refresh
+  [x] **/users/:id/user_beers** when you filter beers based on brewery it renders the index update without a page refresh
+  [x] **/breweries/:id** when you filter beers based on category it renders the index update without a page refresh
 [ ] render show page w jQuery and AMS:
   [ ] **/breweries/:id** PREV/NEXT buttons on the page to view the other breweries (need to make sure this works within the filter concept...)
   [ ] **/beers/:id** PREV/NEXT buttons on the page to view the other beers...but maybe only the beers from that brewery? or something...
