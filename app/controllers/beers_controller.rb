@@ -15,7 +15,6 @@ class BeersController < ApplicationController
       @beers = Beer.all
     end
     respond_to do |format|
-      # apparently order matters here
       format.json {render json: @beers}
       format.html {render :index}
     end
@@ -23,6 +22,10 @@ class BeersController < ApplicationController
 
   def show
     @beer = Beer.find_by(id: params[:id])
+    respond_to do |format|
+      format.json {render json: @beer}
+      format.html {render :show}
+    end
   end
 
   def new
