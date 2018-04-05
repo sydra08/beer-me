@@ -16,3 +16,4 @@
 //= require_tree .
 //= require beers
 //= require breweries
+//= require categories
