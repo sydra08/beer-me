@@ -1,23 +1,22 @@
 // document ready
 $(function(){
-  getCategories();
-  // if(window.location.pathname === "/categories") {
-  //   getCategories();
-  // } else {
-  //   getBeers(window.location.pathname);
-  //   breweryFilterChange();
-  // }
+  if(window.location.pathname === "/categories") {
+    getCategories();
+  } else {
+    getBeers(window.location.pathname);
+    breweryFilterChange();
+  }
   alert("the stuff from categories.js was loaded")
 })
 
 function breweryFilterChange() {
   // this works and you don't have to worry about the apply filter button
-  $('#category').on("change", function(e){
-    alert("you changed a filter");
+  $('#brewery').on("change", function(e){
+    alert("you changed a brewery filter on /categories");
     e.preventDefault();
     let url = $("form").attr("action");
-    let category = $("#category option:selected").val();
-    let formData = {category: category}
+    let brewery = $("#brewery option:selected").val();
+    let formData = {brewery: brewery}
     getBeers(url, formData);
   })
 }
@@ -30,7 +29,7 @@ function getCategories() {
       let categoryName = category.name;
       let categoryCount = category.beer_count;
       let categoryId = category.id;
-      $('tbody').append(`<tr><td id="categoryName"><a href="/breweries/${categoryId}">${categoryName}</a></td><td id="categoryCount">${categoryCount}</td></tr>`);
+      $('tbody').append(`<tr><td id="categoryName"><a href="/categories/${categoryId}">${categoryName}</a></td><td id="categoryCount">${categoryCount}</td></tr>`);
     })
   })
 }

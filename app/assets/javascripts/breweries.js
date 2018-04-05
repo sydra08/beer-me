@@ -12,7 +12,7 @@ $(function(){
 function categoryFilterChange() {
   // this works and you don't have to worry about the apply filter button
   $('#category').on("change", function(e){
-    alert("you changed a filter");
+    alert("you changed a category filter on /breweries");
     e.preventDefault();
     let url = $("form").attr("action");
     let category = $("#category option:selected").val();

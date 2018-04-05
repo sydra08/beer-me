@@ -43,7 +43,7 @@ function applyFilterBtn() {
 function filterChange() {
   // this works and you don't have to worry about the apply filter button
   $('#beerFilter').on("change", function(e){
-    alert("you changed a filter");
+    alert("you changed a filter on /beers");
     e.preventDefault();
     let url = $("form").attr("action");
     let brewery = $("#brewery option:selected").val();
