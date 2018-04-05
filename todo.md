@@ -15,6 +15,7 @@
 [ ] why does the breweries#index show the default beers#index layout? - is it because i added the serializer?
 [ ] need to figure out why deleting the breweries.coffee caused everything to break. should everything be in one js file? seems like too much logic in one place?
 + figured out how to revert back to old commit [https://stackoverflow.com/questions/4114095/how-to-revert-git-repository-to-a-previous-commit]
+[ ] need to figure out how to only load the breweries list on the breweries#index page and not the breweries#show page
 
 [ ] render index page w jQuery and AMS:
   [x] **/beers** use Rails API to get data to display
