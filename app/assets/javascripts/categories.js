@@ -2,9 +2,11 @@
 $(function(){
   if(window.location.pathname === "/categories") {
     getCategories();
+    console.log("the stuff for categories#index was loaded");
   } else if (window.location.pathname.startsWith("/categories/")) {
     getBeers(window.location.pathname);
     breweryFilterChange();
+    console.log("the stuff for categories#show was loaded");
   }
   console.log("the stuff from categories.js was loaded")
 })

@@ -3,9 +3,11 @@ $(function(){
   if(window.location.pathname === "/breweries") {
     // why isn't this firing when you go to /breweries ?
     getBreweries();
+    console.log("the stuff for breweries#index was loaded");
   } else if (window.location.pathname.startsWith("/breweries/")) {
     getBeers(window.location.pathname);
     categoryFilterChange();
+    console.log("the stuff for breweries#show was loaded");
   }
   console.log("the stuff from breweries.js was loaded")
 })

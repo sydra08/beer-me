@@ -2,14 +2,20 @@
 $(function(){
   // attach event to All Beers in nav - may remove this
   allBeersBtn();
+  if (window.location.pathname === "/beers") {
   // attach event to apply filter button
   // applyFilterBtn();
-  filterChange();
-  // make the call to GET /beers
-  getBeers();
+    filterChange();
+    // make the call to GET /beers
+    getBeers();
+    console.log("the stuff for beers#index was loaded");
+  } else if (window.location.pathname.startsWith("/beers/")) {
+    nextBeerBtn();
+    console.log("the stuff for beers#show was loaded");
+  }
   console.log("the stuff from beers.js was loaded")
   // should i conditionalize when stuff loads on the beers#show page?
-  nextBeerBtn();
+
 })
 
 function nextBeerBtn(){
@@ -81,7 +87,7 @@ function filterChange() {
 
 function getBeers(url, filters) {
   // update this alert to show what page it was called from
-  console.log(`getBeers was called from...`)
+  console.log(`getBeers was called from ${window.location.pathname}`)
   $.ajax({
     url: url,
     data: filters
