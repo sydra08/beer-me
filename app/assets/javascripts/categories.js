@@ -6,7 +6,7 @@ $(function(){
     getBeers(window.location.pathname);
     breweryFilterChange();
   }
-  alert("the stuff from categories.js was loaded")
+  console.log("the stuff from categories.js was loaded")
 })
 
 function breweryFilterChange() {

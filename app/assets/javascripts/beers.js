@@ -7,7 +7,7 @@ $(function(){
   filterChange();
   // make the call to GET /beers
   getBeers();
-  alert("the stuff from beers.js was loaded")
+  console.log("the stuff from beers.js was loaded")
   // should i conditionalize when stuff loads on the beers#show page?
   nextBeerBtn();
 })
@@ -81,7 +81,7 @@ function filterChange() {
 
 function getBeers(url, filters) {
   // update this alert to show what page it was called from
-  alert("getBeers was called from...")
+  console.log(`getBeers was called from ${window.location.pathname}`)
   $.ajax({
     url: url,
     data: filters
