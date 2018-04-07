@@ -12,6 +12,7 @@ $(function(){
   } else if (window.location.pathname.startsWith("/beers/")) {
     prevBeerBtn();
     nextBeerBtn();
+    getBeer(window.location.pathname)
     console.log("the stuff for beers#show was loaded");
   }
   console.log("the stuff from beers.js was loaded")
@@ -24,11 +25,8 @@ function prevBeerBtn(){
     alert("you clicked the previous button");
     // make GET request to /beers/:id for next beer
     let prevId = parseInt($("#beerHeader").attr("data-id")) - 1;
-    $.get("/beers/" + prevId, function (data){
-      let beer = data;
-      $("#beerHeader").attr("data-id", prevId);
-      displayBeer(beer);
-    })
+    let url = `/beers/${prevId}`;
+    getBeer(url);
   });
 }
 
@@ -37,12 +35,17 @@ function nextBeerBtn(){
     alert("you clicked the next button");
     // make GET request to /beers/:id for next beer
     let nextId = parseInt($("#beerHeader").attr("data-id")) + 1;
-    $.get("/beers/" + nextId, function (data){
-      let beer = data;
-      $("#beerHeader").attr("data-id", nextId);
-      displayBeer(beer);
-    })
+    let url = `/beers/${nextId}`;
+    getBeer(url);
   });
+}
+
+function getBeer(url) {
+  $.get(url, function(data){
+    let beer = data;
+    $("#beerHeader").attr("data-id", beer.id);
+    displayBeer(beer);
+  })
 }
 
 function displayBeer(beer){
