@@ -3,8 +3,6 @@ $(function(){
   // attach event to All Beers in nav - may remove this
   allBeersBtn();
   if (window.location.pathname === "/beers") {
-  // attach event to apply filter button
-  // applyFilterBtn();
     filterChange();
     // make the call to GET /beers
     getBeers();
@@ -12,7 +10,7 @@ $(function(){
   } else if (window.location.pathname.startsWith("/beers/")) {
     prevBeerBtn();
     nextBeerBtn();
-    getBeer(window.location.pathname)
+    getBeer(window.location.pathname);
     console.log("the stuff for beers#show was loaded");
   }
   console.log("the stuff from beers.js was loaded")
