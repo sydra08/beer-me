@@ -19,6 +19,16 @@ function nextBeerBtn(){
     let nextId = parseInt($(".js-next").attr("data-id")) + 1;
     $.get("/beers/" + nextId, function (data){
       console.log(data)
+      // update data
+      $(".beerName").text(data.name);
+      $(".abv").text(data.abv);
+      $(".beerDescription").text(data.description);
+      $(".breweryName").text(data.brewery.name);
+      $("a.breweryName").attr("href", "/breweries/" + data.brewery.id);
+      $(".categoryName").text(data.category.name);
+      $("a.categoryName").attr("href", "/categories/" + data.category.id);
+      // update URL
+      $(".js-next").attr("data-id", data.id);
     })
   })
 }

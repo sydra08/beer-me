@@ -2609,6 +2609,14 @@ button.icon,
 		margin-right: 0.5em;
 	}
 
+	input[type="submit"].icon:after,
+	input[type="reset"].icon:after,
+	input[type="button"].icon:after,
+	button.icon:after,
+	.button.icon:after {
+		margin-left: 0.5em;
+	}
+
 input[type="submit"].fit,
 input[type="reset"].fit,
 input[type="button"].fit,

@@ -1,12 +1,12 @@
 <header class="align-center">
-	<h2><%= @beer.name %></h2>
-  <p>Brewery: <%= link_to @beer.brewery_name, brewery_path(@beer.brewery) %>  </p>
+	<h2 class="beerName"><%= @beer.name %></h2>
+  <p>Brewery: <a href="/breweries/<%= @beer.brewery.id %>" class="breweryName"><%= @beer.brewery.name %> </a></p>
 </header>
 
 <div class="box">
-  <p><strong>Style: </strong><%= link_to @beer.category_name, category_path(@beer.category) %></p>
-  <p><strong>ABV: </strong><%= @beer.abv%>% </p>
-  <p><strong>Description: </strong><%= @beer.description %></p>
+  <p><strong>Style: </strong> <a href="/categories/<%= @beer.category.id %>" class="categoryName"><%= @beer.category.name %></a></p>
+  <p class="abv"><strong>ABV: </strong><%= @beer.abv%>% </p>
+  <p class="beerDescription"><strong>Description: </strong><%= @beer.description %></p>
 </div>
 
 <!-- probably want this whole thing to be a clickable area -->
