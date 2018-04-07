@@ -4,8 +4,9 @@
 </header>
 
 <div class="box">
+	<!-- maybe make this a table so that it's easier to update the data without losing labels -->
   <p><strong>Style: </strong> <a href="/categories/<%= @beer.category.id %>" class="categoryName"><%= @beer.category.name %></a></p>
-  <p class="abv"><strong>ABV: </strong><%= @beer.abv%>% </p>
+  <p class="beerABV"><strong>ABV: </strong><%= @beer.abv%>% </p>
   <p class="beerDescription"><strong>Description: </strong><%= @beer.description %></p>
 </div>
 
