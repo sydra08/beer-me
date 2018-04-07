@@ -1,8 +1,9 @@
 // document ready
 $(function(){
   if(window.location.pathname === "/breweries") {
+    // why isn't this firing when you go to /breweries ?
     getBreweries();
-  } else {
+  } else if (window.location.pathname.startsWith("/breweries/")) {
     getBeers(window.location.pathname);
     categoryFilterChange();
   }

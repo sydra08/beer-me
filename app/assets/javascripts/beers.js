@@ -81,7 +81,7 @@ function filterChange() {
 
 function getBeers(url, filters) {
   // update this alert to show what page it was called from
-  console.log(`getBeers was called from ${window.location.pathname}`)
+  console.log(`getBeers was called from...`)
   $.ajax({
     url: url,
     data: filters

@@ -2,7 +2,7 @@
 $(function(){
   if(window.location.pathname === "/categories") {
     getCategories();
-  } else {
+  } else if (window.location.pathname.startsWith("/categories/")) {
     getBeers(window.location.pathname);
     breweryFilterChange();
   }
