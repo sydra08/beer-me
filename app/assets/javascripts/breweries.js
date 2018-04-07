@@ -17,7 +17,7 @@ $(function(){
 function prevBreweryBtn(){
   $(".js-prev").on("click", function(){
     alert("you clicked on previous brewery");
-    let prevId = parseInt($("header.align-center").attr("data-id"))-1;
+    let prevId = parseInt($("#breweryHeader").attr("data-id"))-1;
     $.get("/breweries/" + prevId, function(data){
       console.log(data);
       let url = `/breweries/${prevId}`;
@@ -25,7 +25,7 @@ function prevBreweryBtn(){
       $("#breweryLocation").text(data[0].brewery.location);
       $("#breweryDescription").text(data[0].brewery.description);
       // update data-id
-      $("header.align-center").attr("data-id", prevId)
+      $("#breweryHeader").attr("data-id", prevId);
       getBeers(url);
     })
   });
@@ -34,7 +34,7 @@ function prevBreweryBtn(){
 function nextBreweryBtn(){
   $(".js-next").on("click", function(){
     alert("you clicked on next brewery");
-    let nextId = parseInt($("header.align-center").attr("data-id"))+1;
+    let nextId = parseInt($("#breweryHeader").attr("data-id"))+1;
     $.get("/breweries/" + nextId, function(data){
       console.log(data);
       // the data that's being returned includes everything - want to constrain so that it's just about breweries
@@ -43,7 +43,7 @@ function nextBreweryBtn(){
       $("#breweryLocation").text(data[0].brewery.location);
       $("#breweryDescription").text(data[0].brewery.description);
       // update data-id
-      $("header.align-center").attr("data-id", nextId)
+      $("#breweryHeader").attr("data-id", nextId);
       getBeers(url);
     })
   });
@@ -55,7 +55,7 @@ function categoryFilterChange() {
   $('#category').on("change", function(e){
     alert("you changed a category filter on /breweries");
     e.preventDefault();
-    let url = `/breweries/${$("header.align-center").attr("data-id")}`;
+    let url = `/breweries/${$("#breweryHeader").attr("data-id")}`;
     let category = $("#category option:selected").val();
     let formData = {category: category}
     getBeers(url, formData);

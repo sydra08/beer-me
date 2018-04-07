@@ -1,10 +1,13 @@
-<header class="align-center">
-	<h2><%= @category.name %></h2>
+<header class="align-center" id="categoryHeader" data-id="<%= @category.id %>">
+	<h2 id="categoryName"><%= @category.name %></h2>
+	<p><i class="icon fas fa-chevron-circle-left fa-lg"></i><a href="#" class="js-prev">PREV</a> &nbsp; &nbsp;
+	<a href="#" class="js-next">NEXT</a><i class="icon fas fa-chevron-circle-right fa-lg"></i></p>
 </header>
 
 <% if @category.description %>
+<!-- probably need to update this conditional since @category won't be a thing when jquery/AJAX is used to update -->
   <div class="box">
-    <p><%= @category.description %></p>
+    <p id="categoryDescription"><%= @category.description %></p>
   </div>
 <% end %>
 
@@ -19,6 +22,18 @@
 	</div>
 
 	<div class="6u$ 12u$(medium)">
-		<%= render partial: 'application/beer_table', locals: {beers: @beers} %>
+		<div class="table-wrapper">
+			<table>
+				<thead>
+					<tr>
+						<th>Brewery</th>
+						<th>Name</th>
+						<th>Abv</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>
