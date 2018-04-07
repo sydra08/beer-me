@@ -8,8 +8,20 @@ $(function(){
   // make the call to GET /beers
   getBeers();
   alert("the stuff from beers.js was loaded")
-
+  // should i conditionalize when stuff loads on the beers#show page?
+  nextBeerBtn();
 })
+
+function nextBeerBtn(){
+  $(".js-next").on("click", function(){
+    alert("you clicked the next button");
+    // make GET request to /beers/:id for next beer
+    let nextId = parseInt($(".js-next").attr("data-id")) + 1;
+    $.get("/beers/" + nextId, function (data){
+      console.log(data)
+    })
+  })
+}
 
 function allBeersBtn() {
   // when you click on the button it invokes getBeers()
