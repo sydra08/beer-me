@@ -38,6 +38,13 @@ function nextBreweryBtn(){
     $.get("/breweries/" + nextId, function(data){
       console.log(data);
       // the data that's being returned includes everything - want to constrain so that it's just about breweries
+      let url = `/breweries/${nextId}`;
+      $("#breweryName").text(data[0].brewery.name);
+      $("#breweryLocation").text(data[0].brewery.location);
+      $("#breweryDescription").text(data[0].brewery.description);
+      // update data-id
+      $("header.align-center").attr("data-id", nextId)
+      getBeers(url);
     })
   });
 }
@@ -48,7 +55,7 @@ function categoryFilterChange() {
   $('#category').on("change", function(e){
     alert("you changed a category filter on /breweries");
     e.preventDefault();
-    let url = $("form").attr("action");
+    let url = `/breweries/${$("header.align-center").attr("data-id")}`;
     let category = $("#category option:selected").val();
     let formData = {category: category}
     getBeers(url, formData);
