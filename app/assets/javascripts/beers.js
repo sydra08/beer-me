@@ -10,6 +10,7 @@ $(function(){
     getBeers();
     console.log("the stuff for beers#index was loaded");
   } else if (window.location.pathname.startsWith("/beers/")) {
+    prevBeerBtn();
     nextBeerBtn();
     console.log("the stuff for beers#show was loaded");
   }
@@ -18,19 +19,33 @@ $(function(){
 
 })
 
+function prevBeerBtn(){
+  $(".js-prev").on("click", function(){
+    alert("you clicked the previous button");
+    // make GET request to /beers/:id for next beer
+    let prevId = parseInt($("#beerHeader").attr("data-id")) - 1;
+    $.get("/beers/" + prevId, function (data){
+      let beer = data;
+      $("#beerHeader").attr("data-id", prevId);
+      displayBeer(beer);
+    })
+  });
+}
+
 function nextBeerBtn(){
   $(".js-next").on("click", function(){
     alert("you clicked the next button");
     // make GET request to /beers/:id for next beer
-    let nextId = parseInt($(".js-next").attr("data-id")) + 1;
+    let nextId = parseInt($("#beerHeader").attr("data-id")) + 1;
     $.get("/beers/" + nextId, function (data){
       let beer = data;
-      displayNextBeer(beer);
-    });
+      $("#beerHeader").attr("data-id", nextId);
+      displayBeer(beer);
+    })
   });
 }
 
-function displayNextBeer(beer){
+function displayBeer(beer){
   // update the page to show next beer's data
   $("#beerName").text(beer.name);
   $("#beerABV").text(beer.abv);
@@ -39,8 +54,6 @@ function displayNextBeer(beer){
   $("a#breweryName").attr("href", "/breweries/" + beer.brewery.id);
   $("#categoryName").text(beer.category.name);
   $("a#categoryName").attr("href", "/categories/" + beer.category.id);
-  // update URL
-  $(".js-next").attr("data-id", beer.id);
 }
 
 function allBeersBtn() {
@@ -51,25 +64,6 @@ function allBeersBtn() {
     // should I reset the filter buttons here just in case you click here after applying a filter?
     getBeers();
   })
-}
-
-function applyFilterBtn() {
-  // submitting a form now so handle it that way
-  $('#beerFilter').on("submit", function(e){
-    alert("you clicked on apply filter")
-    // without this the filters don't work properly
-    e.preventDefault();
-    // use option:selected to get the value (aka ID) for the selected filters to send with the request
-    let brewery = $("#brewery option:selected").val();
-    let category = $("#category option:selected").val();
-    let formData = {category: category, brewery: brewery}
-    // need to capture the data from the form here
-    // need to make sure to pass through the filter param
-    // console.log(formData)
-    getBeers(formData);
-  });
-  // category filters are still broken for some reason but brewery filters are fine
-  // should the filters go back to default or should they
 }
 
 function filterChange() {
@@ -87,14 +81,15 @@ function filterChange() {
 
 function getBeers(url, filters) {
   // update this alert to show what page it was called from
-  console.log(`getBeers was called from ${window.location.pathname}`)
+  console.log(`getBeers was called from ${url}`)
   $.ajax({
     url: url,
     data: filters
   }).success(function(beerData){
+    // when there's no beer data this doesn't happen
     // make the apply filter button active again
     displayBeers(beerData);
-  });
+  })
 }
 
 function displayBeers(beerData) {
