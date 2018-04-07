@@ -21,6 +21,7 @@ class BreweriesController < ApplicationController
     else
       @beers = @brewery.beers
     end
+    # there are 3 separate calls here when you click on a brewery from the brewery list
     # binding.pry
     respond_to do |format|
       # apparently order matters here

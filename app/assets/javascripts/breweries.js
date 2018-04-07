@@ -5,6 +5,7 @@ $(function(){
     getBreweries();
     console.log("the stuff for breweries#index was loaded");
   } else if (window.location.pathname.startsWith("/breweries/")) {
+    // when the page first loads use the url otherwise use the #breweryHeader
     getBrewery(window.location.pathname);
     prevBreweryBtn();
     nextBreweryBtn();
