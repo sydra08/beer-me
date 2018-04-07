@@ -1,13 +1,13 @@
 <header class="align-center">
-	<h2 class="beerName"><%= @beer.name %></h2>
-  <p>Brewery: <a href="/breweries/<%= @beer.brewery.id %>" class="breweryName"><%= @beer.brewery.name %> </a></p>
+	<h2 id="beerName"><%= @beer.name %></h2>
+  <p>Brewery: <a href="/breweries/<%= @beer.brewery.id %>" id="breweryName"><%= @beer.brewery.name %> </a></p>
 </header>
 
 <div class="box">
 	<!-- maybe make this a table so that it's easier to update the data without losing labels -->
-  <p><strong>Style: </strong> <a href="/categories/<%= @beer.category.id %>" class="categoryName"><%= @beer.category.name %></a></p>
-  <p class="beerABV"><strong>ABV: </strong><%= @beer.abv%>% </p>
-  <p class="beerDescription"><strong>Description: </strong><%= @beer.description %></p>
+  <p><strong>Style: </strong> <a href="/categories/<%= @beer.category.id %>" id="categoryName"><%= @beer.category.name %></a></p>
+  <p id="beerABV"><strong>ABV: </strong><%= @beer.abv%>% </p>
+  <p id="beerDescription"><strong>Description: </strong><%= @beer.description %></p>
 </div>
 
 <!-- probably want this whole thing to be a clickable area -->
@@ -15,7 +15,7 @@
 <!-- how do i get the icon to be green too? -->
 
 <div class="js-next" data-id="<%= @beer.id %>">
-	<a href="#">NEXT</a>&nbsp;<i class="icon fas fa-arrow-circle-right fa-lg"></i>
+	<a href="#">NEXT</a>&nbsp;<i class="icon fas fa-chevron-circle-right fa-lg"></i>
 </div>
 
 <!-- <button class="icon:after fas fa-arrow-circle-right fa-sm"><span>Next</span></button> -->

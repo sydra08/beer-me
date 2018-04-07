@@ -32,13 +32,13 @@ function nextBeerBtn(){
 
 function displayNextBeer(beer){
   // update the page to show next beer's data
-  $(".beerName").text(beer.name);
-  $(".beerABV").text(beer.abv);
-  $(".beerDescription").text(beer.description);
-  $(".breweryName").text(beer.brewery.name);
-  $("a.breweryName").attr("href", "/breweries/" + beer.brewery.id);
-  $(".categoryName").text(beer.category.name);
-  $("a.categoryName").attr("href", "/categories/" + beer.category.id);
+  $("#beerName").text(beer.name);
+  $("#beerABV").text(beer.abv);
+  $("#beerDescription").text(beer.description);
+  $("#breweryName").text(beer.brewery.name);
+  $("a#breweryName").attr("href", "/breweries/" + beer.brewery.id);
+  $("#categoryName").text(beer.category.name);
+  $("a#categoryName").attr("href", "/categories/" + beer.category.id);
   // update URL
   $(".js-next").attr("data-id", beer.id);
 }
