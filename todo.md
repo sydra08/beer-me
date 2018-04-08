@@ -12,22 +12,29 @@
 [ ] probably want a different JS file for each controller?
 [X] figure out why there are so many errors when the page is loaded - removed extra scripts from the bottom of the page
 [ ] more research on ActiveModel Serializers and how they work with brewery-beer relationship
-[ ] why does the breweries#index show the default beers#index layout? - is it because i added the serializer?
-[ ] need to figure out why deleting the breweries.coffee caused everything to break. should everything be in one js file? seems like too much logic in one place?
+[x] why does the breweries#index show the default beers#index layout? - is it because i added the serializer?
+[x] need to figure out why deleting the breweries.coffee caused everything to break. should everything be in one js file? seems like too much logic in one place?
 + figured out how to revert back to old commit [https://stackoverflow.com/questions/4114095/how-to-revert-git-repository-to-a-previous-commit]
 [x] need to figure out how to only load the breweries list on the breweries#index page and not the breweries#show page
-[ ] figure out why some functions are being called multiple times on page load when it's not necessary
-[ ] stop some functions from running on specific pages
+[x] figure out why some functions are being called multiple times on page load when it's not necessary
+[x] stop some functions from running on specific pages
 [ ] update beer table on breweries#show
 [x] why are the category options appearing on categories#show
+[ ] add paperclip gem to allow for beer picture attachments
+[x] fix js load so that getBeers() isn't called each time a different js file is loaded - now it only gets called once
+[ ] consider changing serializers so that you get less data for some things
+[ ] fix bug - when a brewery or category has no beers it doesn't return data...think I need to work on splitting up the Serializers and having different ones used for associated data (i.e. index pages) vs show pages
+  + think it has something to do with Beer being the first thing that gets read in. so when there are no beers for something then you don't get any of the nested data. Maybe look into separating the nodes like {http://railscasts.com/episodes/409-active-model-serializers?view=asciicast} suggests?
+[ ] add statuses to the json calls
+[ ] update GET requests to use ".json" at the end of each
 
-[x] render index page w jQuery and AMS:
+[/] render index page w jQuery and AMS:
   [x] **/beers** use Rails API to get data to display
     [x] create serializer for beers
     [x] confirm that JSON renders properly
     [x] update page to call a JS function that then makes the API call
   [x] **/beers** when you filter beers based on category it renders the index update without a page refresh
-  [x] **/beers** when you filter beers based on brewery it renders the index update without a page refresh
+  [/] **/beers** when you filter beers based on brewery it renders the index update without a page refresh
     [x] figure out how to deal with the apply filter button - removed it for now
     [ ] should there be a reset filter button?
     [ ] have the filters be disabled until the document is ready and they can be used?
@@ -35,9 +42,30 @@
   [x] **/users/:id/user_beers** when you filter beers based on category it renders the index update without a page refresh
   [x] **/users/:id/user_beers** when you filter beers based on brewery it renders the index update without a page refresh
   [x] **/breweries/:id** when you filter beers based on category it renders the index update without a page refresh
-[ ] render show page w jQuery and AMS:
-  [ ] **/breweries/:id** PREV/NEXT buttons on the page to view the other breweries (need to make sure this works within the filter concept...)
-  [ ] **/beers/:id** PREV/NEXT buttons on the page to view the other beers...but maybe only the beers from that brewery? or something...
+[/] render show page w jQuery and AMS:
+  [/] **/breweries/:id** PREV/NEXT buttons on the page to view the other breweries (need to make sure this works within the filter concept...)
+    [ ] disable the next button when it's the last one in the list
+    [ ] disable the prev button when it's the first record
+    [x] next button
+    [x] previous button
+    [ ] fix the button styling so that the arrow and the text are both clickable
+    [x] need to fix this so that when you call the filter it pulls the data-id attribute for the url
+  [/] **/categories/:id** PREV/NEXT buttons on the page to view the other categories (need to make sure this works within the filter concept...)
+    [ ] disable the next button when it's the last one in the list
+    [ ] disable the prev button when it's the first record
+    [x] next button
+    [x] previous button
+    [ ] figure out why you can't nav to /categories/5 (lager) from #4 or #6 - the data comes back as empty but when you go to the page normally it's fine
+      - i think this fails when there are no beers to return YUPPPPP
+    [ ] fix the button styling so that the arrow and the text are both clickable
+    [x] need to fix this so that when you call the filter it pulls the data-id attribute for the url
+  [/] **/beers/:id** PREV/NEXT buttons on the page to view the other beers...but maybe only the beers from that brewery? or something...
+    [ ] disable the next button when it's the last one in the list
+    [ ] disable the prev button when it's the first record
+    [x] next button
+    [ ] previous button
+    [ ] fix the button styling so that the arrow and the text are both clickable
+    [ ] make it so that the labels still appear for ABV and Description
   [ ] **/users/:id/user_beers/:id** PREV/NEXT buttons on the page to view the other user beers
 [ ] has-many relationship
 [ ] use Rails API and a form to create a resource and render it without page refresh    
@@ -45,6 +73,11 @@
   [ ] **/users/:id/user_beers/:id** update status of beer (this isn't really as interesting bc you can see the visual status change before you update it anyways. would be minor to have the button not be disabled for a bit, but a good add)
   [ ] can I incorporate something in here that helps when you're adding a new beer to collection
 [ ] translate JSON responses to JS Model Objects with at least one method on the prototype - going to leave this for now until I work through the rest
+
+---
+Blog Post idea
++ fixing the error where when there were no beers associated with a brewery or a category that the data returned was empty. part of it was how the Serializers were organized - the brewery and category models(?) were always linked to the beer data bc that file was being read in first (i think). wound up creating separate serializers: one for displaying the full data needed for a #Show page and one for including the bare minimum needed to figure out the associations. to use the specific serializer, the controllers had to be updated to return @brewery or @category instead of @beers. however doing this made it so that ONLY the category/brewery [removed filter logic from those 2 controllers and created getBrewery() and getCategory() functions to retrieve the data] data appeared on the page and the associated beer list didn't. so in order to preserve the filter functionality and get the assoc beer list to load, i updated getBeers() to always make requests to /beers. since the data didn't have to come solely from the associated controller, i was able to make calls to 2 separate endpoints in order for the page to load. 
+
 
 
 *December 11 Goals*
