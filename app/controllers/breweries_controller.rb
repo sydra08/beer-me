@@ -2,12 +2,12 @@ class BreweriesController < ApplicationController
   def index
     @breweries = Brewery.alpha_sorted
 
-    render json: @breweries
-    # respond_to do |format|
-    #   # apparently order matters here
-    #   format.json {render json: @breweries}
-    #   format.html {render :index}
-    # end
+    # render json: @breweries, each_serializer: BreweryShowSerializer
+    respond_to do |format|
+      # apparently order matters here
+      format.json {render json: @breweries, each_serializer: BreweryShowSerializer}
+      format.html {render :index}
+    end
   end
 
   def show
@@ -24,13 +24,13 @@ class BreweriesController < ApplicationController
     # there are 3 separate calls here when you click on a brewery from the brewery list
     # binding.pry
 
-    # now this just renders the brewery info that we need 
-    render json: @brewery, serializer: BreweryShowSerializer
-    # respond_to do |format|
-    #   # apparently order matters here
-    #   format.json {render json: @beers}
-    #   format.html {render :show}
-    # end
+    # now this just renders the brewery info that we need
+
+    respond_to do |format|
+      # apparently order matters here
+      format.json {render json: @brewery, serializer: BreweryShowSerializer}
+      format.html {render :show}
+    end
 
   end
 
