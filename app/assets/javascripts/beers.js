@@ -72,23 +72,21 @@ function filterChange() {
   $('#beerFilter').on("change", function(e){
     alert("you changed a filter on /beers");
     e.preventDefault();
-    let url = $("form").attr("action");
     let brewery = $("#brewery option:selected").val();
     let category = $("#category option:selected").val();
-    let formData = {category: category, brewery: brewery}
-    getBeers(url, formData);
+    let formData = {category: category, brewery: brewery};
+    getBeers(formData);
   })
 }
 
-function getBeers(url, filters) {
+function getBeers(filters) {
   // update this alert to show what page it was called from
-  console.log(`getBeers was called from ${url}`)
+  console.log(`getBeers was called from...`)
   $.ajax({
-    url: url,
+    url: "/beers",
     data: filters
   }).success(function(beerData){
-    // when there's no beer data this doesn't happen
-    // make the apply filter button active again
+    console.log(beerData);
     displayBeers(beerData);
   })
 }
