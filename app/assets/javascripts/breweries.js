@@ -17,6 +17,8 @@ $(function(){
 
 function getBrewery(url){
   $.get(url, function(data){
+    console.log(data)
+    // debugger
     let brewery = data[0].brewery;
     let path = `/breweries/${brewery.id}`;
     $("#breweryName").text(brewery.name);
