@@ -18,15 +18,14 @@ $(function(){
 function getBrewery(url){
   $.get(url, function(data){
     console.log(data)
-    // debugger
-    let brewery = data[0].brewery;
-    let path = `/breweries/${brewery.id}`;
+    let brewery = data;
+    let filters = {brewery: brewery.id};
     $("#breweryName").text(brewery.name);
     $("#breweryLocation").text(brewery.location);
     $("#breweryDescription").text(brewery.description);
     // update data-id
     $("#breweryHeader").attr("data-id", brewery.id);
-    getBeers(path);
+    getBeers(filters);
   })
 }
 
@@ -34,7 +33,6 @@ function prevBreweryBtn(){
   $(".js-prev").on("click", function(){
     alert("you clicked on previous brewery");
     let prevId = parseInt($("#breweryHeader").attr("data-id"))-1;
-    getBrewery()
     $.get("/breweries/" + prevId, function(data){
       console.log(data);
       let url = `/breweries/${prevId}`;
@@ -61,10 +59,10 @@ function categoryFilterChange() {
   $('#category').on("change", function(e){
     alert("you changed a category filter on /breweries");
     e.preventDefault();
-    let url = `/breweries/${$("#breweryHeader").attr("data-id")}`;
     let category = $("#category option:selected").val();
-    let formData = {category: category}
-    getBeers(url, formData);
+    let brewery = $("#breweryHeader").attr("data-id");
+    let formData = {category: category, brewery: brewery};
+    getBeers(formData);
   })
 }
 

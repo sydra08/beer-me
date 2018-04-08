@@ -5,7 +5,7 @@ class BreweriesController < ApplicationController
     # render json: @breweries, each_serializer: BreweryShowSerializer
     respond_to do |format|
       # apparently order matters here
-      format.json {render json: @breweries, each_serializer: BreweryShowSerializer}
+      format.json {render json: @breweries, each_serializer: BrewerySerializer}
       format.html {render :index}
     end
   end
@@ -28,7 +28,7 @@ class BreweriesController < ApplicationController
 
     respond_to do |format|
       # apparently order matters here
-      format.json {render json: @brewery, serializer: BreweryShowSerializer}
+      format.json {render json: @brewery, serializer: BrewerySerializer}
       format.html {render :show}
     end
 
