@@ -18,10 +18,12 @@ class UserBeersController < ApplicationController
         @userbeers = UserBeer.by_user(params[:user_id])
       end
     end
+    render json: @userbeers
   end
 
   def show
     @userbeer = UserBeer.find_by(id: params[:id])
+    render json: @userbeer
   end
 
   def update
