@@ -3,9 +3,8 @@ $(function(){
   // attach event to All Beers in nav - may remove this
   allBeersBtn();
   if (window.location.pathname === "/beers") {
-    filterChange();
-    // make the call to GET /beers
     getBeers();
+    filterChange();
     console.log("the stuff for beers#index was loaded");
   } else if (window.location.pathname.startsWith("/beers/")) {
     prevBeerBtn();
@@ -15,8 +14,30 @@ $(function(){
   }
   console.log("the stuff from beers.js was loaded")
   // should i conditionalize when stuff loads on the beers#show page?
-
 })
+
+
+function allBeersBtn() {
+  // when you click on the button it invokes getBeers()
+  $('#beers').on("click", function(e){
+    alert("you clicked on all beers")
+    // e.preventDefault(); - removing this made the page load after the click
+    // should I reset the filter buttons here just in case you click here after applying a filter?
+    getBeers();
+  })
+}
+
+function filterChange() {
+  // this works and you don't have to worry about the apply filter button
+  $('#beerFilter').on("change", function(e){
+    alert("you changed a filter on /beers");
+    e.preventDefault();
+    let brewery = $("#brewery option:selected").val();
+    let category = $("#category option:selected").val();
+    let formData = {category: category, brewery: brewery};
+    getBeers(formData);
+  })
+}
 
 function prevBeerBtn(){
   $(".js-prev").on("click", function(){
@@ -41,42 +62,20 @@ function nextBeerBtn(){
 function getBeer(url) {
   $.get(url, function(data){
     let beer = data;
-    $("#beerHeader").attr("data-id", beer.id);
     displayBeer(beer);
   })
 }
 
 function displayBeer(beer){
   // update the page to show next beer's data
+  $("#beerHeader").attr("data-id", beer.id);
   $("#beerName").text(beer.name);
-  $("#beerABV").text(beer.abv);
+  $("#beerABV").text(`${beer.abv}%`);
   $("#beerDescription").text(beer.description);
   $("#breweryName").text(beer.brewery.name);
   $("a#breweryName").attr("href", "/breweries/" + beer.brewery.id);
   $("#categoryName").text(beer.category.name);
   $("a#categoryName").attr("href", "/categories/" + beer.category.id);
-}
-
-function allBeersBtn() {
-  // when you click on the button it invokes getBeers()
-  $('#beers').on("click", function(e){
-    alert("you clicked on all beers")
-    // e.preventDefault(); - removing this made the page load after the click
-    // should I reset the filter buttons here just in case you click here after applying a filter?
-    getBeers();
-  })
-}
-
-function filterChange() {
-  // this works and you don't have to worry about the apply filter button
-  $('#beerFilter').on("change", function(e){
-    alert("you changed a filter on /beers");
-    e.preventDefault();
-    let brewery = $("#brewery option:selected").val();
-    let category = $("#category option:selected").val();
-    let formData = {category: category, brewery: brewery};
-    getBeers(formData);
-  })
 }
 
 function getBeers(filters) {
