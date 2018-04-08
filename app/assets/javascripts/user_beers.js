@@ -57,19 +57,20 @@ function displayUserBeers(userBeerData) {
   $('tbody').empty();
   // when the list is empty it should show you "no results"
   if (userBeerData.length === 0) {
-    $('tbody').append("<tr><td><em>No results</em></td><td></td><td></td><td></td></tr>");
+    $('tbody').append("<tr><td><em>No results</em></td><td></td><td></td><td></td><td></td></tr>");
   } else {
-    userBeerData.forEach(function(beer){
-      console.log("this is data about an individual beer");
-      console.log(beer);
+    userBeerData.forEach(function(userBeer){
+      console.log("this is data about an individual user beer");
+      console.log(userBeer);
       // let breweryName = beer.brewery.name;
       // let breweryId = beer.brewery.id;
-      // let beerName = beer.name;
-      // let beerAbv = beer.abv;
-      // let beerId = beer.id;
+      let beerName = userBeer.beer.name;
+      let beerAbv = userBeer.beer.abv;
+      let userBeerId = userBeer.id;
+      let userId = userBeer.user.id;
       // // probably want to use a template here
       // // this successfully adds all of the beers with the proper links
-      // $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="beerName"><a href="/beers/${beerId}">${beerName}</a></td><td id="abv">${beerAbv}%</td></tr>`);
+      $('tbody').append(`<tr><td id="breweryName"><a href="#">[breweryName]</a></td><td id="beerName"><a href="/users/${userId}/user_beers/${userBeerId}">${beerName}</a></td><td id="abv">${beerAbv}%</td><td>[insert trash]</td></tr>`);
     })
   }
 }
