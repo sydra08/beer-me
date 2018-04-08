@@ -27,6 +27,11 @@
   + think it has something to do with Beer being the first thing that gets read in. so when there are no beers for something then you don't get any of the nested data. Maybe look into separating the nodes like {http://railscasts.com/episodes/409-active-model-serializers?view=asciicast} suggests?
 [ ] add statuses to the json calls
 [ ] update GET requests to use ".json" at the end of each
+[ ] figure out why brewery and category data aren't showing up in the json for user_beers/:id - think that i need to add some custom methods to get this to show up - or use include in the serializer?
+  [ ] maybe make a separate call to retrieve the brewery information based on the list of beers? but if i do this then when you filter it won't work since the JSON doesn't return the brewery and category data
+  [ ] is there a way to make a call to the /beers endpoint for this instead with a constraint for user_id?
+[ ] look into scope methods within serializer for filters? {https://github.com/rails-api/active_model_serializers/blob/v0.10.6/docs/general/serializers.md}
+
 
 [/] render index page w jQuery and AMS:
   [x] **/beers** use Rails API to get data to display
@@ -55,7 +60,7 @@
     [ ] disable the prev button when it's the first record
     [x] next button
     [x] previous button
-    [ ] figure out why you can't nav to /categories/5 (lager) from #4 or #6 - the data comes back as empty but when you go to the page normally it's fine
+    [x] figure out why you can't nav to /categories/5 (lager) from #4 or #6 - the data comes back as empty but when you go to the page normally it's fine
       - i think this fails when there are no beers to return YUPPPPP
     [ ] fix the button styling so that the arrow and the text are both clickable
     [x] need to fix this so that when you call the filter it pulls the data-id attribute for the url
@@ -63,7 +68,7 @@
     [ ] disable the next button when it's the last one in the list
     [ ] disable the prev button when it's the first record
     [x] next button
-    [ ] previous button
+    [x] previous button
     [ ] fix the button styling so that the arrow and the text are both clickable
     [ ] make it so that the labels still appear for ABV and Description
   [ ] **/users/:id/user_beers/:id** PREV/NEXT buttons on the page to view the other user beers
@@ -76,7 +81,7 @@
 
 ---
 Blog Post idea
-+ fixing the error where when there were no beers associated with a brewery or a category that the data returned was empty. part of it was how the Serializers were organized - the brewery and category models(?) were always linked to the beer data bc that file was being read in first (i think). wound up creating separate serializers: one for displaying the full data needed for a #Show page and one for including the bare minimum needed to figure out the associations. to use the specific serializer, the controllers had to be updated to return @brewery or @category instead of @beers. however doing this made it so that ONLY the category/brewery [removed filter logic from those 2 controllers and created getBrewery() and getCategory() functions to retrieve the data] data appeared on the page and the associated beer list didn't. so in order to preserve the filter functionality and get the assoc beer list to load, i updated getBeers() to always make requests to /beers. since the data didn't have to come solely from the associated controller, i was able to make calls to 2 separate endpoints in order for the page to load. 
++ fixing the error where when there were no beers associated with a brewery or a category that the data returned was empty. part of it was how the Serializers were organized - the brewery and category models(?) were always linked to the beer data bc that file was being read in first (i think). wound up creating separate serializers: one for displaying the full data needed for a #Show page and one for including the bare minimum needed to figure out the associations. to use the specific serializer, the controllers had to be updated to return @brewery or @category instead of @beers. however doing this made it so that ONLY the category/brewery [removed filter logic from those 2 controllers and created getBrewery() and getCategory() functions to retrieve the data] data appeared on the page and the associated beer list didn't. so in order to preserve the filter functionality and get the assoc beer list to load, i updated getBeers() to always make requests to /beers. since the data didn't have to come solely from the associated controller, i was able to make calls to 2 separate endpoints in order for the page to load.
 
 
 
