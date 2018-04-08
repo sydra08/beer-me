@@ -33,11 +33,8 @@ function prevBreweryBtn(){
   $(".js-prev").on("click", function(){
     alert("you clicked on previous brewery");
     let prevId = parseInt($("#breweryHeader").attr("data-id"))-1;
-    $.get("/breweries/" + prevId, function(data){
-      console.log(data);
-      let url = `/breweries/${prevId}`;
-      getBrewery(url);
-    })
+    let url = `/breweries/${prevId}`;
+    getBrewery(url);
   });
 }
 
@@ -45,12 +42,8 @@ function nextBreweryBtn(){
   $(".js-next").on("click", function(){
     alert("you clicked on next brewery");
     let nextId = parseInt($("#breweryHeader").attr("data-id"))+1;
-    $.get("/breweries/" + nextId, function(data){
-      console.log(data);
-      // the data that's being returned includes everything - want to constrain so that it's just about breweries
-      let url = `/breweries/${nextId}`;
-      getBrewery(url);
-    })
+    let url = `/breweries/${nextId}`;
+    getBrewery(url);
   });
 }
 
