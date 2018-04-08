@@ -1,11 +1,12 @@
 class CategoriesController < ApplicationController
   def index
     @categories = Category.alpha_sorted
-    respond_to do |format|
-      # apparently order matters here
-      format.json {render json: @categories}
-      format.html {render :index}
-    end
+    # respond_to do |format|
+    #   # apparently order matters here
+    #   format.json {render json: @categories}
+    #   format.html {render :index}
+    # end
+    render json: @categories
   end
 
   def show
@@ -19,10 +20,11 @@ class CategoriesController < ApplicationController
     else
       @beers = @category.beers
     end
-    respond_to do |format|
-      # apparently order matters here
-      format.json {render json: @beers}
-      format.html {render :show}
-    end
+    render json: @beers
+    # respond_to do |format|
+    #   # apparently order matters here
+    #   format.json {render json: @beers}
+    #   format.html {render :show}
+    # end
   end
 end

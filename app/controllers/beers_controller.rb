@@ -14,18 +14,20 @@ class BeersController < ApplicationController
     else
       @beers = Beer.all
     end
-    respond_to do |format|
-      format.json {render json: @beers}
-      format.html {render :index}
-    end
+    render json: @beers
+    # respond_to do |format|
+    #   format.json {render json: @beers}
+    #   format.html {render :index}
+    # end
   end
 
   def show
     @beer = Beer.find_by(id: params[:id])
-    respond_to do |format|
-      format.json {render json: @beer}
-      format.html {render :show}
-    end
+    render json: @beer
+    # respond_to do |format|
+    #   format.json {render json: @beer}
+    #   format.html {render :show}
+    # end
   end
 
   def new
