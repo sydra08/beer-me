@@ -3,6 +3,7 @@ $(function(){
   if ((/(\/users\/)[0-9]{1,}(\/user_beers\/)[0-9]{1,}/).test(window.location.pathname)) {
     prevUserBeerBtn();
     nextUserBeerBtn();
+    addNote();
     getUserBeer(window.location.pathname);
     console.log("the stuff for userbeers#show was loaded");
   } else if ((/(\/users\/)[0-9]{1,}(\/user_beers)/).test(window.location.pathname)) {
@@ -14,6 +15,19 @@ $(function(){
   };
   console.log("the stuff from userbeers.js was loaded")
 })
+
+function addNote() {
+  $("form#notesForm").on("submit", function(e){
+      alert("you clicked add note");
+      e.preventDefault();
+      let formData = $(this).serialize();
+      console.log(formData)
+      let url = `/users/${}/user_beers/${$("#userBeerHeader").attr("data-id")}`;
+      // $.post(url, formData) {
+      //
+      // }
+  });
+}
 
 function prevUserBeerBtn(){
   $(".js-prev").on("click", function(){
