@@ -77,6 +77,8 @@
     [ ] disable the prev button when it's the first record
     [x] next button
     [x] previous button
+    [x] BUG: you can look through all of the beer records even if the userbeer doesn't exist because of the call to getBeer
+    [ ] figure out how to get the available user beer records to be constrained to the current user
     [ ] fix the button styling so that the arrow and the text are both clickable
 [/] has-many relationship
   [x] brewery has_many beers - see this on **/breweries/:id**
