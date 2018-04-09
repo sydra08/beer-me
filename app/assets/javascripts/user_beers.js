@@ -34,9 +34,12 @@ function nextUserBeerBtn(){
   $(".js-next").on("click", function(){
     alert("you clicked the next button");
     let userId = $("#userBeerHeader").attr("data-user")
-    let nextId = parseInt($("#userBeerHeader").attr("data-id")) + 1;
-    let url = `/users/${userId}/user_beers/${nextId}`;
-    getUserBeer(url);
+    debugger
+    if (userId === current_user) {
+      let nextId = parseInt($("#userBeerHeader").attr("data-id")) + 1;
+      let url = `/users/${userId}/user_beers/${nextId}`;
+      getUserBeer(url);
+    }
   });
 }
 
@@ -46,16 +49,24 @@ function getUserBeer(url) {
   $.get(url, function(data) {
     let userBeer = data;
     console.log(userBeer);
-    let url = `/beers/${userBeer.beer_id}`;
+    // let url = `/beers/${userBeer.beer_id}`;
     displayUserBeer(userBeer);
-    getBeer(url)
+    // getBeer(url)
   })
 }
 
 function displayUserBeer(userBeer){
   // update the page to show next beer's data
+  $("#beerName").text(userBeer.beer.name);
+  $("#beerABV").text(`${userBeer.beer.abv}%`);
+  $("#beerDescription").text(userBeer.beer.description);
+  // $("#breweryName").text(userBeer.brewery.name);
+  // $("a#breweryName").attr("href", "/breweries/" + userBeer.brewery.id);
+  // $("#categoryName").text(userBeer.category.name);
+  // $("a#categoryName").attr("href", "/categories/" + userBeer.category.id);
   $("#userBeerHeader").attr("data-id", userBeer.id);
-  $("#userBeerHeader").attr("data-user", userBeer.user.id);
+  // need to make this static. otherwise after it runs out of userbeers for a particular user it moves onto the next user
+  $("#userBeerHeader").attr("data-user", userBeer.user_id);
   $("#userBeerNotes").text(userBeer.notes);
 }
 
