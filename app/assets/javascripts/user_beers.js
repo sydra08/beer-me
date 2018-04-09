@@ -1,6 +1,6 @@
 // document ready
 $(function(){
-  if ((/(\/users\/)[0-9]{1,}(\/user_beers\/)[0-9]{1,}/).test(window.location.pathname)) {
+  if ((/(\/user_beers\/)[0-9]{1,}/).test(window.location.pathname)) {
     prevUserBeerBtn();
     nextUserBeerBtn();
     addNote();
@@ -22,7 +22,9 @@ function addNote() {
       e.preventDefault();
       let formData = $(this).serialize();
       console.log(formData)
-      let url = `/users/${}/user_beers/${$("#userBeerHeader").attr("data-id")}`;
+      // hardcode user Id for now
+      let userId = 1;
+      let url = `/users/${userId}/user_beers/${$("#userBeerHeader").attr("data-id")}`;
       // $.post(url, formData) {
       //
       // }

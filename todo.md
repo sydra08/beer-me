@@ -32,6 +32,7 @@
   [ ] is there a way to make a call to the /beers endpoint for this instead with a constraint for user_id?
 [ ] look into scope methods within serializer for filters? {https://github.com/rails-api/active_model_serializers/blob/v0.10.6/docs/general/serializers.md}
 [ ] could use scope for user beers?
+[ ] conditional for user_beers seems to make the index page load slower
 
 
 [/] render index page w jQuery and AMS:
@@ -83,10 +84,11 @@
 [/] has-many relationship
   [x] brewery has_many beers - see this on **/breweries/:id**
   [x] category has_many beers - see this on **/categories/:id**
-  [ ] user has_many beers
+  [x] user has_many beers - see this on **/users/:id/user_beers**
 [ ] use Rails API and a form to create a resource and render it without page refresh    
   [ ] **/users/:id/user_beers/:id** add notes to beer
     [ ] hijack Add Note submission
+      + the form fields on this page are both id="edit_user_beer_2" - does this have to do with form_for and can it overridden?
     [ ] send POST request to /user_beers/:id
   [ ] **/users/:id/user_beers/:id** update status of beer (this isn't really as interesting bc you can see the visual status change before you update it anyways. would be minor to have the button not be disabled for a bit, but a good add)
   [ ] can I incorporate something in here that helps when you're adding a new beer to collection?
