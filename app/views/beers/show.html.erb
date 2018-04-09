@@ -8,8 +8,8 @@
 <div class="box">
 	<!-- maybe make this a table so that it's easier to update the data without losing labels -->
   <p><strong>Style: </strong> <a href="/categories/<%= @beer.category.id %>" id="categoryName"><%= @beer.category.name %></a></p>
-  <p id="beerABV"><strong>ABV: </strong><%= @beer.abv%>% </p>
-  <p id="beerDescription"><strong>Description: </strong><%= @beer.description %></p>
+  <p><strong>ABV: </strong><span id="beerABV"></span></p>
+  <p><strong>Description: </strong><span id="beerDescription"></span></p>
 </div>
 
 <!-- probably want this whole thing to be a clickable area -->

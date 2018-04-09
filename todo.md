@@ -22,8 +22,8 @@
 [x] why are the category options appearing on categories#show
 [ ] add paperclip gem to allow for beer picture attachments
 [x] fix js load so that getBeers() isn't called each time a different js file is loaded - now it only gets called once
-[ ] consider changing serializers so that you get less data for some things
-[ ] fix bug - when a brewery or category has no beers it doesn't return data...think I need to work on splitting up the Serializers and having different ones used for associated data (i.e. index pages) vs show pages
+[x] consider changing serializers so that you get less data for some things
+[x] fix bug - when a brewery or category has no beers it doesn't return data...think I need to work on splitting up the Serializers and having different ones used for associated data (i.e. index pages) vs show pages
   + think it has something to do with Beer being the first thing that gets read in. so when there are no beers for something then you don't get any of the nested data. Maybe look into separating the nodes like {http://railscasts.com/episodes/409-active-model-serializers?view=asciicast} suggests?
 [ ] add statuses to the json calls
 [ ] update GET requests to use ".json" at the end of each
@@ -31,6 +31,7 @@
   [ ] maybe make a separate call to retrieve the brewery information based on the list of beers? but if i do this then when you filter it won't work since the JSON doesn't return the brewery and category data
   [ ] is there a way to make a call to the /beers endpoint for this instead with a constraint for user_id?
 [ ] look into scope methods within serializer for filters? {https://github.com/rails-api/active_model_serializers/blob/v0.10.6/docs/general/serializers.md}
+[ ] could use scope for user beers?
 
 
 [/] render index page w jQuery and AMS:
@@ -72,11 +73,16 @@
     [ ] fix the button styling so that the arrow and the text are both clickable
     [ ] make it so that the labels still appear for ABV and Description
   [ ] **/users/:id/user_beers/:id** PREV/NEXT buttons on the page to view the other user beers
-[ ] has-many relationship
+[/] has-many relationship
+  [x] brewery has_many beers - see this on **/breweries/:id**
+  [x] category has_many beers - see this on **/categories/:id**
+  [ ] user has_many beers
 [ ] use Rails API and a form to create a resource and render it without page refresh    
   [ ] **/users/:id/user_beers/:id** add notes to beer
+    [ ] hijack Add Note submission
+    [ ] send POST request to /user_beers/:id
   [ ] **/users/:id/user_beers/:id** update status of beer (this isn't really as interesting bc you can see the visual status change before you update it anyways. would be minor to have the button not be disabled for a bit, but a good add)
-  [ ] can I incorporate something in here that helps when you're adding a new beer to collection
+  [ ] can I incorporate something in here that helps when you're adding a new beer to collection?
 [ ] translate JSON responses to JS Model Objects with at least one method on the prototype - going to leave this for now until I work through the rest
 
 ---
