@@ -20,7 +20,7 @@
 		<% if @userbeer.notes %>
 		  <p id="userBeerNotes"></p>
 		<% else %>
-			<%= form_for ([current_user, @userbeer]) do |f| %>
+			<%= form_for ([current_user, @userbeer]), {id: "notesForm"} do |f| %>
 				<%= f.text_area :notes, size: "45x3"%> <br>
 				<%= f.submit "Add Note" %>
 			<% end %>
