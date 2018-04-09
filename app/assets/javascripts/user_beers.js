@@ -1,23 +1,18 @@
 // document ready
 $(function(){
-  if (window.location.pathname.endsWith("/user_beers")) {
+  if ((/(\/users\/)[0-9]{1,}(\/user_beers\/)[0-9]{1,}/).test(window.location.pathname)) {
+    prevUserBeerBtn();
+    nextUserBeerBtn();
+    getUserBeer(window.location.pathname);
+    console.log("the stuff for userbeers#show was loaded");
+  } else if ((/(\/users\/)[0-9]{1,}(\/user_beers)/).test(window.location.pathname)) {
     // load the users list of beers
     // attach filter listeners
     getUserBeers(window.location.pathname, "");
     // filterChange();
     console.log("the stuff for userbeers#index was loaded");
-  } else {
-    // show page
-    // prev and next button listeners
-    // retrieve data for show page
-    prevUserBeerBtn();
-    nextUserBeerBtn();
-    getUserBeer(window.location.pathname);
-    console.log("the stuff for userbeers#show was loaded");
   };
   console.log("the stuff from userbeers.js was loaded")
-  // should i conditionalize when stuff loads on the beers#show page?
-
 })
 
 function prevUserBeerBtn(){
