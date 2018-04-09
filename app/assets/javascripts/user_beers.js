@@ -6,38 +6,33 @@ $(function(){
     getUserBeers(window.location.pathname, "");
     // filterChange();
     console.log("the stuff for userbeers#index was loaded");
-  // } else {
-  //   // show page
-  //   // prev and next button listeners
-  //   // retrieve data for show page
-  //   prevBeerBtn();
-  //   nextBeerBtn();
-  //   getBeer(window.location.pathname);
-  //   console.log("the stuff for userbeers#show was loaded");
+  } else {
+    // show page
+    // prev and next button listeners
+    // retrieve data for show page
+    // prevBeerBtn();
+    // nextBeerBtn();
+    getUserBeer(window.location.pathname);
+    console.log("the stuff for userbeers#show was loaded");
+  };
   console.log("the stuff from userbeers.js was loaded")
   // should i conditionalize when stuff loads on the beers#show page?
-  };
+
 })
 
 //
-// function getUserBeer(url) {
-//   $.get(url, function(data){
-//     let beer = data;
-//     displayBeer(beer);
-//   })
-// }
-//
-// function displayBeer(beer){
-//   // update the page to show next beer's data
-//   $("#beerHeader").attr("data-id", beer.id);
-//   $("#beerName").text(beer.name);
-//   $("#beerABV").text(`${beer.abv}%`);
-//   $("#beerDescription").text(beer.description);
-//   $("#breweryName").text(beer.brewery.name);
-//   $("a#breweryName").attr("href", "/breweries/" + beer.brewery.id);
-//   $("#categoryName").text(beer.category.name);
-//   $("a#categoryName").attr("href", "/categories/" + beer.category.id);
-// }
+function getUserBeer(url) {
+  $.get(url, function(data){
+    let userBeer = data;
+    console.log(userBeer)
+    displayUserBeer(userBeer);
+  })
+}
+
+function displayUserBeer(userBeer){
+  // update the page to show next beer's data
+  $("#userBeerNotes").text(userBeer.notes)
+}
 
 function getUserBeers(url, filters) {
   // update this alert to show what page it was called from

@@ -16,7 +16,7 @@
 	<div class="6u 12u$(medium)">
 		<strong>My notes:</strong>
 		<% if @userbeer.notes %>
-		  <p><%= @userbeer.notes%></p>
+		  <p id="userBeerNotes"></p>
 		<% else %>
 			<%= form_for ([current_user, @userbeer]) do |f| %>
 				<%= f.text_area :notes, size: "45x3"%> <br>
