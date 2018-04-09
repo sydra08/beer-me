@@ -1,6 +1,7 @@
 <header class="align-center">
 	<h2><%= @userbeer.name %></h2>
-	<%= render partial: "application/beer_buttons", locals: {user: current_user, beer: @userbeer} %>
+	<p><i class="icon fas fa-chevron-circle-left fa-lg"></i><a href="#" class="js-prev">PREV</a> &nbsp; &nbsp;
+	<a href="#" class="js-next">NEXT</a><i class="icon fas fa-chevron-circle-right fa-lg"></i></p>
 </header>
 
 <div class="row 200%">
@@ -14,7 +15,8 @@
 	</div>
 
 	<div class="6u 12u$(medium)">
-		<strong>My notes:</strong>
+		<strong>Status:</strong><%= render partial: "application/beer_buttons", locals: {user: current_user, beer: @userbeer} %>
+		<strong>My Notes:</strong>
 		<% if @userbeer.notes %>
 		  <p id="userBeerNotes"></p>
 		<% else %>

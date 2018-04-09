@@ -9,7 +9,7 @@
     <%= f.radio_button :status, false, :checked => 'checked' %>
     <%= f.label :status, "Want to try", :value => false %> <br>
 
-    <%= f.submit 'update' %>
+    <!-- <%= f.submit 'update' %> -->
   <% end %>
 <% else %>
   <%= form_for ([user, beer]) do |f| %>
@@ -19,6 +19,6 @@
     <%= f.radio_button :status, false %>
     <%= f.label :status, "Want to try", :value => false %> <br>
 
-    <%= f.submit 'update' %>
+    <!-- <%= f.submit 'update' %> -->
   <% end %>
 <% end %>
