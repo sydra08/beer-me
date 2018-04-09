@@ -6,10 +6,10 @@
 <div class="row 200%">
 	<div class="6u 12u$(medium)">
 		<ul class="alt">
-			<li><strong>Brewery: </strong><%= link_to @userbeer.brewery_name, brewery_path(@userbeer.beer.brewery) %></li>
-			<li><strong>Style: </strong><%= link_to @userbeer.category_name, category_path(@userbeer.beer.category) %></li>
-			<li><strong>ABV: </strong><%= @userbeer.abv%>% </li>
-			<li><strong>Description: </strong><%= @userbeer.description %></li>
+			<li><strong>Brewery: </strong><a href="#" id="breweryName"></a> </li>
+			<li><strong>Style: </strong><a href="#" id="categoryName"></a></li>
+			<li id="beerABV"></li>
+			<li id="beerDescription"></li>
 		</ul>
 	</div>
 

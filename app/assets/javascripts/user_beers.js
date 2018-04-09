@@ -24,8 +24,10 @@ $(function(){
 function getUserBeer(url) {
   $.get(url, function(data){
     let userBeer = data;
-    console.log(userBeer)
+    let url = `/beers/${userBeer.beer_id}`;
+    console.log(userBeer);
     displayUserBeer(userBeer);
+    getBeer(url)
   })
 }
 
