@@ -10,8 +10,8 @@ $(function(){
     // show page
     // prev and next button listeners
     // retrieve data for show page
-    // prevBeerBtn();
-    // nextBeerBtn();
+    prevUserBeerBtn();
+    nextUserBeerBtn();
     getUserBeer(window.location.pathname);
     console.log("the stuff for userbeers#show was loaded");
   };
@@ -20,12 +20,33 @@ $(function(){
 
 })
 
-//
+function prevUserBeerBtn(){
+  $(".js-prev").on("click", function(){
+    alert("you clicked the previous button");
+    let userId = $("#userBeerHeader").attr("data-user");
+    let prevId = parseInt($("#userBeerHeader").attr("data-id")) - 1;
+    let url = `/users/${userId}/user_beers/${prevId}`;
+    getUserBeer(url);
+  });
+}
+
+function nextUserBeerBtn(){
+  $(".js-next").on("click", function(){
+    alert("you clicked the next button");
+    let userId = $("#userBeerHeader").attr("data-user")
+    let nextId = parseInt($("#userBeerHeader").attr("data-id")) + 1;
+    let url = `/users/${userId}/user_beers/${nextId}`;
+    getUserBeer(url);
+  });
+}
+
+
 function getUserBeer(url) {
-  $.get(url, function(data){
+  console.log(url)
+  $.get(url, function(data) {
     let userBeer = data;
-    let url = `/beers/${userBeer.beer_id}`;
     console.log(userBeer);
+    let url = `/beers/${userBeer.beer_id}`;
     displayUserBeer(userBeer);
     getBeer(url)
   })
@@ -33,7 +54,9 @@ function getUserBeer(url) {
 
 function displayUserBeer(userBeer){
   // update the page to show next beer's data
-  $("#userBeerNotes").text(userBeer.notes)
+  $("#userBeerHeader").attr("data-id", userBeer.id);
+  $("#userBeerHeader").attr("data-user", userBeer.user.id);
+  $("#userBeerNotes").text(userBeer.notes);
 }
 
 function getUserBeers(url, filters) {

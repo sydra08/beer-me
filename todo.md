@@ -71,8 +71,13 @@
     [x] next button
     [x] previous button
     [ ] fix the button styling so that the arrow and the text are both clickable
-    [ ] make it so that the labels still appear for ABV and Description
+    [x] make it so that the labels still appear for ABV and Description
   [ ] **/users/:id/user_beers/:id** PREV/NEXT buttons on the page to view the other user beers
+    [ ] disable the next button when it's the last one in the list
+    [ ] disable the prev button when it's the first record
+    [x] next button
+    [x] previous button
+    [ ] fix the button styling so that the arrow and the text are both clickable
 [/] has-many relationship
   [x] brewery has_many beers - see this on **/breweries/:id**
   [x] category has_many beers - see this on **/categories/:id**
