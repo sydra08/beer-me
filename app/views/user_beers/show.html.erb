@@ -17,13 +17,11 @@
 	<div class="6u 12u$(medium)">
 		<strong>Status:</strong><%= render partial: "application/beer_buttons", locals: {user: current_user, beer: @userbeer} %>
 		<strong>My Notes:</strong>
-		<% if @userbeer.notes %>
-		  <p id="userBeerNotes"></p>
-		<% else %>
-			<%= form_for ([current_user, @userbeer]), html: {id: "notesForm"} do |f| %>
-				<%= f.text_area :notes, size: "45x3"%> <br>
-				<%= f.submit "Add Note" %>
-			<% end %>
+		<%= form_for ([current_user, @userbeer]), html: {id: "notesForm"} do |f| %>
+			<%= f.text_area :notes, size: "45x3"%> <br>
+			<%= f.submit "Add Note" %>
 		<% end %>
+		
+	  <p id="userBeerNotes"></p>
 	</div>
 </div>

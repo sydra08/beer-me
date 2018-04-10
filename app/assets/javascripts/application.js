@@ -17,3 +17,4 @@
 //= require beers
 //= require breweries
 //= require categories
+//= require user_beers

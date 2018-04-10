@@ -22,6 +22,7 @@ function addNote() {
       e.preventDefault();
       let formData = $(this).serialize();
       console.log(formData)
+      debugger
       // hardcode user Id for now
       let userId = 1;
       let url = `/users/${userId}/user_beers/${$("#userBeerHeader").attr("data-id")}`;
@@ -34,7 +35,7 @@ function addNote() {
 function prevUserBeerBtn(){
   $(".js-prev").on("click", function(){
     alert("you clicked the previous button");
-    let userId = $("#userBeerHeader").attr("data-user");
+    let userId = 1;
     let prevId = parseInt($("#userBeerHeader").attr("data-id")) - 1;
     let url = `/users/${userId}/user_beers/${prevId}`;
     getUserBeer(url);
@@ -44,13 +45,11 @@ function prevUserBeerBtn(){
 function nextUserBeerBtn(){
   $(".js-next").on("click", function(){
     alert("you clicked the next button");
-    let userId = $("#userBeerHeader").attr("data-user")
-    debugger
-    if (userId === current_user) {
-      let nextId = parseInt($("#userBeerHeader").attr("data-id")) + 1;
-      let url = `/users/${userId}/user_beers/${nextId}`;
-      getUserBeer(url);
-    }
+    let userId = 1;
+    // debugger
+    let nextId = parseInt($("#userBeerHeader").attr("data-id")) + 1;
+    let url = `/users/${userId}/user_beers/${nextId}`;
+    getUserBeer(url);
   });
 }
 
