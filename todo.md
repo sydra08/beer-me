@@ -89,8 +89,13 @@
   [x] category has_many beers - see this on **/categories/:id**
   [x] user has_many beers - see this on **/users/:id/user_beers**
 [ ] use Rails API and a form to CREATE a resource and render it without page refresh   
-  [ ] add a new beer while on the **/beers** page without a page refresh
-    [ ] start with only using existing breweries and categories
+  [ ] add a new beer to your list while on **/beers/:id**
+    [ ] when you add the new resource, it sends all the data to the beers controller and then it renders the **/users/:id/user_beers/:id** page with the correct fields
+      [ ] maybe make the beers#show page look more like the userbeers#show page so that it's not as weird when it renders the new info?
+  [ ] add a new beer to your list while you're on the **/beers** page?
+  [ ] add a new beer to **/beers** while you're on the page
+    [ ] only allow users to add existing breweries first?
+    [ ] might be able to get this to work without changing too much in the form 
   <!-- [ ] **/users/:id/user_beers/:id** add notes to beer
     [ ] hijack Add Note submission
       + the form fields on this page are both id="edit_user_beer_2" - does this have to do with form_for and can it overridden?
