@@ -3,16 +3,16 @@
 </header>
 
 <div class="row 200%">
-	<div class="6u 12u$(medium) row uniform">
+	<div class="6u 12u$(medium)">
 		<!-- need to figure how how the data is transmitted when you submit the form -->
 		<!-- need to keep this as a form otherwise the filters don't work -->
-			<%= form_tag(beers_path, method: "get", id: "beerFilter") do %>
-			<%= render partial: 'application/category_filter', locals: {categories: @categories} %>
-			<%= render partial: 'application/brewery_filter', locals: {breweries: @breweries} %>
-				<!-- <div>
-					<%= submit_tag "Apply Filter", id: "applyFilter" %>
-				</div> -->
-			<% end %>
+		<%= form_tag(beers_path, method: "get", id: "beerFilter") do %>
+		<%= render partial: 'application/category_filter', locals: {categories: @categories} %>
+		<%= render partial: 'application/brewery_filter', locals: {breweries: @breweries} %>
+			<!-- <div>
+				<%= submit_tag "Apply Filter", id: "applyFilter" %>
+			</div> -->
+		<% end %>
 
 		<div class="table-wrapper">
 	    <table>
@@ -29,18 +29,31 @@
 	  </div>
 	</div>
 
-	<div class="6u 12u$(medium) row uniform">
+	<div class="6u 12u$(medium)">
+		<h4>Add New Beer</h4>
+
 		<%= form_tag(beers_path, method: "post", id: "beerForm") do %>
-			<%= label_tag "Name*" %>
-			<%= text_field_tag "Name" %>
+		<div class="row uniform">
 
-			<%= label_tag "ABV*" %>
-			<%= text_field_tag "ABV" %>
+			<div class="6u 12u$(xsmall)">
+				<%= label_tag "Name*" %>
+				<%= text_field_tag "Name" %>
+			</div>
 
-			<%= label_tag "Description*" %>
-			<%= text_field_tag "Description" %>
+			<div class="6u 12u$(xsmall)">
+				<%= label_tag "ABV*" %>
+				<%= text_field_tag "ABV" %>
+			</div>
 
-		  <%= submit_tag "Add Beer" %>
+			<div class="12u$">
+				<%= label_tag "Description*" %>
+				<%= text_area_tag "Description" %>
+			</div>
+
+			<div class="6u 12u$(xsmall)">
+		  	<%= submit_tag "Add Beer" %>
+			</div>
+		</div>
 		<% end %>
 	</div>
 
