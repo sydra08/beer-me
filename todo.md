@@ -33,6 +33,9 @@
 [ ] look into scope methods within serializer for filters? {https://github.com/rails-api/active_model_serializers/blob/v0.10.6/docs/general/serializers.md}
 [ ] could use scope for user beers?
 [ ] conditional for user_beers seems to make the index page load slower
+[ ] can i make the notes field add new or edit?
+   [ ] get it working through rails
+   [ ] get it working via jQuery/AJAX  
 
 
 [/] render index page w jQuery and AMS:
@@ -85,13 +88,16 @@
   [x] brewery has_many beers - see this on **/breweries/:id**
   [x] category has_many beers - see this on **/categories/:id**
   [x] user has_many beers - see this on **/users/:id/user_beers**
-[ ] use Rails API and a form to create a resource and render it without page refresh    
-  [ ] **/users/:id/user_beers/:id** add notes to beer
+[ ] use Rails API and a form to CREATE a resource and render it without page refresh   
+  [ ] add a new beer while on the **/beers** page without a page refresh
+    [ ] start with only using existing breweries and categories
+  <!-- [ ] **/users/:id/user_beers/:id** add notes to beer
     [ ] hijack Add Note submission
       + the form fields on this page are both id="edit_user_beer_2" - does this have to do with form_for and can it overridden?
     [ ] send POST request to /user_beers/:id
+    [ ] need to make sure to empty the notes field
   [ ] **/users/:id/user_beers/:id** update status of beer (this isn't really as interesting bc you can see the visual status change before you update it anyways. would be minor to have the button not be disabled for a bit, but a good add)
-  [ ] can I incorporate something in here that helps when you're adding a new beer to collection?
+  [ ] can I incorporate something in here that helps when you're adding a new beer to collection? -->
 [ ] translate JSON responses to JS Model Objects with at least one method on the prototype - going to leave this for now until I work through the rest
 
 ---

@@ -18,17 +18,18 @@ $(function(){
 
 function addNote() {
   $("form#notesForm").on("submit", function(e){
-      alert("you clicked add note");
-      e.preventDefault();
-      let formData = $(this).serialize();
-      console.log(formData)
-      debugger
-      // hardcode user Id for now
-      let userId = 1;
-      let url = `/users/${userId}/user_beers/${$("#userBeerHeader").attr("data-id")}`;
-      // $.post(url, formData) {
-      //
-      // }
+    alert("you clicked add note");
+    e.preventDefault();
+    debugger
+    let formData = $(this).serialize();
+    console.log(formData)
+    // hardcode user Id for now
+    let userId = 1;
+    let url = `/users/${userId}/user_beers/${$("#userBeerHeader").attr("data-id")}`;
+    let posting = $.post(url, formData);
+    posting.done(function(data){
+      console.log(data);
+    });
   });
 }
 
