@@ -13,9 +13,7 @@
 					<%= submit_tag "Apply Filter", id: "applyFilter" %>
 				</div> -->
 			<% end %>
-	</div>
 
-	<div class="6u 12u$(medium)">
 		<div class="table-wrapper">
 	    <table>
 	      <thead>
@@ -29,6 +27,21 @@
 	      </tbody>
 	    </table>
 	  </div>
+	</div>
+
+	<div class="6u 12u$(medium) row uniform">
+		<%= form_tag(beers_path, method: "post", id: "beerForm") do %>
+			<%= label_tag "Name*" %>
+			<%= text_field_tag "Name" %>
+
+			<%= label_tag "ABV*" %>
+			<%= text_field_tag "ABV" %>
+
+			<%= label_tag "Description*" %>
+			<%= text_field_tag "Description" %>
+
+		  <%= submit_tag "Add Beer" %>
+		<% end %>
 	</div>
 
 </div>
