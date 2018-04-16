@@ -95,7 +95,12 @@
   [ ] add a new beer to your list while you're on the **/beers** page?
   [ ] add a new beer to **/beers** while you're on the page
     [ ] only allow users to add existing breweries first?
-    [ ] might be able to get this to work without changing too much in the form 
+    [ ] might be able to get this to work without changing too much in the form
+  [ ] add a new beer to a brewery while on the brewery#show page  
+    [ ] build in pure rails first?
+    [ ] add a form to the breweries#show page
+    [ ] still need to allow user to add to a particular category or create a new one
+    [ ] will probably need to make sure that the filters get reset after each time they are used?   
   <!-- [ ] **/users/:id/user_beers/:id** add notes to beer
     [ ] hijack Add Note submission
       + the form fields on this page are both id="edit_user_beer_2" - does this have to do with form_for and can it overridden?

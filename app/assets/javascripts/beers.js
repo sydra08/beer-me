@@ -5,6 +5,7 @@ $(function(){
   if (window.location.pathname === "/beers") {
     getBeers();
     filterChange();
+    newBeerBtn();
     console.log("the stuff for beers#index was loaded");
   } else if (window.location.pathname.startsWith("/beers/")) {
     prevBeerBtn();
@@ -24,6 +25,19 @@ function allBeersBtn() {
     // e.preventDefault(); - removing this made the page load after the click
     // should I reset the filter buttons here just in case you click here after applying a filter?
     getBeers();
+  })
+}
+
+function newBeerBtn () {
+  $("#beerForm").on("submit", function(e){
+    e.preventDefault();
+    alert("you clicked on submit new beer")
+    let formData = $(this).serialize();
+    console.log(formData)
+    $.post("/beers", formData).done(function(newBeer){
+      console.log(newBeer)
+    })
+    // need to make sure that the POST route is appropriate
   })
 }
 
