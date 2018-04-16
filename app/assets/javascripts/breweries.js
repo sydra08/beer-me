@@ -31,6 +31,14 @@ function getBrewery(url){
   })
 }
 
+function addBreweryBtn() {
+  $("#addBrewery").on("click", function(e){
+    e.preventDefault();
+    alert("you clicked add brewery");
+
+  })
+}
+
 function newBreweryBtn() {
   $("form#new_brewery").submit(function(e){
     e.preventDefault();
@@ -43,7 +51,8 @@ function newBreweryBtn() {
       let breweryName = newBrewery.name;
       let breweryLocation = newBrewery.location;
       let breweryId = newBrewery.id;
-      $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="breweryLocation">${breweryLocation}</td></tr>`);
+      let breweryDescription = newBrewery.description;
+      $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="breweryLocation">${breweryLocation}</td><td id="breweryDescription">${breweryDescription}</td></tr>`);
     })
     $("form#new_brewery")[0].reset();
     $("input[type=submit]").prop("disabled", false)
@@ -85,10 +94,15 @@ function getBreweries() {
     let breweryData = data;
     $('tbody').empty();
     breweryData.forEach(function(brewery){
+      console.log(brewery)
       let breweryName = brewery.name;
       let breweryLocation = brewery.location;
       let breweryId = brewery.id;
-      $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="breweryLocation">${breweryLocation}</td></tr>`);
+      var breweryDescription = brewery.description
+      if (brewery.description === null) {
+        breweryDescription = "";
+      }
+      $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="breweryLocation">${breweryLocation}</td><td id="breweryDescription">${breweryDescription}</td></tr>`);
     })
   })
 }
