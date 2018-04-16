@@ -34,8 +34,54 @@
 
 		<%= form_for @beer do |f|%>
 		<div class="row uniform">
+			<div class="12u$">
+				<fieldset class="box">
+			    <legend class="section-title">Brewery</legend>
+			    <!-- text field with auto complete, also drop down menu -->
+			    <%= f.fields_for :brewery do |b| %>
+			      <%= b.label "Name*" %>
+			      <%= b.text_field :name, list: "breweries_autocomplete", required: true %>
+			      <datalist id="breweries_autocomplete">
+			        <% Brewery.alpha_sorted.each do |brewery| %>
+			          <option value="<%= brewery.name %>">
+			        <% end %>
+			      </datalist> <br />
+			      <!-- ideally want location to autopopulate if user chooses existing brewery bc right now it updates the brewery location-->
+			      <%= b.label :location %>
+			      <%= b.text_field :location %>
+			    <% end %>
+			  </fieldset>
+			</div>
 
-			<div class="6u 12u$(xsmall)">
+			<div class="12u$">
+		  <fieldset class="box">
+		    <legend class="section-title">Beer</legend>
+		    <%= f.label "Name*" %>
+		    <%= f.text_field :name, list: "beers_autocomplete", required: true %>
+		    <datalist id="beers_autocomplete">
+		      <% Beer.alpha_sorted.each do |beer| %>
+		        <option value="<%= beer.name %>">
+		      <% end %>
+		    </datalist> <br />
+
+		    <%= f.fields_for :category do |c| %>
+		      <%= c.label "Type*" %>
+		      <%= c.text_field :name, list: "categories_autocomplete", required: true %>
+		      <datalist id="categories_autocomplete">
+		        <% Category.alpha_sorted.each do |category| %>
+		          <option value="<%= category.name %>">
+		        <% end %>
+		      </datalist> <br />
+		    <% end %>
+
+		    <%= f.label "ABV* (%)"%>
+		    <%= f.text_field :abv %> <br />
+
+		    <%= f.label :description %>
+		    <%= f.text_area :description %> <br />
+			</div>
+
+			<!-- <div class="6u 12u$(xsmall)">
 				<%= f.label :name %>
 				<%= f.text_field :name %>
 			</div>
@@ -48,37 +94,13 @@
 			<div class="12u$">
 				<%= f.label :description %>
 				<%= f.text_area :description %>
-			</div>
+			</div> -->
 
 			<div class="6u 12u$(xsmall)">
 		  	<%= f.submit "Add Beer" %>
 			</div>
 		</div>
 		<% end %>
-		<!--
-		<%= form_tag(beers_path, method: "post", id: "beerForm") do %>
-		<div class="row uniform">
-
-			<div class="6u 12u$(xsmall)">
-				<%= label_tag "[beer]name", "Name*" %>
-				<%= text_field_tag "Name" %>
-			</div>
-
-			<div class="6u 12u$(xsmall)">
-				<%= label_tag "ABV*" %>
-				<%= text_field_tag "ABV" %>
-			</div>
-
-			<div class="12u$">
-				<%= label_tag "Description*" %>
-				<%= text_area_tag "Description" %>
-			</div>
-
-			<div class="6u 12u$(xsmall)">
-		  	<%= submit_tag "Add Beer" %>
-			</div>
-		</div>
-		<% end %> -->
 	</div>
 
 </div>

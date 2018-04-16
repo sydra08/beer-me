@@ -2,8 +2,11 @@ class BeersController < ApplicationController
   before_action :require_login, only: [:new, :create]
 
   def index
-    # set for filters
+    # set for form
     @beer = Beer.new
+    @beer.build_brewery
+    @beer.build_category
+    # set for filters
     @categories = Category.alpha_sorted
     @breweries = Brewery.alpha_sorted
     if !params[:category].blank? && !params[:brewery].blank?
@@ -40,7 +43,7 @@ class BeersController < ApplicationController
   def create
     binding.pry
     # creating a new user_beer
-    @beer = Beer.find_or_create_by(name: params[:beer][:name])
+    # @beer = Beer.find_or_create_by(name: params[:beer][:name])
     # check if an object is new or not - if it's a new object it can't already be on the user's list
     # if @beer.new_record?
     #   # if it's new, add the details
