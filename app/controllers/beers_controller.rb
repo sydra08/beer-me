@@ -39,24 +39,30 @@ class BeersController < ApplicationController
 
   def create
     binding.pry
+    # creating a new user_beer
     @beer = Beer.find_or_create_by(name: params[:beer][:name])
     # check if an object is new or not - if it's a new object it can't already be on the user's list
-    if @beer.new_record?
-      # if it's new, add the details
-      if @beer.update(beer_params)
-          @userbeer = current_user.create_userbeer(@beer, params[:beer][:user_beer][:status])
-          redirect_to user_user_beer_path(current_user, @userbeer)
-      else
-        render :new
-      end
-    elsif !@beer.new_record?
-      # does the user already have the beer on their list?
-      if current_user.user_beers.find_by(beer_id: @beer)
-        redirect_to new_user_beer_path, notice: "#{params[:beer][:name]} is already on your list"
-      else
-        @userbeer = current_user.create_userbeer(@beer, params[:beer][:user_beer][:status])
-        redirect_to user_user_beer_path(current_user, @userbeer)
-      end
+    # if @beer.new_record?
+    #   # if it's new, add the details
+    #   if @beer.update(beer_params)
+    #       @userbeer = current_user.create_userbeer(@beer, params[:beer][:user_beer][:status])
+    #       redirect_to user_user_beer_path(current_user, @userbeer)
+    #   else
+    #     render :new
+    #   end
+    # elsif !@beer.new_record?
+    #   # does the user already have the beer on their list?
+    #   if current_user.user_beers.find_by(beer_id: @beer)
+    #     redirect_to new_user_beer_path, notice: "#{params[:beer][:name]} is already on your list"
+    #   else
+    #     @userbeer = current_user.create_userbeer(@beer, params[:beer][:user_beer][:status])
+    #     redirect_to user_user_beer_path(current_user, @userbeer)
+    #   end
+    # end
+
+    @beer = Beer.new(beer_params)
+    if @beer.save
+      render json: @beer, status: 201
     end
   end
 

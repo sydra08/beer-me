@@ -34,9 +34,9 @@ function newBeerBtn () {
     alert("you clicked on submit new beer")
     let formData = $(this).serialize();
     console.log(formData)
-    // $.post("/beers", formData).done(function(newBeer){
-    //   console.log(newBeer);
-    // })
+    $.post("/beers", formData).done(function(newBeer){
+      console.log(newBeer);
+    })
     // need to make sure that the POST route is appropriate
   })
 }
