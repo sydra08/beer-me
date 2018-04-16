@@ -3,6 +3,7 @@ class BeersController < ApplicationController
 
   def index
     # set for filters
+    @beer = Beer.new
     @categories = Category.alpha_sorted
     @breweries = Brewery.alpha_sorted
     if !params[:category].blank? && !params[:brewery].blank?
