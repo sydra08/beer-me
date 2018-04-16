@@ -3,6 +3,7 @@
 </header>
 
 <div class="center">
+	<!-- brewery list -->
 	<table>
 		<thead>
 			<tr>
@@ -13,4 +14,28 @@
 		<tbody>
 		</tbody>
 	</table>
+
+	<!-- form for new brewery -->
+	<%= form_for @brewery do |f| %>
+		<div class="row uniform">
+			<div class="6u 12u$(xsmall)">
+				<%= f.label :name %>
+				<%= f.text_field :name %>
+			</div>
+
+			<div class="6u 12u$(xsmall)">
+				<%= f.label :location %>
+				<%= f.text_field :location %>
+			</div>
+
+			<div class="12u$">
+				<%= f.label :description %>
+				<%= f.text_area :description %>
+			</div>
+
+			<div class="6u 12u$(xsmall)">
+				<%= f.submit "Add Brewery" %>
+			</div>
+		</div>
+	<% end %>
 </div>

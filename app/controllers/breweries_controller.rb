@@ -1,5 +1,6 @@
 class BreweriesController < ApplicationController
   def index
+    @brewery = Brewery.new
     @breweries = Brewery.alpha_sorted
 
     # render json: @breweries, each_serializer: BreweryShowSerializer
@@ -38,4 +39,16 @@ class BreweriesController < ApplicationController
     @breweries = Brewery.by_colorado
   end
 
+  def create
+    @brewery = Brewery.new(brewery_params)
+    if @brewery.save
+      render json: @brewery, status: 201
+    end
+  end
+
+  private
+
+  def brewery_params
+    params.require(:brewery).permit(:name, :location, :description)
+  end
 end
