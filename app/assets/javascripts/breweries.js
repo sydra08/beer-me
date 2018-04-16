@@ -44,6 +44,8 @@ function newBreweryBtn() {
       let breweryId = newBrewery.id;
       $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="breweryLocation">${breweryLocation}</td></tr>`);
     })
+    $("form#new_brewery")[0].reset();
+    $("input[type=submit]").prop("disabled", false)
   })
 }
 

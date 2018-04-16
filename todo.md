@@ -9,8 +9,8 @@
   [ ] https://fontawesome.com/v4.7.0/get-started/
   [ ] http://edgeguides.rubyonrails.org/asset_pipeline.html
 [X] figure out how to make sure that the manifests, etc are set up properly
-[ ] probably want a different JS file for each controller?
-[X] figure out why there are so many errors when the page is loaded - removed extra scripts from the bottom of the page
+[x] probably want a different JS file for each controller?
+[x] figure out why there are so many errors when the page is loaded - removed extra scripts from the bottom of the page
 [ ] more research on ActiveModel Serializers and how they work with brewery-beer relationship
 [x] why does the breweries#index show the default beers#index layout? - is it because i added the serializer?
 [x] need to figure out why deleting the breweries.coffee caused everything to break. should everything be in one js file? seems like too much logic in one place?
@@ -25,8 +25,8 @@
 [x] consider changing serializers so that you get less data for some things
 [x] fix bug - when a brewery or category has no beers it doesn't return data...think I need to work on splitting up the Serializers and having different ones used for associated data (i.e. index pages) vs show pages
   + think it has something to do with Beer being the first thing that gets read in. so when there are no beers for something then you don't get any of the nested data. Maybe look into separating the nodes like {http://railscasts.com/episodes/409-active-model-serializers?view=asciicast} suggests?
-[ ] add statuses to the json calls
-[ ] update GET requests to use ".json" at the end of each
+? [ ] add statuses to the json calls
+? [ ] update GET requests to use ".json" at the end of each
 [ ] figure out why brewery and category data aren't showing up in the json for user_beers/:id - think that i need to add some custom methods to get this to show up - or use include in the serializer?
   [ ] maybe make a separate call to retrieve the brewery information based on the list of beers? but if i do this then when you filter it won't work since the JSON doesn't return the brewery and category data
   [ ] is there a way to make a call to the /beers endpoint for this instead with a constraint for user_id?
@@ -36,7 +36,6 @@
 [ ] can i make the notes field add new or edit?
    [ ] get it working through rails
    [ ] get it working via jQuery/AJAX  
-
 
 [/] render index page w jQuery and AMS:
   [x] **/beers** use Rails API to get data to display
@@ -104,6 +103,9 @@
     [ ] add a form to the breweries#show page
     [ ] still need to allow user to add to a particular category or create a new one
     [ ] will probably need to make sure that the filters get reset after each time they are used?   
+  [/] add new brewery to **/breweries** without full page refresh
+    [x] make sure the form is empty after submit
+    [ ] figure out how to re-enable the button for the form
   <!-- [ ] **/users/:id/user_beers/:id** add notes to beer
     [ ] hijack Add Note submission
       + the form fields on this page are both id="edit_user_beer_2" - does this have to do with form_for and can it overridden?
