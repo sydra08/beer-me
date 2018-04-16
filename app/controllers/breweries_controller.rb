@@ -35,9 +35,9 @@ class BreweriesController < ApplicationController
 
   end
 
-  def co_brew
-    @breweries = Brewery.by_colorado
-  end
+  # def co_brew
+  #   @breweries = Brewery.by_colorado
+  # end
 
   def create
     @brewery = Brewery.new(brewery_params)

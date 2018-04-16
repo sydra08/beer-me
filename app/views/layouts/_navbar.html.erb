@@ -1,6 +1,5 @@
 <%= link_to "All Beers", beers_path, id: "beers" %>
 <%= link_to "All Breweries", breweries_path%>
-<%= link_to "Breweries in Colorado", co_brew_path %>
 <%= link_to "All Types", categories_path %>
 <% if current_user %>
   | <%= link_to "My Beers", user_user_beers_path(current_user) %>
