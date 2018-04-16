@@ -93,9 +93,12 @@
     [ ] when you add the new resource, it sends all the data to the beers controller and then it renders the **/users/:id/user_beers/:id** page with the correct fields
       [ ] maybe make the beers#show page look more like the userbeers#show page so that it's not as weird when it renders the new info?
   [ ] add a new beer to your list while you're on the **/beers** page?
-  [ ] add a new beer to **/beers** while you're on the page
-    [ ] only allow users to add existing breweries first?
+  [/] add a new beer to **/beers** while you're on the page
+    [x] only allow users to add existing breweries first? - unnecessary the class methods in the model take care of this just fine
     [ ] might be able to get this to work without changing too much in the form
+    [ ] figure out how to reset the form after you are done submitting it
+    [ ] figure out how to update the brewery and category options
+    [ ] figure out how to keep both the new beers and new user beer routes - maybe need to rethink the userbeer process? maybe just have them be able to add beers to their list but if they want to add a new beer then they have to go through the beers#index page?
   [ ] add a new beer to a brewery while on the brewery#show page  
     [ ] build in pure rails first?
     [ ] add a form to the breweries#show page

@@ -42,10 +42,13 @@ function newBeerBtn () {
       let beerAbv = newBeer.abv;
       let beerId = newBeer.id;
       // probably want to use a template here
-      // this successfully adds all of the beers with the proper links
       $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="beerName"><a href="/beers/${beerId}">${beerName}</a></td><td id="abv">${beerAbv}%</td></tr>`);
+      // clear fields in the form after rendering beer
+      $("form#new_beer")[0].reset()
+      // how do i make sure that the brewry and category lists get appropriately upated when you try to add a second beer?
+      // think I need to quietly re-request the full page afterwards...
     })
-    // need to make sure that the POST route is appropriate
+    // add in a function to re-request the form on the site?
   })
 }
 
