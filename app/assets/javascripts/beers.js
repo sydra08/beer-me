@@ -34,21 +34,25 @@ function newBeerBtn () {
     alert("you clicked on submit new beer")
     let formData = $(this).serialize();
     console.log(formData)
-    $.post("/beers", formData).done(function(newBeer){
-      console.log(newBeer);
-      let breweryName = newBeer.brewery.name;
-      let breweryId = newBeer.brewery.id;
-      let beerName = newBeer.name;
-      let beerAbv = newBeer.abv;
-      let beerId = newBeer.id;
-      // probably want to use a template here
-      $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="beerName"><a href="/beers/${beerId}">${beerName}</a></td><td id="abv">${beerAbv}%</td></tr>`);
-      // clear fields in the form after rendering beer
-      $("form#new_beer")[0].reset()
-      // how do i make sure that the brewry and category lists get appropriately upated when you try to add a second beer?
-      // think I need to quietly re-request the full page afterwards...
-    })
-    // add in a function to re-request the form on the site?
+    createBeer(formData)
+  })
+}
+
+function createBeer(beerData) {
+  $("form#new_beer")[0].reset()
+  // for some reason this isn't working - think it has something to do with the document ready?
+  $("input[type=submit]").prop("disabled", false)
+  $.post("/beers", beerData).done(function(newBeer){
+    console.log(newBeer);
+    let breweryName = newBeer.brewery.name;
+    let breweryId = newBeer.brewery.id;
+    let beerName = newBeer.name;
+    let beerAbv = newBeer.abv;
+    let beerId = newBeer.id;
+    // probably want to use a template here
+    $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="beerName"><a href="/beers/${beerId}">${beerName}</a></td><td id="abv">${beerAbv}%</td></tr>`);
+    // how do i make sure that the brewery and category lists get appropriately upated when you try to add a second beer?
+    // think I need to quietly re-request the full page afterwards...
   })
 }
 
