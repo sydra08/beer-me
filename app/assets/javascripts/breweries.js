@@ -3,6 +3,7 @@ $(function(){
   if(window.location.pathname === "/breweries") {
     // why isn't this firing when you go to /breweries ?
     getBreweries();
+    addBreweryBtn()
     newBreweryBtn();
     console.log("the stuff for breweries#index was loaded");
   } else if (window.location.pathname.startsWith("/breweries/")) {

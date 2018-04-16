@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   end
 
   resources :beers, only: [:index, :show]
-  resources :breweries, only: [:index, :show, :create]
+  resources :breweries, only: [:index, :show, :new, :create]
   resources :categories, only: [:index, :show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

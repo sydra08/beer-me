@@ -1,6 +1,5 @@
 class BreweriesController < ApplicationController
   def index
-    @brewery = Brewery.new
     @breweries = Brewery.alpha_sorted
 
     # render json: @breweries, each_serializer: BreweryShowSerializer
@@ -38,6 +37,11 @@ class BreweriesController < ApplicationController
   # def co_brew
   #   @breweries = Brewery.by_colorado
   # end
+
+  def new
+    @brewery = Brewery.new
+    render :new, layout: false
+  end
 
   def create
     @brewery = Brewery.new(brewery_params)
