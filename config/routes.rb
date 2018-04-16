@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   get '/co_brew', to: 'breweries#co_brew'
 
   resources :beers, only: [:index, :show]
-  resources :breweries, only: [:index, :show]
+  resources :breweries, only: [:index, :show, :create]
   resources :categories, only: [:index, :show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
