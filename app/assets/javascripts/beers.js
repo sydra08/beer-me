@@ -36,6 +36,14 @@ function newBeerBtn () {
     console.log(formData)
     $.post("/beers", formData).done(function(newBeer){
       console.log(newBeer);
+      let breweryName = newBeer.brewery.name;
+      let breweryId = newBeer.brewery.id;
+      let beerName = newBeer.name;
+      let beerAbv = newBeer.abv;
+      let beerId = newBeer.id;
+      // probably want to use a template here
+      // this successfully adds all of the beers with the proper links
+      $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="beerName"><a href="/beers/${beerId}">${beerName}</a></td><td id="abv">${beerAbv}%</td></tr>`);
     })
     // need to make sure that the POST route is appropriate
   })
