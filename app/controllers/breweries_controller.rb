@@ -47,8 +47,8 @@ class BreweriesController < ApplicationController
     @brewery = Brewery.new(brewery_params)
     if @brewery.save
       render json: @brewery, status: 201
-    else
-      render :index
+    # else
+    #   render :index
     end
   end
 

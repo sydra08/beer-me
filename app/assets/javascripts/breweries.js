@@ -3,8 +3,7 @@ $(function(){
   if(window.location.pathname === "/breweries") {
     // why isn't this firing when you go to /breweries ?
     getBreweries();
-    addBreweryBtn()
-    newBreweryBtn();
+    addBreweryBtn();
     console.log("the stuff for breweries#index was loaded");
   } else if (window.location.pathname.startsWith("/breweries/")) {
     // when the page first loads use the url otherwise use the #breweryHeader
@@ -35,7 +34,12 @@ function addBreweryBtn() {
   $("#addBrewery").on("click", function(e){
     e.preventDefault();
     alert("you clicked add brewery");
-
+    $.get("/breweries/new", function(data){
+      console.log(data);
+      // debugger
+      $("div#addBreweryForm").append(data)
+    })
+    newBreweryBtn();
   })
 }
 
@@ -45,18 +49,24 @@ function newBreweryBtn() {
     alert("you clicked add new brewery");
     let formData = $(this).serialize();
     console.log(formData);
-    let posting = $.post("/breweries", formData)
-    posting.done(function(newBrewery){
-      console.log(newBrewery)
-      let breweryName = newBrewery.name;
-      let breweryLocation = newBrewery.location;
-      let breweryId = newBrewery.id;
-      let breweryDescription = newBrewery.description;
-      $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="breweryLocation">${breweryLocation}</td><td id="breweryDescription">${breweryDescription}</td></tr>`);
-    })
-    $("form#new_brewery")[0].reset();
-    $("input[type=submit]").prop("disabled", false)
+    // debugger this is skipped when you click the button
+    addBrewery(formData);
   })
+}
+
+function addBrewery(newBreweryData) {
+  // debugger this is skipped when you click the button
+  let posting = $.post("/breweries", newBreweryData)
+  posting.done(function(newBrewery){
+    console.log(newBrewery)
+    let breweryName = newBrewery.name;
+    let breweryLocation = newBrewery.location;
+    let breweryId = newBrewery.id;
+    let breweryDescription = newBrewery.description;
+    $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="breweryLocation">${breweryLocation}</td><td id="breweryDescription">${breweryDescription}</td></tr>`);
+  });
+  $("form#new_brewery")[0].reset();
+  $("input[type=submit]").prop("disabled", false);
 }
 
 function prevBreweryBtn(){
