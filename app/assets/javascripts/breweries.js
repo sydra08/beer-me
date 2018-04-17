@@ -55,15 +55,15 @@ function newBreweryBtn() {
 }
 
 function addBrewery(newBreweryData) {
-  $("form#new_brewery")[0].reset();
-  $("input[type=submit]").prop("disabled", false);
   let posting = $.post("/breweries", newBreweryData)
   posting.done(function(newBrewery){
     console.log(newBrewery)
     let breweryName = newBrewery.name;
     let breweryLocation = newBrewery.location;
     let breweryId = newBrewery.id;
-    $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="breweryLocation">${breweryLocation}</td></tr>`)
+    $("form#new_brewery")[0].reset();
+    $("input[type='submit']").prop("disabled", false);
+    $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="breweryLocation">${breweryLocation}</td></tr>`);
   });
 }
 

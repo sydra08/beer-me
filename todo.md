@@ -103,10 +103,10 @@
     [ ] add a form to the breweries#show page
     [ ] still need to allow user to add to a particular category or create a new one
     [ ] will probably need to make sure that the filters get reset after each time they are used?   
-  [/] add new brewery to **/breweries** without full page refresh
+  [x] add new brewery to **/breweries** without full page refresh
     [x] make sure the form is empty after submit
     [x] figure out how to re-enable the button for the form
-    [ ] figure out why I only get the json view after submitting a new brewery after I added in the form show/hide functionality
+    [ ] [for when i have the add brewery button back] figure out why I only get the json view after submitting a new brewery after I added in the form show/hide functionality
   <!-- [ ] **/users/:id/user_beers/:id** add notes to beer
     [ ] hijack Add Note submission
       + the form fields on this page are both id="edit_user_beer_2" - does this have to do with form_for and can it overridden?
