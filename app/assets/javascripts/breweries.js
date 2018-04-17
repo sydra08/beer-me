@@ -62,8 +62,9 @@ function addBrewery(newBreweryData) {
     let breweryName = newBrewery.name;
     let breweryLocation = newBrewery.location;
     let breweryId = newBrewery.id;
-    let breweryDescription = newBrewery.description;
-    $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="breweryLocation">${breweryLocation}</td><td id="breweryDescription">${breweryDescription}</td></tr>`);
+    // let breweryDescription = newBrewery.description;
+    // $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="breweryLocation">${breweryLocation}</td><td id="breweryDescription">${breweryDescription}</td></tr>`);
+    $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="breweryLocation">${breweryLocation}</td></tr>`)
   });
   $("form#new_brewery")[0].reset();
   $("input[type=submit]").prop("disabled", false);
@@ -108,11 +109,12 @@ function getBreweries() {
       let breweryName = brewery.name;
       let breweryLocation = brewery.location;
       let breweryId = brewery.id;
-      var breweryDescription = brewery.description
-      if (brewery.description === null) {
-        breweryDescription = "";
-      }
-      $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="breweryLocation">${breweryLocation}</td><td id="breweryDescription">${breweryDescription}</td></tr>`);
+      // var breweryDescription = brewery.description
+      // if (brewery.description === null) {
+      //   breweryDescription = "";
+      // }
+      $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="breweryLocation">${breweryLocation}</td></tr>`);
+      // $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="breweryLocation">${breweryLocation}</td><td id="breweryDescription">${breweryDescription}</td></tr>`);
     })
   })
 }
