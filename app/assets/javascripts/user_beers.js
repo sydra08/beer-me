@@ -91,19 +91,6 @@ function displayUserBeer(userBeer){
   }
 }
 
-function loadBeer() {
-  var beer = {
-    name: "Fat Tire",
-    brewery: "New Belgium",
-    abv: "4.5%",
-    category: "Amber Ale",
-  }
-
-  var template = Handlebars.compile(document.getElementById("example-template").innerHTML);
-  var result = template(beer);
-  document.getElementsByTagName("main")[0].innerHTML += result;
-}
-
 function getUserBeers(url, filters) {
   // update this alert to show what page it was called from
   console.log(`getUserBeers() was called`)
