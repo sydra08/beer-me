@@ -36,6 +36,7 @@ function addNote() {
 function prevUserBeerBtn(){
   $(".js-prev").on("click", function(){
     alert("you clicked the previous button");
+    // need to make sure to fix this
     let userId = 1;
     let prevId = parseInt($("#userBeerHeader").attr("data-id")) - 1;
     let url = `/users/${userId}/user_beers/${prevId}`;
@@ -46,8 +47,8 @@ function prevUserBeerBtn(){
 function nextUserBeerBtn(){
   $(".js-next").on("click", function(){
     alert("you clicked the next button");
+    // need to make sure to fix this
     let userId = 1;
-    // debugger
     let nextId = parseInt($("#userBeerHeader").attr("data-id")) + 1;
     let url = `/users/${userId}/user_beers/${nextId}`;
     getUserBeer(url);
@@ -80,7 +81,6 @@ function displayUserBeer(userBeer){
   // need to make this static. otherwise after it runs out of userbeers for a particular user it moves onto the next user
   $("#userBeerHeader").attr("data-user", userBeer.user_id);
   // if there's a note show it, if not show the form
-  // debugger
   if (userBeer.notes === "" || userBeer.notes === null) {
     $("#notesForm").show();
     $("#userBeerNotes").hide();
