@@ -79,10 +79,16 @@ function displayUserBeer(userBeer){
   // need to make this static. otherwise after it runs out of userbeers for a particular user it moves onto the next user
   $("#userBeerHeader").attr("data-user", userBeer.user_id);
   // if there's a note show it, if not show the form
-  if (userBeer.notes !== "") {
-    $("#userBeerNotesForm").hide()
+  // debugger
+  if (userBeer.notes === "" || userBeer.notes === null) {
+    $("#notesForm")[0].reset();
+    $("#userBeerNotesForm").show();
+    $("#userBeerNotes").hide();
+  } else {
+    $("#userBeerNotes").show();
+    $("#userBeerNotes").text(userBeer.notes);
+    $("#userBeerNotesForm").hide();
   }
-  $("#userBeerNotes").text(userBeer.notes);
 }
 
 function getUserBeers(url, filters) {
