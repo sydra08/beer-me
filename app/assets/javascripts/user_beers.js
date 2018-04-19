@@ -81,13 +81,12 @@ function displayUserBeer(userBeer){
   // if there's a note show it, if not show the form
   // debugger
   if (userBeer.notes === "" || userBeer.notes === null) {
-    $("#notesForm")[0].reset();
-    $("#userBeerNotesForm").show();
+    $("#notesForm").show();
     $("#userBeerNotes").hide();
   } else {
     $("#userBeerNotes").show();
     $("#userBeerNotes").text(userBeer.notes);
-    $("#userBeerNotesForm").hide();
+    $("#notesForm").hide();
   }
 }
 
