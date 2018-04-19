@@ -11,7 +11,7 @@
 [X] figure out how to make sure that the manifests, etc are set up properly
 [x] probably want a different JS file for each controller?
 [x] figure out why there are so many errors when the page is loaded - removed extra scripts from the bottom of the page
-[ ] more research on ActiveModel Serializers and how they work with brewery-beer relationship
+[ ] more research on ActiveModel Serializers and how they work with brewery-beer relationship *also consider removing jQuery from this part of the app since it's not needed to meet reqs*
 [x] why does the breweries#index show the default beers#index layout? - is it because i added the serializer?
 [x] need to figure out why deleting the breweries.coffee caused everything to break. should everything be in one js file? seems like too much logic in one place?
 + figured out how to revert back to old commit [https://stackoverflow.com/questions/4114095/how-to-revert-git-repository-to-a-previous-commit]
@@ -89,7 +89,7 @@
   [x] brewery has_many beers - see this on **/breweries/:id**
   [x] category has_many beers - see this on **/categories/:id**
   [x] user has_many beers - see this on **/users/:id/user_beers**
-[ ] use Rails API and a form to CREATE a resource and render it without page refresh   
+[/] use Rails API and a form to CREATE a resource and render it without page refresh   
   [ ] add a new beer to your list while on **/beers/:id**
     [ ] when you add the new resource, it sends all the data to the beers controller and then it renders the **/users/:id/user_beers/:id** page with the correct fields
       [ ] maybe make the beers#show page look more like the userbeers#show page so that it's not as weird when it renders the new info?
@@ -108,7 +108,54 @@
   [x] add new brewery to **/breweries** without full page refresh
     [x] make sure the form is empty after submit
     [x] figure out how to re-enable the button for the form
-    [ ] [for when i have the add brewery button back] figure out why I only get the json view after submitting a new brewery after I added in the form show/hide functionality
+    <!-- [ ] [for when i have the add brewery button back] figure out why I only get the json view after submitting a new brewery after I added in the form show/hide functionality -->
+[ ] translate JSON responses to JS Model Objects with at least one method on the prototype - going to leave this for now until I work through the rest
+  [/] add handlebars to app
+  https://blog.botreetechnologies.com/using-handlebars-js-with-ruby-on-rails-bcddce004947
+    [ ] create templates to use with JS Prototypes
+      [ ] **Beers**
+        [ ] display single beer (prev/next buttons)
+        [ ] display beer list (uses Each - maybe if I load via the nav)
+      [ ] **Breweries**
+        [ ] display single brewery (prev/next buttons)
+        [ ] display brewery list (uses Each - maybe if I load via the nav)
+        [ ] could use Handlebars to help display the new brewery after you add
+      [ ] **Categories**
+        [ ] display single category (prev/next buttons)
+        [ ] display category list (uses Each - maybe if I load via the nav)
+  [ ] create prototypes
+    [ ] Beer
+    [ ] Brewery
+    [ ] Category
+`<main>
+		<a href="#" onclick="loadBeer();">Load Beer Info</a>
+	</main>
+
+	<script id="example-template" type="text/x-handlebars-template">
+		<ul class="alt">
+			<li><strong>Beer: </strong>{{name}}</li>
+			<li><strong>Brewery: </strong>{{brewery}}</li>
+			<li><strong>Style: </strong>{{category}}</li>
+			<li><strong>ABV: </strong>{{abv}}</li>
+		</ul>
+	</script>
+
+  <!-- js file -->
+  function loadBeer() {
+    var beer = {
+      name: "Fat Tire",
+      brewery: "New Belgium",
+      abv: "4.5%",
+      category: "Amber Ale",
+    }
+
+    var template = Handlebars.compile(document.getElementById("example-template").innerHTML);
+    var result = template(beer);
+    document.getElementsByTagName("main")[0].innerHTML += result;
+  }`
+
+
+
   <!-- [ ] **/users/:id/user_beers/:id** add notes to beer
     [ ] hijack Add Note submission
       + the form fields on this page are both id="edit_user_beer_2" - does this have to do with form_for and can it overridden?
@@ -116,7 +163,6 @@
     [ ] need to make sure to empty the notes field
   [ ] **/users/:id/user_beers/:id** update status of beer (this isn't really as interesting bc you can see the visual status change before you update it anyways. would be minor to have the button not be disabled for a bit, but a good add)
   [ ] can I incorporate something in here that helps when you're adding a new beer to collection? -->
-[ ] translate JSON responses to JS Model Objects with at least one method on the prototype - going to leave this for now until I work through the rest
 
 ---
 Blog Post idea
