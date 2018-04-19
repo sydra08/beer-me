@@ -62,7 +62,8 @@ function addBrewery(newBreweryData) {
     let breweryLocation = newBrewery.location;
     let breweryId = newBrewery.id;
     $("form#new_brewery")[0].reset();
-    $("input[type='submit']").prop("disabled", false);
+    $("input[type='submit']").attr("disabled", false);
+    // $("input[type='submit']").prop("disabled", false);
     $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="breweryLocation">${breweryLocation}</td></tr>`);
   });
 }

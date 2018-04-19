@@ -36,6 +36,7 @@
 [ ] can i make the notes field add new or edit?
    [ ] get it working through rails
    [ ] get it working via jQuery/AJAX  
+[ ] add fail() to API calls
 
 [/] render index page w jQuery and AMS:
   [x] **/beers** use Rails API to get data to display
