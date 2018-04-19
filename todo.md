@@ -37,6 +37,7 @@
    [ ] get it working through rails
    [ ] get it working via jQuery/AJAX  
 [ ] add fail() to API calls
+*note the show pages go by ID so it's not alphabetical when flipping thru them*
 
 [/] render index page w jQuery and AMS:
   [x] **/beers** use Rails API to get data to display

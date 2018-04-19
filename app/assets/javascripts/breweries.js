@@ -24,9 +24,14 @@ function getBrewery(url){
     let filters = {brewery: brewery.id};
     $("#breweryName").text(brewery.name);
     $("#breweryLocation").text(brewery.location);
-    $("#breweryDescription").text(brewery.description);
+    if(brewery.description === "") {
+      $("#breweryDescription").text("Description not available");
+    } else {
+      $("#breweryDescription").text(brewery.description);
+    }
     // update data-id
     $("#breweryHeader").attr("data-id", brewery.id);
+    // deal with the prev button on the first record
     getBeers(filters);
   })
 }
