@@ -24,4 +24,16 @@
 
 	  <p id="userBeerNotes"></p>
 	</div>
+	<main>
+		<a href="#" onclick="loadBeer();">Load Beer Info</a>
+	</main>
+	
+	<script id="example-template" type="text/x-handlebars-template">
+		<ul class="alt">
+			<li><strong>Beer: </strong>{{name}}</li>
+			<li><strong>Brewery: </strong>{{brewery}}</li>
+			<li><strong>Style: </strong>{{category}}</li>
+			<li><strong>ABV: </strong>{{abv}}</li>
+		</ul>
+	</script>
 </div>

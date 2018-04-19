@@ -13,6 +13,7 @@
 //
 //= require rails-ujs
 //= require jquery
+//= require handlebars
 //= require_tree .
 //= require beers
 //= require breweries

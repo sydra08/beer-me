@@ -38,6 +38,8 @@ gem 'jquery-rails'
 gem 'active_model_serializers'
 # font awesome
 gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
+# handlebars
+gem 'handlebars_assets'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
