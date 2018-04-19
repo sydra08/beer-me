@@ -71,9 +71,10 @@ function displayUserBeer(userBeer){
   $("#beerName").text(userBeer.beer.name);
   $("#beerABV").text(`${userBeer.beer.abv}%`);
   $("#beerDescription").text(userBeer.beer.description);
-  // $("#breweryName").text(userBeer.brewery.name);
+  // this doesn't work atm
+  $("#breweryName").text("[breweryName]");
   // $("a#breweryName").attr("href", "/breweries/" + userBeer.brewery.id);
-  // $("#categoryName").text(userBeer.category.name);
+  $("#categoryName").text("[categoryName]");
   // $("a#categoryName").attr("href", "/categories/" + userBeer.category.id);
   $("#userBeerHeader").attr("data-id", userBeer.id);
   // need to make this static. otherwise after it runs out of userbeers for a particular user it moves onto the next user
