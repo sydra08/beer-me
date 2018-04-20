@@ -86,38 +86,34 @@ Beer.prototype.displayBeer = function() {
 
 Beer.prototype.beerListDisplay = function() {
   console.log(this)
-  // when the list is empty it should show you "no results"
-  if (this.length === 0) {
-    $('tbody').append("<tr><td><em>No results</em></td><td></td><td></td><td></td></tr>");
-  } else {
+  // when the list is empty it should show you "no results" - this isn't working
+  // debugger
   $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${this.breweryId}">${this.brewery}</a></td><td id="beerName"><a href="/beers/${this.id}">${this.name}</a></td><td id="abv">${this.abv}%</td></tr>`);
-  }
 }
 
 function getBeer(url) {
   $.get(url, function(data){
-    // let beer = data;
-    // displayBeer(beer);
-    // debugger
     let beer = new Beer(data);
     beer.displayBeer();
   })
 }
 
 function getBeers(filters) {
-  // update this alert to show what page it was called from
   console.log(`getBeers was called from...`)
   $.ajax({
     url: "/beers",
     data: filters
   }).success(function(beerData){
-    // console.log(beerData);
     $('tbody').empty();
-    beerData.forEach(function(data){
-      let beer = new Beer(data);
-      beer.beerListDisplay();
-    })
-    // displayBeers(beerData);
+    if (Object.keys(beerData).length === 0) {
+      $('tbody').append("<tr><td><em>No results</em></td><td></td><td></td><td></td></tr>");
+    } else {
+    // when you change filters this doesn't execute
+      beerData.forEach(function(data){
+        let beer = new Beer(data);
+        beer.beerListDisplay();
+      })
+    }
   })
 }
 
