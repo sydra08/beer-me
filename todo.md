@@ -38,6 +38,7 @@
    [ ] get it working via jQuery/AJAX  
 [ ] add fail() to API calls
 [ ] fix bug where json shows instead of html view when you hit back button?
+[ ] switch to using handlebars instead of html strings?
 *note the show pages go by ID so it's not alphabetical when flipping thru them*
 
 [/] render index page w jQuery and AMS:
