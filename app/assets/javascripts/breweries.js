@@ -17,38 +17,6 @@ $(function(){
   console.log("the stuff from breweries.js was loaded")
 })
 
-function getBrewery(url){
-  $.get(url, function(data){
-    console.log(data)
-    let brewery = data;
-    let filters = {brewery: brewery.id};
-    $("#breweryName").text(brewery.name);
-    $("#breweryLocation").text(brewery.location);
-    if(brewery.description === "") {
-      $("#breweryDescription").text("Description not available");
-    } else {
-      $("#breweryDescription").text(brewery.description);
-    }
-    // update data-id
-    $("#breweryHeader").attr("data-id", brewery.id);
-    // deal with the prev button on the first record
-    getBeers(filters);
-  })
-}
-
-// function addBreweryBtn() {
-//   $("#addBrewery").on("click", function(e){
-//     e.preventDefault();
-//     alert("you clicked add brewery");
-//     $.get("/breweries/new", function(data){
-//       console.log(data);
-//       // debugger
-//       $("div#addBreweryForm").append(data)
-//     })
-//     newBreweryBtn();
-//   })
-// }
-
 function newBreweryBtn() {
   $("form#new_brewery").submit(function(e){
     e.preventDefault();
@@ -103,21 +71,62 @@ function categoryFilterChange() {
   })
 }
 
+function Brewery(attributes) {
+  this.id = attributes.id;
+  this.name = attributes.name;
+  this.location = attributes.location
+  this.description = attributes.description;
+}
+
+Brewery.prototype.displayBrewery = function() {
+  console.log(this);
+  $("#breweryName").text(this.name);
+  $("#breweryLocation").text(this.location);
+  if(this.description === "") {
+    $("#breweryDescription").text("Description not available");
+  } else {
+    $("#breweryDescription").text(this.description);
+  }
+  // update data-id
+  $("#breweryHeader").attr("data-id", this.id);
+}
+
+Brewery.prototype.breweryListDisplay = function() {
+  console.log(this)
+  $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${this.id}">${this.name}</a></td><td id="breweryLocation">${this.location}</td></tr>`);
+}
+
+function getBrewery(url){
+  $.get(url, function(data){
+    console.log(data)
+    let brewery = new Brewery(data);
+    let filters = {brewery: brewery.id};
+    brewery.displayBrewery();
+    getBeers(filters);
+  })
+}
+
 function getBreweries() {
   $.get("/breweries", function(data){
     let breweryData = data;
     $('tbody').empty();
-    breweryData.forEach(function(brewery){
-      console.log(brewery)
-      let breweryName = brewery.name;
-      let breweryLocation = brewery.location;
-      let breweryId = brewery.id;
-      // var breweryDescription = brewery.description
-      // if (brewery.description === null) {
-      //   breweryDescription = "";
-      // }
-      $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="breweryLocation">${breweryLocation}</td></tr>`);
-      // $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="breweryLocation">${breweryLocation}</td><td id="breweryDescription">${breweryDescription}</td></tr>`);
+    breweryData.forEach(function(response){
+      console.log(response)
+      let brewery = new Brewery(response)
+      brewery.breweryListDisplay();
     })
   })
 }
+
+// function addBreweryBtn() {
+//   $("#addBrewery").on("click", function(e){
+//     e.preventDefault();
+//     alert("you clicked add brewery");
+//     $.get("/breweries/new", function(data){
+//       console.log(data);
+//       // debugger
+//       $("div#addBreweryForm").append(data)
+//     })
+//     newBreweryBtn();
+//   })
+// }
