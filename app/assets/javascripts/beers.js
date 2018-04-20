@@ -56,6 +56,29 @@ function createBeer(beerData) {
   })
 }
 
+function Beer(attributes) {
+  this.id = attributes.id;
+  this.name = attributes.name;
+  this.abv = attributes.abv;
+  this.description = attributes.description;
+  this.brewery = attributes.brewery.name;
+  this.breweryId = attributes.brewery.id;
+  this.category = attributes.category.name;
+  this.categoryId = attributes.category.id;
+}
+
+Beer.prototype.displayBeer = function() {
+  console.log(this);
+  $("#beerHeader").attr("data-id", this.id);
+  $("#beerName").text(this.name);
+  $("#beerABV").text(`${this.abv}%`);
+  $("#beerDescription").text(this.description);
+  $("#breweryName").text(this.brewery);
+  $("a#breweryName").attr("href", "/breweries/" + this.breweryId);
+  $("#categoryName").text(this.category);
+  $("a#categoryName").attr("href", "/categories/" + this.categoryId);
+}
+
 function filterChange() {
   // this works and you don't have to worry about the apply filter button
   $('#beerFilter').on("change", function(e){
@@ -90,8 +113,11 @@ function nextBeerBtn(){
 
 function getBeer(url) {
   $.get(url, function(data){
-    let beer = data;
-    displayBeer(beer);
+    // let beer = data;
+    // displayBeer(beer);
+    debugger
+    let beer = new Beer(data);
+    beer.displayBeer();
   })
 }
 
