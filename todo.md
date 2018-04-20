@@ -1,6 +1,6 @@
 *jQuery project*
 [x] add AMS to Gemfile
-[ ] clean up /app/assets/javascripts folder
+[x] clean up /app/assets/javascripts folder
 [x] add JS and jQuery to app
 [x] set up manifest.js file
 [X] start with beers list
@@ -18,15 +18,15 @@
 [x] need to figure out how to only load the breweries list on the breweries#index page and not the breweries#show page
 [x] figure out why some functions are being called multiple times on page load when it's not necessary
 [x] stop some functions from running on specific pages
-[ ] update beer table on breweries#show
+<!-- [ ] update beer table on breweries#show -->
 [x] why are the category options appearing on categories#show
-[ ] add paperclip gem to allow for beer picture attachments
+<!-- [ ] add paperclip gem to allow for beer picture attachments -->
 [x] fix js load so that getBeers() isn't called each time a different js file is loaded - now it only gets called once
 [x] consider changing serializers so that you get less data for some things
 [x] fix bug - when a brewery or category has no beers it doesn't return data...think I need to work on splitting up the Serializers and having different ones used for associated data (i.e. index pages) vs show pages
   + think it has something to do with Beer being the first thing that gets read in. so when there are no beers for something then you don't get any of the nested data. Maybe look into separating the nodes like {http://railscasts.com/episodes/409-active-model-serializers?view=asciicast} suggests?
 ? [ ] add statuses to the json calls
-? [ ] update GET requests to use ".json" at the end of each
+<!-- ? [ ] update GET requests to use ".json" at the end of each -->
 [ ] figure out why brewery and category data aren't showing up in the json for user_beers/:id - think that i need to add some custom methods to get this to show up - or use include in the serializer?
   [ ] maybe make a separate call to retrieve the brewery information based on the list of beers? but if i do this then when you filter it won't work since the JSON doesn't return the brewery and category data
   [ ] is there a way to make a call to the /beers endpoint for this instead with a constraint for user_id?
@@ -112,23 +112,24 @@
     [x] figure out how to re-enable the button for the form
     <!-- [ ] [for when i have the add brewery button back] figure out why I only get the json view after submitting a new brewery after I added in the form show/hide functionality -->
 [ ] translate JSON responses to JS Model Objects with at least one method on the prototype - going to leave this for now until I work through the rest
+  [ ] should i convert to handlebars?
   [/] add handlebars to app
   https://blog.botreetechnologies.com/using-handlebars-js-with-ruby-on-rails-bcddce004947
     [ ] create templates to use with JS Prototypes
       [ ] **Beers**
-        [ ] display single beer (prev/next buttons)
-        [ ] display beer list (uses Each - maybe if I load via the nav)
+        [x] display single beer (prev/next buttons)
+        [x] display beer list (uses Each - maybe if I load via the nav)
       [ ] **Breweries**
-        [ ] display single brewery (prev/next buttons)
-        [ ] display brewery list (uses Each - maybe if I load via the nav)
+        [x] display single brewery (prev/next buttons)
+        [x] display brewery list (uses Each - maybe if I load via the nav)
         [ ] could use Handlebars to help display the new brewery after you add
       [ ] **Categories**
-        [ ] display single category (prev/next buttons)
-        [ ] display category list (uses Each - maybe if I load via the nav)
-  [ ] create prototypes
-    [ ] Beer
-    [ ] Brewery
-    [ ] Category
+        [x] display single category (prev/next buttons)
+        [x] display category list (uses Each - maybe if I load via the nav)
+  [x] create prototypes
+    [x] Beer
+    [x] Brewery
+    [x] Category
 `<main>
 		<a href="#" onclick="loadBeer();">Load Beer Info</a>
 	</main>
