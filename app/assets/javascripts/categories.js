@@ -43,16 +43,33 @@ function breweryFilterChange() {
   })
 }
 
+function Category(attributes) {
+  this.id = attributes.id;
+  this.name = attributes.name;
+  this.beerCount = attributes.beer_count;
+  this.description = attributes.description;
+}
+
+Category.prototype.displayCategory = function() {
+  console.log(this);
+  $("#categoryName").text(this.name);
+  $("#categoryLocation").text(this.location);
+  $("#categoryDescription").text(this.description);
+  // update data-id
+  $("#categoryHeader").attr("data-id", this.id);
+}
+
+Category.prototype.categoryListDisplay = function() {
+  console.log(this)
+  $('tbody').append(`<tr><td id="categoryName"><a href="/categories/${this.id}">${this.name}</a></td><td id="categoryCount">${this.beerCount}</td></tr>`);
+}
+
 function getCategory(url) {
   $.get(url, function(data){
     console.log(data)
-    let category = data;
+    let category = new Category(data);
+    category.displayCategory();
     let filters = {category: category.id};
-    $("#categoryName").text(category.name);
-    $("#categoryLocation").text(category.location);
-    $("#categoryDescription").text(category.description);
-    // update data-id
-    $("#categoryHeader").attr("data-id", category.id);
     getBeers(filters);
   })
 }
@@ -61,11 +78,9 @@ function getCategories() {
   $.get("/categories", function(data){
     let categoryData = data;
     $('tbody').empty();
-    categoryData.forEach(function(category){
-      let categoryName = category.name;
-      let categoryCount = category.beer_count;
-      let categoryId = category.id;
-      $('tbody').append(`<tr><td id="categoryName"><a href="/categories/${categoryId}">${categoryName}</a></td><td id="categoryCount">${categoryCount}</td></tr>`);
+    categoryData.forEach(function(response){
+      let category = new Category(response)
+      category.categoryListDisplay();
     })
   })
 }
