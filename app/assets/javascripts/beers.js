@@ -1,7 +1,6 @@
 // document ready
 $(function(){
   // attach event to All Beers in nav - may remove this
-  allBeersBtn();
   if (window.location.pathname === "/beers") {
     getBeers();
     filterChange();
@@ -16,17 +15,6 @@ $(function(){
   console.log("the stuff from beers.js was loaded")
   // should i conditionalize when stuff loads on the beers#show page?
 })
-
-
-function allBeersBtn() {
-  // when you click on the button it invokes getBeers()
-  $('#beers').on("click", function(e){
-    alert("you clicked on all beers")
-    // e.preventDefault(); - removing this made the page load after the click
-    // should I reset the filter buttons here just in case you click here after applying a filter?
-    getBeers();
-  })
-}
 
 function filterChange() {
   // this works and you don't have to worry about the apply filter button
@@ -86,8 +74,6 @@ Beer.prototype.displayBeer = function() {
 
 Beer.prototype.beerListDisplay = function() {
   console.log(this)
-  // when the list is empty it should show you "no results" - this isn't working
-  // debugger
   $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${this.breweryId}">${this.brewery}</a></td><td id="beerName"><a href="/beers/${this.id}">${this.name}</a></td><td id="abv">${this.abv}%</td></tr>`);
 }
 
@@ -105,6 +91,7 @@ function getBeers(filters) {
     data: filters
   }).success(function(beerData){
     $('tbody').empty();
+    // should this logic be moved out of here?
     if (Object.keys(beerData).length === 0) {
       $('tbody').append("<tr><td><em>No results</em></td><td></td><td></td><td></td></tr>");
     } else {
@@ -144,5 +131,15 @@ function getBeers(filters) {
 //     $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="beerName"><a href="/beers/${beerId}">${beerName}</a></td><td id="abv">${beerAbv}%</td></tr>`);
 //     // how do i make sure that the brewery and category lists get appropriately upated when you try to add a second beer?
 //     // think I need to quietly re-request the full page afterwards...
+//   })
+// }
+
+// function allBeersBtn() {
+//   // when you click on the button it invokes getBeers()
+//   $('#beers').on("click", function(e){
+//     alert("you clicked on all beers")
+//     // e.preventDefault(); - removing this made the page load after the click
+//     // should I reset the filter buttons here just in case you click here after applying a filter?
+//     getBeers();
 //   })
 // }
