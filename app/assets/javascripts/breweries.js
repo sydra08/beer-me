@@ -3,7 +3,6 @@ $(function(){
   if(window.location.pathname === "/breweries") {
     // why isn't this firing when you go to /breweries ?
     getBreweries();
-    // addBreweryBtn();
     newBreweryBtn();
     console.log("the stuff for breweries#index was loaded");
   } else if (window.location.pathname.startsWith("/breweries/")) {
@@ -31,13 +30,10 @@ function addBrewery(newBreweryData) {
   let posting = $.post("/breweries", newBreweryData)
   posting.done(function(newBrewery){
     console.log(newBrewery)
-    let breweryName = newBrewery.name;
-    let breweryLocation = newBrewery.location;
-    let breweryId = newBrewery.id;
     $("form#new_brewery")[0].reset();
     $("input[type='submit']").attr("disabled", false);
-    // $("input[type='submit']").prop("disabled", false);
-    $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="breweryLocation">${breweryLocation}</td></tr>`);
+    let brewery = new Brewery(newBrewery)
+    brewery.breweryListDisplay();
   });
 }
 
