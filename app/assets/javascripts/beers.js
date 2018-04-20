@@ -56,29 +56,6 @@ function createBeer(beerData) {
   })
 }
 
-function Beer(attributes) {
-  this.id = attributes.id;
-  this.name = attributes.name;
-  this.abv = attributes.abv;
-  this.description = attributes.description;
-  this.brewery = attributes.brewery.name;
-  this.breweryId = attributes.brewery.id;
-  this.category = attributes.category.name;
-  this.categoryId = attributes.category.id;
-}
-
-Beer.prototype.displayBeer = function() {
-  console.log(this);
-  $("#beerHeader").attr("data-id", this.id);
-  $("#beerName").text(this.name);
-  $("#beerABV").text(`${this.abv}%`);
-  $("#beerDescription").text(this.description);
-  $("#breweryName").text(this.brewery);
-  $("a#breweryName").attr("href", "/breweries/" + this.breweryId);
-  $("#categoryName").text(this.category);
-  $("a#categoryName").attr("href", "/categories/" + this.categoryId);
-}
-
 function filterChange() {
   // this works and you don't have to worry about the apply filter button
   $('#beerFilter').on("change", function(e){
@@ -111,26 +88,48 @@ function nextBeerBtn(){
   });
 }
 
+
+function Beer(attributes) {
+  this.id = attributes.id;
+  this.name = attributes.name;
+  this.abv = attributes.abv;
+  this.description = attributes.description;
+  this.brewery = attributes.brewery.name;
+  this.breweryId = attributes.brewery.id;
+  this.category = attributes.category.name;
+  this.categoryId = attributes.category.id;
+}
+
+Beer.prototype.displayBeer = function() {
+  console.log(this);
+  $("#beerHeader").attr("data-id", this.id);
+  $("#beerName").text(this.name);
+  $("#beerABV").text(`${this.abv}%`);
+  $("#beerDescription").text(this.description);
+  $("#breweryName").text(this.brewery);
+  $("a#breweryName").attr("href", "/breweries/" + this.breweryId);
+  $("#categoryName").text(this.category);
+  $("a#categoryName").attr("href", "/categories/" + this.categoryId);
+}
+
+Beer.prototype.beerListDisplay = function() {
+  console.log(this)
+  // when the list is empty it should show you "no results"
+  if (this.length === 0) {
+    $('tbody').append("<tr><td><em>No results</em></td><td></td><td></td><td></td></tr>");
+  } else {
+  $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${this.breweryId}">${this.brewery}</a></td><td id="beerName"><a href="/beers/${this.id}">${this.name}</a></td><td id="abv">${this.abv}%</td></tr>`);
+  }
+}
+
 function getBeer(url) {
   $.get(url, function(data){
     // let beer = data;
     // displayBeer(beer);
-    debugger
+    // debugger
     let beer = new Beer(data);
     beer.displayBeer();
   })
-}
-
-function displayBeer(beer){
-  // update the page to show next beer's data
-  $("#beerHeader").attr("data-id", beer.id);
-  $("#beerName").text(beer.name);
-  $("#beerABV").text(`${beer.abv}%`);
-  $("#beerDescription").text(beer.description);
-  $("#breweryName").text(beer.brewery.name);
-  $("a#breweryName").attr("href", "/breweries/" + beer.brewery.id);
-  $("#categoryName").text(beer.category.name);
-  $("a#categoryName").attr("href", "/categories/" + beer.category.id);
 }
 
 function getBeers(filters) {
@@ -140,32 +139,44 @@ function getBeers(filters) {
     url: "/beers",
     data: filters
   }).success(function(beerData){
-    console.log(beerData);
-    displayBeers(beerData);
+    // console.log(beerData);
+    $('tbody').empty();
+    beerData.forEach(function(data){
+      let beer = new Beer(data);
+      beer.beerListDisplay();
+    })
+    // displayBeers(beerData);
   })
 }
 
-function displayBeers(beerData) {
-  // clear out the beer list before you add new stuff to DOM so that filters work properly
-  $('tbody').empty();
-  // when the list is empty it should show you "no results"
-  if (beerData.length === 0) {
-    $('tbody').append("<tr><td><em>No results</em></td><td></td><td></td><td></td></tr>");
-  } else {
-    beerData.forEach(function(beer){
-      let breweryName = beer.brewery.name;
-      let breweryId = beer.brewery.id;
-      let beerName = beer.name;
-      let beerAbv = beer.abv;
-      let beerId = beer.id;
-      // probably want to use a template here
-      // this successfully adds all of the beers with the proper links
-      $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="beerName"><a href="/beers/${beerId}">${beerName}</a></td><td id="abv">${beerAbv}%</td></tr>`);
-    })
-  }
-}
+// function displayBeers(beerData) {
+//   // clear out the beer list before you add new stuff to DOM so that filters work properly
+//   $('tbody').empty();
+//   // when the list is empty it should show you "no results"
+//   if (beerData.length === 0) {
+//     $('tbody').append("<tr><td><em>No results</em></td><td></td><td></td><td></td></tr>");
+//   } else {
+//     beerData.forEach(function(beer){
+//       let breweryName = beer.brewery.name;
+//       let breweryId = beer.brewery.id;
+//       let beerName = beer.name;
+//       let beerAbv = beer.abv;
+//       let beerId = beer.id;
+//       // probably want to use a template here
+//       // this successfully adds all of the beers with the proper links
+//       $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${breweryId}">${breweryName}</a></td><td id="beerName"><a href="/beers/${beerId}">${beerName}</a></td><td id="abv">${beerAbv}%</td></tr>`);
+//     })
+//   }
+// }
 
-function beerFormat(){
-  // use later on when I do templates
-  var row = `<tr><td id="breweryName"></td><td id="beerName"></td><td id="abv"></td></tr>`
-};
+// function displayBeer(beer){
+//   // update the page to show next beer's data
+//   $("#beerHeader").attr("data-id", beer.id);
+//   $("#beerName").text(beer.name);
+//   $("#beerABV").text(`${beer.abv}%`);
+//   $("#beerDescription").text(beer.description);
+//   $("#breweryName").text(beer.brewery.name);
+//   $("a#breweryName").attr("href", "/breweries/" + beer.brewery.id);
+//   $("#categoryName").text(beer.category.name);
+//   $("a#categoryName").attr("href", "/categories/" + beer.category.id);
+// }
