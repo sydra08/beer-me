@@ -1,4 +1,9 @@
 *jQuery project*
+BUGS
+  [ ] hitting back button in browser brings up json view
+  [ ] after adding 2 breweries the button is disabled again
+  [ ] show errors when you add a brewery that already exists (validates on name and location combo)
+  [ ] fix the user beer pages to use pure rails framework instead of making API calls
 [x] add AMS to Gemfile
 [x] clean up /app/assets/javascripts folder
 [x] add JS and jQuery to app
