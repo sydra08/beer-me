@@ -1,9 +1,18 @@
 *jQuery project*
-BUGS
+SUBMIT TASKS
   [x] hitting back button in browser brings up json view
   [x] after adding 2 breweries the button is disabled again
-  [ ] show errors when you add a brewery that already exists (validates on name and location combo)
+  [/] show errors when you add a brewery that already exists (validates on name and location combo) => figure out what the response looks like when you have an error
+    [ ] make button active again when you try to add something and it throws an error
+  [ ] have locations populate if you choose an existing brewery
+  [ ] try to move event listeners (buttons) into JS prototype
+  [ ] add statuses to the json calls
+  [ ] add fail() to API calls
+  [ ] comment out alerts
+  [ ] update readme file
+  [ ] have event listeners be part of JS protoype (?)
   [x] fix the user beer pages to use pure rails framework instead of making API calls
+  [ ] update JS files so that filter change listeners are a JS prototype method
 [x] add AMS to Gemfile
 [x] clean up /app/assets/javascripts folder
 [x] add JS and jQuery to app
@@ -41,7 +50,7 @@ BUGS
 [ ] can i make the notes field add new or edit?
    [ ] get it working through rails
    [ ] get it working via jQuery/AJAX  
-[ ] add fail() to API calls
+
 [x] fix bug where json shows instead of html view when you hit back button?
 [ ] switch to using handlebars instead of html strings?
 *note the show pages go by ID so it's not alphabetical when flipping thru them*
@@ -112,9 +121,10 @@ BUGS
     [ ] add a form to the breweries#show page
     [ ] still need to allow user to add to a particular category or create a new one
     [ ] will probably need to make sure that the filters get reset after each time they are used?   
-  [x] add new brewery to **/breweries** without full page refresh
+  [/] add new brewery to **/breweries** without full page refresh
     [x] make sure the form is empty after submit
     [x] figure out how to re-enable the button for the form
+    <!-- [ ] include description to this and have a concatenated version of it show up on the page -->
     <!-- [ ] [for when i have the add brewery button back] figure out why I only get the json view after submitting a new brewery after I added in the form show/hide functionality -->
 [x] translate JSON responses to JS Model Objects with at least one method on the prototype - going to leave this for now until I work through the rest
   [ ] should i convert to handlebars?
