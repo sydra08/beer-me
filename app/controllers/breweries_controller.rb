@@ -45,10 +45,11 @@ class BreweriesController < ApplicationController
 
   def create
     @brewery = Brewery.new(brewery_params)
+    # binding.pry
     if @brewery.save
       render json: @brewery, status: 201
-    # else
-    #   render :index
+    else
+      render json: @brewery, status: 400
     end
   end
 

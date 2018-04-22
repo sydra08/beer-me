@@ -20,6 +20,10 @@
 		<button type="button" id="addBrewery" class="small icon fas 	fa-plus">Brewery</button>
 	</div> -->
 	<%= form_for @brewery do |f| %>
+
+		<div class="box" id="error_explanation">
+		</div>
+
 		<div class="row uniform">
 			<div class="6u 12u$(xsmall)">
 				<%= f.label :name %>
