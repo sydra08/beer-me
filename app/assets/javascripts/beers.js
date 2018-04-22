@@ -4,7 +4,6 @@ $(function(){
   if (window.location.pathname === "/beers") {
     getBeers();
     filterChange();
-    newBeerBtn();
     console.log("the stuff for beers#index was loaded");
   } else if (window.location.pathname.startsWith("/beers/")) {
     prevBeerBtn();
@@ -95,7 +94,6 @@ function getBeers(filters) {
     if (Object.keys(beerData).length === 0) {
       $('tbody').append("<tr><td><em>No results</em></td><td></td><td></td><td></td></tr>");
     } else {
-    // when you change filters this doesn't execute
       beerData.forEach(function(data){
         let beer = new Beer(data);
         beer.beerListDisplay();
