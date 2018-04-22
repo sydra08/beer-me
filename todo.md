@@ -6,10 +6,10 @@ SUBMIT TASKS
     [ ] make button active again when you try to add something and it throws an error
   [ ] have locations populate if you choose an existing brewery
   [ ] try to move event listeners (buttons) into JS prototype
-  [ ] add statuses to the json calls
-  [ ] add fail() to API calls
+  [ ] add statuses to the json calls - only have them on the Breweries#create for now
+  [/] add fail() to API calls (just added one to the breweries#index page for now)
   [ ] comment out alerts
-  [ ] update readme file
+  [x] update readme file
   [ ] have event listeners be part of JS protoype (?)
   [x] fix the user beer pages to use pure rails framework instead of making API calls
   [ ] update JS files so that filter change listeners are a JS prototype method

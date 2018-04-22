@@ -1,6 +1,6 @@
 # About BeerMe
 
-BeerMe is an app that allows you to track beers that you want to try and beers that you've tried.
+BeerMe is a Rails app with a jQuery frontend that allows you to track beers that you want to try and beers that you've tried.
 
 ## Install & Usage Instructions
 
