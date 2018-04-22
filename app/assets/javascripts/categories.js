@@ -72,6 +72,12 @@ function getCategory(url) {
     let filters = {category: category.id};
     getBeers(filters);
   })
+  .fail(function(response){
+    // so if you hit next it will just bring you do the first brewery (circular)
+    console.log("GET request failed");
+    console.log(response);
+    getCategory("/categories/1")
+  });
 }
 
 function getCategories() {

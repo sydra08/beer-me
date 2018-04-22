@@ -28,13 +28,20 @@ function newBreweryBtn() {
 
 function addBrewery(newBreweryData) {
   let posting = $.post("/breweries", newBreweryData)
-  posting.done(function(newBrewery){
-    console.log(newBrewery)
+  posting.success(function(newBrewery){
+    console.log("success")
     $("form#new_brewery")[0].reset();
     $("input[type='submit']").attr("disabled", false);
     let brewery = new Brewery(newBrewery)
     brewery.breweryListDisplay();
   });
+  posting.fail(function(response){
+    console.log("fail was called")
+    $("div#error_explanation").show();
+    $("div#error_explanation").append("<p><strong>Error: </strong>Brewery already exists</p>")
+    // maybe add a function here that says the submit button is disabled until you change something in the form
+    // debugger
+  })
 }
 
 function prevBreweryBtn(){
@@ -89,6 +96,7 @@ Brewery.prototype.displayBrewery = function() {
 
 Brewery.prototype.breweryListDisplay = function() {
   console.log(this)
+  $("div#error_explanation").hide();
   $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${this.id}">${this.name}</a></td><td id="breweryLocation">${this.location}</td></tr>`);
 }
 
