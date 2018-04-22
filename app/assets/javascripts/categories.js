@@ -17,7 +17,7 @@ function prevCategoryBtn(){
   $(".js-prev").on("click", function(){
     alert("you clicked on previous category");
     let prevId = parseInt($("#categoryHeader").attr("data-id"))-1;
-    let url = `/categories/${prevId}`;
+    let url = `/categories/${prevId}.json`;
     getCategory(url);
   });
 }
@@ -26,7 +26,7 @@ function nextCategoryBtn(){
   $(".js-next").on("click", function(){
     alert("you clicked on next category");
     let nextId = parseInt($("#categoryHeader").attr("data-id"))+1;
-    let url = `/categories/${nextId}`;
+    let url = `/categories/${nextId}.json`;
     getCategory(url);
   });
 }
@@ -75,7 +75,7 @@ function getCategory(url) {
 }
 
 function getCategories() {
-  $.get("/categories", function(data){
+  $.get("/categories.json", function(data){
     let categoryData = data;
     $('tbody').empty();
     categoryData.forEach(function(response){

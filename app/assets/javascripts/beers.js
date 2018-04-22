@@ -33,7 +33,7 @@ function prevBeerBtn(){
     alert("you clicked the previous button");
     // make GET request to /beers/:id for next beer
     let prevId = parseInt($("#beerHeader").attr("data-id")) - 1;
-    let url = `/beers/${prevId}`;
+    let url = `/beers/${prevId}.json`;
     getBeer(url);
   });
 }
@@ -43,7 +43,7 @@ function nextBeerBtn(){
     alert("you clicked the next button");
     // make GET request to /beers/:id for next beer
     let nextId = parseInt($("#beerHeader").attr("data-id")) + 1;
-    let url = `/beers/${nextId}`;
+    let url = `/beers/${nextId}.json`;
     getBeer(url);
   });
 }
@@ -87,7 +87,7 @@ function getBeer(url) {
 function getBeers(filters) {
   console.log(`getBeers was called from...`)
   $.ajax({
-    url: "/beers",
+    url: "/beers.json",
     data: filters
   }).success(function(beerData){
     $('tbody').empty();

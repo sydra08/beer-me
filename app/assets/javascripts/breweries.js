@@ -41,7 +41,7 @@ function prevBreweryBtn(){
   $(".js-prev").on("click", function(){
     alert("you clicked on previous brewery");
     let prevId = parseInt($("#breweryHeader").attr("data-id"))-1;
-    let url = `/breweries/${prevId}`;
+    let url = `/breweries/${prevId}.json`;
     getBrewery(url);
   });
 }
@@ -50,7 +50,7 @@ function nextBreweryBtn(){
   $(".js-next").on("click", function(){
     alert("you clicked on next brewery");
     let nextId = parseInt($("#breweryHeader").attr("data-id"))+1;
-    let url = `/breweries/${nextId}`;
+    let url = `/breweries/${nextId}.json`;
     getBrewery(url);
   });
 }
@@ -103,7 +103,7 @@ function getBrewery(url){
 }
 
 function getBreweries() {
-  $.get("/breweries", function(data){
+  $.get("/breweries.json", function(data){
     let breweryData = data;
     $('tbody').empty();
     breweryData.forEach(function(response){
