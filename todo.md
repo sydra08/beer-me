@@ -1,9 +1,9 @@
 *jQuery project*
 BUGS
-  [ ] hitting back button in browser brings up json view
-  [ ] after adding 2 breweries the button is disabled again
+  [x] hitting back button in browser brings up json view
+  [x] after adding 2 breweries the button is disabled again
   [ ] show errors when you add a brewery that already exists (validates on name and location combo)
-  [ ] fix the user beer pages to use pure rails framework instead of making API calls
+  [x] fix the user beer pages to use pure rails framework instead of making API calls
 [x] add AMS to Gemfile
 [x] clean up /app/assets/javascripts folder
 [x] add JS and jQuery to app
@@ -31,7 +31,7 @@ BUGS
 [x] fix bug - when a brewery or category has no beers it doesn't return data...think I need to work on splitting up the Serializers and having different ones used for associated data (i.e. index pages) vs show pages
   + think it has something to do with Beer being the first thing that gets read in. so when there are no beers for something then you don't get any of the nested data. Maybe look into separating the nodes like {http://railscasts.com/episodes/409-active-model-serializers?view=asciicast} suggests?
 ? [ ] add statuses to the json calls
-<!-- ? [ ] update GET requests to use ".json" at the end of each -->
+? [x] update GET requests to use ".json" at the end of each
 [ ] figure out why brewery and category data aren't showing up in the json for user_beers/:id - think that i need to add some custom methods to get this to show up - or use include in the serializer?
   [ ] maybe make a separate call to retrieve the brewery information based on the list of beers? but if i do this then when you filter it won't work since the JSON doesn't return the brewery and category data
   [ ] is there a way to make a call to the /beers endpoint for this instead with a constraint for user_id?
@@ -42,7 +42,7 @@ BUGS
    [ ] get it working through rails
    [ ] get it working via jQuery/AJAX  
 [ ] add fail() to API calls
-[ ] fix bug where json shows instead of html view when you hit back button?
+[x] fix bug where json shows instead of html view when you hit back button?
 [ ] switch to using handlebars instead of html strings?
 *note the show pages go by ID so it's not alphabetical when flipping thru them*
 
@@ -116,7 +116,7 @@ BUGS
     [x] make sure the form is empty after submit
     [x] figure out how to re-enable the button for the form
     <!-- [ ] [for when i have the add brewery button back] figure out why I only get the json view after submitting a new brewery after I added in the form show/hide functionality -->
-[ ] translate JSON responses to JS Model Objects with at least one method on the prototype - going to leave this for now until I work through the rest
+[x] translate JSON responses to JS Model Objects with at least one method on the prototype - going to leave this for now until I work through the rest
   [ ] should i convert to handlebars?
   [/] add handlebars to app
   https://blog.botreetechnologies.com/using-handlebars-js-with-ruby-on-rails-bcddce004947
