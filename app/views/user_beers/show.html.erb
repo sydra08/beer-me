@@ -1,27 +1,29 @@
 <header class="align-center" id="userBeerHeader">
-	<h2 id="beerName"></h2>
-	<p><i class="icon fas fa-chevron-circle-left fa-lg"></i><a href="#" class="js-prev">PREV</a> &nbsp; &nbsp;
-	<a href="#" class="js-next">NEXT</a><i class="icon fas fa-chevron-circle-right fa-lg"></i></p>
+	<h2 id="beerName"><%= @userbeer.name %></h2>
+	<!-- <p><i class="icon fas fa-chevron-circle-left fa-lg"></i><a href="#" class="js-prev">PREV</a> &nbsp; &nbsp;
+	<a href="#" class="js-next">NEXT</a><i class="icon fas fa-chevron-circle-right fa-lg"></i></p> -->
 </header>
 
 <div class="row 200%">
 	<div class="6u 12u$(medium)">
 		<ul class="alt">
-			<li><strong>Brewery: </strong><a href="#" id="breweryName"></a> </li>
-			<li><strong>Style: </strong><a href="#" id="categoryName"></a></li>
-			<li><strong>ABV: </strong><span id="beerABV"></span></li>
-			<li><strong>Description: </strong><span id="beerDescription"></span></li>
+			<li><strong>Brewery: </strong><%= link_to @userbeer.brewery_name, brewery_path(@userbeer.beer.brewery) %> </li>
+			<li><strong>Style: </strong><%= link_to @userbeer.category_name, category_path(@userbeer.beer.category) %></li>
+			<li><strong>ABV: </strong><%= @userbeer.abv %></li>
+			<li><strong>Description: </strong><%= @userbeer.description %></li>
 		</ul>
 	</div>
 
 	<div class="6u 12u$(medium)">
 		<strong>Status:</strong><%= render partial: "application/beer_buttons", locals: {user: current_user, beer: @userbeer} %>
 		<strong>My Notes:</strong>
-		<%= form_for ([current_user, @userbeer]), html: {id: "notesForm"} do |f| %>
-			<%= f.text_area :notes, size: "45x3"%> <br>
-			<%= f.submit "Add Note" %>
+		<% if @userbeer.notes %>
+			<p id="userBeerNotes"><%= @userbeer.notes %></p>
+		<% else %>
+			<%= form_for ([current_user, @userbeer]), html: {id: "notesForm"} do |f| %>
+				<%= f.text_area :notes, size: "45x3"%> <br>
+				<%= f.submit "Add Note" %>
+			<% end %>
 		<% end %>
-
-	  <p id="userBeerNotes"></p>
 	</div>
 </div>

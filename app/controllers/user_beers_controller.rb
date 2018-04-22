@@ -19,19 +19,19 @@ class UserBeersController < ApplicationController
       end
     end
 
-    respond_to do |format|
-      format.json {render json: @userbeers}
-      format.html {render :index}
-    end
+    # respond_to do |format|
+    #   format.json {render json: @userbeers}
+    #   format.html {render :index}
+    # end
   end
 
   def show
     @userbeer = UserBeer.find_by(id: params[:id])
-
-    respond_to do |format|
-      format.json {render json: @userbeer}
-      format.html {render :show}
-    end
+    # 
+    # respond_to do |format|
+    #   format.json {render json: @userbeer}
+    #   format.html {render :show}
+    # end
   end
 
   def update
