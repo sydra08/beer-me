@@ -15,7 +15,7 @@ $(function(){
 
 function prevCategoryBtn(){
   $(".js-prev").on("click", function(){
-    alert("you clicked on previous category");
+    console.log("you clicked on previous category");
     let prevId = parseInt($("#categoryHeader").attr("data-id"))-1;
     let url = `/categories/${prevId}.json`;
     getCategory(url);
@@ -24,7 +24,7 @@ function prevCategoryBtn(){
 
 function nextCategoryBtn(){
   $(".js-next").on("click", function(){
-    alert("you clicked on next category");
+    console.log("you clicked on next category");
     let nextId = parseInt($("#categoryHeader").attr("data-id"))+1;
     let url = `/categories/${nextId}.json`;
     getCategory(url);
@@ -34,7 +34,7 @@ function nextCategoryBtn(){
 function breweryFilterChange() {
   // this works and you don't have to worry about the apply filter button
   $('#brewery').on("change", function(e){
-    alert("you changed a brewery filter on /categories");
+    console.log("you changed a brewery filter on /categories");
     e.preventDefault();
     let category = $("#categoryHeader").attr("data-id");
     let brewery = $("#brewery option:selected").val();

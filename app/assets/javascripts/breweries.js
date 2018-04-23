@@ -19,7 +19,7 @@ $(function(){
 function newBreweryBtn() {
   $("form#new_brewery").submit(function(e){
     e.preventDefault();
-    alert("you clicked add new brewery");
+    console.log("you clicked add new brewery");
     let formData = $(this).serialize();
     console.log(formData);
     addBrewery(formData);
@@ -46,7 +46,7 @@ function addBrewery(newBreweryData) {
 
 function prevBreweryBtn(){
   $(".js-prev").on("click", function(){
-    alert("you clicked on previous brewery");
+    console.log("you clicked on previous brewery");
     let prevId = parseInt($("#breweryHeader").attr("data-id"))-1;
     let url = `/breweries/${prevId}.json`;
     getBrewery(url);
@@ -55,7 +55,7 @@ function prevBreweryBtn(){
 
 function nextBreweryBtn(){
   $(".js-next").on("click", function(){
-    alert("you clicked on next brewery");
+    console.log("you clicked on next brewery");
     let nextId = parseInt($("#breweryHeader").attr("data-id"))+1;
     let url = `/breweries/${nextId}.json`;
     getBrewery(url);
@@ -65,7 +65,7 @@ function nextBreweryBtn(){
 function categoryFilterChange() {
   // this works and you don't have to worry about the apply filter button
   $('#category').on("change", function(e){
-    alert("you changed a category filter on /breweries");
+    console.log("you changed a category filter on /breweries");
     e.preventDefault();
     let category = $("#category option:selected").val();
     let brewery = $("#breweryHeader").attr("data-id");

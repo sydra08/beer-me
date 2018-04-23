@@ -18,7 +18,7 @@ $(function(){
 function filterChange() {
   // this works and you don't have to worry about the apply filter button
   $('#beerFilter').on("change", function(e){
-    alert("you changed a filter on /beers");
+    console.log("you changed a filter on /beers");
     e.preventDefault();
     let brewery = $("#brewery option:selected").val();
     let category = $("#category option:selected").val();
@@ -29,7 +29,7 @@ function filterChange() {
 
 function prevBeerBtn(){
   $(".js-prev").on("click", function(){
-    alert("you clicked the previous button");
+    console.log("you clicked the previous button");
     // make GET request to /beers/:id for next beer
     let prevId = parseInt($("#beerHeader").attr("data-id")) - 1;
     let url = `/beers/${prevId}.json`;
@@ -39,7 +39,7 @@ function prevBeerBtn(){
 
 function nextBeerBtn(){
   $(".js-next").on("click", function(){
-    alert("you clicked the next button");
+    console.log("you clicked the next button");
     // make GET request to /beers/:id for next beer
     let nextId = parseInt($("#beerHeader").attr("data-id")) + 1;
     let url = `/beers/${nextId}.json`;
