@@ -1,7 +1,9 @@
 <header class="align-center" id="categoryHeader" data-id="<%= @category.id %>">
+	<p class="showMessage">No more categories to display</p>
 	<h2 id="categoryName"><%= @category.name %></h2>
 	<p><i class="icon fas fa-chevron-circle-left fa-lg"></i><a href="#" class="js-prev">PREV</a> &nbsp; &nbsp;
 	<a href="#" class="js-next">NEXT</a><i class="icon fas fa-chevron-circle-right fa-lg"></i></p>
+
 </header>
 
 <% if @category.description %>
