@@ -69,21 +69,16 @@ function getCategory(url) {
   $.get(url, function(data){
     console.log(data)
   })
-  .success(function(response){
+  .success(function(categoryData){
     console.log("success")
-    let category = new Category(response);
+    let category = new Category(categoryData);
     category.displayCategory();
     let filters = {category: category.id};
     getBeers(filters);
   })
   .fail(function(response){
     console.log("fail")
-    // $("#showMessage").hide();
-    // $("#showMessage").append("No more categories to display");
     $(".showMessage").show().delay(5000).fadeOut();
-    // $(".js-next").attr("rel", "no-follow")
-    // so if you hit next it will just bring you do the first brewery (circular) - issue here is that if you get an error when you request a specific category, then you'll just the first one in the db
-
   });
 }
 

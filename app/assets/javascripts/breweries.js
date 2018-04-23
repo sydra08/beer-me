@@ -92,6 +92,7 @@ Brewery.prototype.displayBrewery = function() {
   }
   // update data-id
   $("#breweryHeader").attr("data-id", this.id);
+  $(".showMessage").hide();
 }
 
 Brewery.prototype.breweryListDisplay = function() {
@@ -103,10 +104,16 @@ Brewery.prototype.breweryListDisplay = function() {
 function getBrewery(url){
   $.get(url, function(data){
     console.log(data)
-    let brewery = new Brewery(data);
+  })
+  .success(function(breweryData){
+    let brewery = new Brewery(breweryData);
     let filters = {brewery: brewery.id};
     brewery.displayBrewery();
     getBeers(filters);
+  })
+  .fail(function(response){
+    console.log("fail")
+    $(".showMessage").show().delay(5000).fadeOut();
   })
 }
 
