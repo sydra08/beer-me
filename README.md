@@ -1,10 +1,11 @@
 # About BeerMe
 
-BeerMe is a Rails app with a jQuery frontend that allows you to track beers that you want to try and beers that you've tried.
+BeerMe is a Rails app with a jQuery frontend that allows you to track beers that you want to try and beers that you've tried. Not only can you manage your own list of beers but you can browse other beers, breweries and categories that other users have added.
 
 ## Install & Usage Instructions
 
 To install, clone or fork this repository, then run `bundle install` from the terminal prompt.
+
 To create a new version of the database, populate it with seed data, and get started, run the following commands from the terminal prompt:
 
 ```ruby
@@ -22,7 +23,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/sydra0
 
 ## License
 
-This project is available as open source under the terms of the [MIT License](opensource.org/licenses/MIT).
+This project is available as open source under the terms of the [MIT License](https://github.com/sydra08/beer-me/blob/master/LICENSE).
 
 ## Credits
 
