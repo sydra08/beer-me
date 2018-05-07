@@ -75,6 +75,7 @@ Beer.prototype.beerListDisplay = function() {
 }
 
 function getBeer(url) {
+  console.log('getBeer() was called')
   $.get(url, function(data){
     let beer = new Beer(data);
     beer.displayBeer();
@@ -82,7 +83,7 @@ function getBeer(url) {
 }
 
 function getBeers(filters) {
-  console.log(`getBeers was called from...`)
+  console.log(`getBeers() was called`)
   $.ajax({
     url: "/beers.json",
     data: filters
