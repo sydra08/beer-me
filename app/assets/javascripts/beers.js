@@ -20,8 +20,8 @@ function filterChange() {
     e.preventDefault();
     const brewery = $("#brewery option:selected").val();
     const category = $("#category option:selected").val();
-    const formData = {category: category, brewery: brewery};
-    getBeers(formData);
+    const filters = {category: category, brewery: brewery};
+    getBeers(filters);
   })
 }
 
@@ -58,7 +58,7 @@ function Beer(attributes) {
 }
 
 Beer.prototype.displayBeer = function() {
-  console.log(this);
+  // console.log(this);
   $("#beerHeader").attr("data-id", this.id);
   $("#beerName").text(this.name);
   $("#beerABV").text(`${this.abv}%`);
@@ -97,7 +97,7 @@ function getBeer(url) {
 
 function getBeers(filters) {
   console.log(`getBeers() was called`)
-  $.ajax({
+  $.get({
     url: "/beers.json",
     data: filters
   }).success(function(beerData){
@@ -113,6 +113,7 @@ function getBeers(filters) {
     }
   })
 }
+
 
 // keeping this for a later date
 
