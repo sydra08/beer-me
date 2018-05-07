@@ -71,6 +71,7 @@ Beer.prototype.displayBeer = function() {
   $("a#breweryName").attr("href", "/breweries/" + this.breweryId);
   $("#categoryName").text(this.category);
   $("a#categoryName").attr("href", "/categories/" + this.categoryId);
+  $(".showMessage").hide();
 }
 
 Beer.prototype.beerListDisplay = function() {
@@ -81,9 +82,17 @@ Beer.prototype.beerListDisplay = function() {
 function getBeer(url) {
   console.log('getBeer() was called')
   $.get(url, function(data){
-    let beer = new Beer(data);
+    // console.log(data)
+  })
+  .success(function(beerData){
+    console.log("success")
+    let beer = new Beer(beerData);
     beer.displayBeer();
   })
+  .fail(function(response){
+    console.log("fail")
+    $(".showMessage").show().delay(5000).fadeOut();
+  });
 }
 
 function getBeers(filters) {
