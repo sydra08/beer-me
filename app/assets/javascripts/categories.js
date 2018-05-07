@@ -53,7 +53,11 @@ Category.prototype.displayCategory = function() {
   // console.log(this);
   $("#categoryName").text(this.name);
   $("#categoryLocation").text(this.location);
-  $("#categoryDescription").text(this.description);
+  if(this.description === "" || this.description === null) {
+    $("#categoryDescription").text("Description not available");
+  } else {
+    $("#categoryDescription").text(this.description);
+  }
   // update data-id
   $("#categoryHeader").attr("data-id", this.id);
   $(".showMessage").hide();

@@ -82,7 +82,7 @@ Brewery.prototype.displayBrewery = function() {
   // console.log(this);
   $("#breweryName").text(this.name);
   $("#breweryLocation").text(this.location);
-  if(this.description === "") {
+  if(this.description === "" || this.description === null) {
     $("#breweryDescription").text("Description not available");
   } else {
     $("#breweryDescription").text(this.description);

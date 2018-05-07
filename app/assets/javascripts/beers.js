@@ -58,11 +58,15 @@ function Beer(attributes) {
 }
 
 Beer.prototype.displayBeer = function() {
-  // console.log(this);
+  console.log(this);
   $("#beerHeader").attr("data-id", this.id);
   $("#beerName").text(this.name);
   $("#beerABV").text(`${this.abv}%`);
-  $("#beerDescription").text(this.description);
+  if(this.description === "" || this.description === null) {
+    $("#beerDescription").text("Description not available");
+  } else {
+    $("#beerDescription").text(this.description);
+  }
   $("#breweryName").text(this.brewery);
   $("a#breweryName").attr("href", "/breweries/" + this.breweryId);
   $("#categoryName").text(this.category);
