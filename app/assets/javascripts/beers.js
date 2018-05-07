@@ -1,6 +1,5 @@
 // document ready
 $(function(){
-  // attach event to All Beers in nav - may remove this
   if (window.location.pathname === "/beers") {
     getBeers();
     filterChange();
@@ -12,7 +11,6 @@ $(function(){
     console.log("the stuff for beers#show was loaded");
   }
   console.log("the stuff from beers.js was loaded")
-  // should i conditionalize when stuff loads on the beers#show page?
 })
 
 function filterChange() {

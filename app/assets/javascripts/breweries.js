@@ -1,7 +1,6 @@
 // document ready
 $(function(){
   if(window.location.pathname === "/breweries") {
-    // why isn't this firing when you go to /breweries ?
     getBreweries();
     newBreweryBtn();
     console.log("the stuff for breweries#index was loaded");
@@ -40,7 +39,6 @@ function addBrewery(newBreweryData) {
     $("div#error_explanation").show();
     $("div#error_explanation").append("<p><strong>Error: </strong>Brewery already exists</p>")
     // maybe add a function here that says the submit button is disabled until you change something in the form
-    // debugger
   })
 }
 
