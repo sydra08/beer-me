@@ -1,4 +1,3 @@
-// document ready
 $(function(){
   if(window.location.pathname === "/breweries") {
     getBreweries();
@@ -18,7 +17,7 @@ $(function(){
 function newBreweryBtn() {
   $("form#new_brewery").submit(function(e){
     e.preventDefault();
-    console.log("you clicked add new brewery");
+    // console.log("you clicked add new brewery");
     let formData = $(this).serialize();
     console.log(formData);
     addBrewery(formData);
@@ -80,7 +79,7 @@ function Brewery(attributes) {
 }
 
 Brewery.prototype.displayBrewery = function() {
-  console.log(this);
+  // console.log(this);
   $("#breweryName").text(this.name);
   $("#breweryLocation").text(this.location);
   if(this.description === "") {
@@ -94,14 +93,14 @@ Brewery.prototype.displayBrewery = function() {
 }
 
 Brewery.prototype.breweryListDisplay = function() {
-  console.log(this)
+  // console.log(this)
   $("div#error_explanation").hide();
   $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${this.id}">${this.name}</a></td><td id="breweryLocation">${this.location}</td></tr>`);
 }
 
 function getBrewery(url){
   $.get(url, function(data){
-    console.log(data)
+    // console.log(data)
   })
   .success(function(breweryData){
     let brewery = new Brewery(breweryData);
@@ -111,6 +110,7 @@ function getBrewery(url){
   })
   .fail(function(response){
     console.log("fail")
+    // briefly show the message and then disappear
     $(".showMessage").show().delay(5000).fadeOut();
   })
 }

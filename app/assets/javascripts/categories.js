@@ -1,4 +1,3 @@
-// document ready
 $(function(){
   if(window.location.pathname === "/categories") {
     getCategories();
@@ -51,7 +50,7 @@ function Category(attributes) {
 }
 
 Category.prototype.displayCategory = function() {
-  console.log(this);
+  // console.log(this);
   $("#categoryName").text(this.name);
   $("#categoryLocation").text(this.location);
   $("#categoryDescription").text(this.description);
@@ -61,13 +60,13 @@ Category.prototype.displayCategory = function() {
 }
 
 Category.prototype.categoryListDisplay = function() {
-  console.log(this)
+  // console.log(this)
   $('tbody').append(`<tr><td id="categoryName"><a href="/categories/${this.id}">${this.name}</a></td><td id="categoryCount">${this.beerCount}</td></tr>`);
 }
 
 function getCategory(url) {
   $.get(url, function(data){
-    console.log(data)
+    // console.log(data)
   })
   .success(function(categoryData){
     console.log("success")

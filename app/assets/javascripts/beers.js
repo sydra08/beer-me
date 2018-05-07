@@ -58,7 +58,7 @@ function Beer(attributes) {
 }
 
 Beer.prototype.displayBeer = function() {
-  console.log(this);
+  // console.log(this);
   $("#beerHeader").attr("data-id", this.id);
   $("#beerName").text(this.name);
   $("#beerABV").text(`${this.abv}%`);
@@ -70,7 +70,7 @@ Beer.prototype.displayBeer = function() {
 }
 
 Beer.prototype.beerListDisplay = function() {
-  console.log(this)
+  // console.log(this)
   $('tbody').append(`<tr><td id="breweryName"><a href="/breweries/${this.breweryId}">${this.brewery}</a></td><td id="beerName"><a href="/beers/${this.id}">${this.name}</a></td><td id="abv">${this.abv}%</td></tr>`);
 }
 
