@@ -18,9 +18,9 @@ function filterChange() {
   $('#beerFilter').on("change", function(e){
     console.log("you changed a filter on /beers");
     e.preventDefault();
-    let brewery = $("#brewery option:selected").val();
-    let category = $("#category option:selected").val();
-    let formData = {category: category, brewery: brewery};
+    const brewery = $("#brewery option:selected").val();
+    const category = $("#category option:selected").val();
+    const formData = {category: category, brewery: brewery};
     getBeers(formData);
   })
 }
@@ -29,8 +29,8 @@ function prevBeerBtn(){
   $(".js-prev").on("click", function(){
     console.log("you clicked the previous button");
     // make GET request to /beers/:id for next beer
-    let prevId = parseInt($("#beerHeader").attr("data-id")) - 1;
-    let url = `/beers/${prevId}.json`;
+    const prevId = parseInt($("#beerHeader").attr("data-id")) - 1;
+    const url = `/beers/${prevId}.json`;
     getBeer(url);
   });
 }
@@ -39,8 +39,8 @@ function nextBeerBtn(){
   $(".js-next").on("click", function(){
     console.log("you clicked the next button");
     // make GET request to /beers/:id for next beer
-    let nextId = parseInt($("#beerHeader").attr("data-id")) + 1;
-    let url = `/beers/${nextId}.json`;
+    const nextId = parseInt($("#beerHeader").attr("data-id")) + 1;
+    const url = `/beers/${nextId}.json`;
     getBeer(url);
   });
 }
@@ -86,7 +86,7 @@ function getBeer(url) {
   })
   .success(function(beerData){
     console.log("success")
-    let beer = new Beer(beerData);
+    const beer = new Beer(beerData);
     beer.displayBeer();
   })
   .fail(function(response){
@@ -107,7 +107,7 @@ function getBeers(filters) {
       $('tbody').append("<tr><td><em>No results</em></td><td></td><td></td><td></td></tr>");
     } else {
       beerData.forEach(function(data){
-        let beer = new Beer(data);
+        const beer = new Beer(data);
         beer.beerListDisplay();
       })
     }

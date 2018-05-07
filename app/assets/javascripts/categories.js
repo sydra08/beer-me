@@ -15,8 +15,8 @@ $(function(){
 function prevCategoryBtn(){
   $(".js-prev").on("click", function(){
     console.log("you clicked on previous category");
-    let prevId = parseInt($("#categoryHeader").attr("data-id"))-1;
-    let url = `/categories/${prevId}.json`;
+    const prevId = parseInt($("#categoryHeader").attr("data-id"))-1;
+    const url = `/categories/${prevId}.json`;
     getCategory(url);
   });
 }
@@ -24,8 +24,8 @@ function prevCategoryBtn(){
 function nextCategoryBtn(){
   $(".js-next").on("click", function(){
     console.log("you clicked on next category");
-    let nextId = parseInt($("#categoryHeader").attr("data-id"))+1;
-    let url = `/categories/${nextId}.json`;
+    const nextId = parseInt($("#categoryHeader").attr("data-id"))+1;
+    const url = `/categories/${nextId}.json`;
     getCategory(url);
   });
 }
@@ -35,9 +35,9 @@ function breweryFilterChange() {
   $('#brewery').on("change", function(e){
     console.log("you changed a brewery filter on /categories");
     e.preventDefault();
-    let category = $("#categoryHeader").attr("data-id");
-    let brewery = $("#brewery option:selected").val();
-    let formData = {category: category, brewery: brewery}
+    const category = $("#categoryHeader").attr("data-id");
+    const brewery = $("#brewery option:selected").val();
+    const formData = {category: category, brewery: brewery}
     getBeers(formData);
   })
 }
@@ -74,9 +74,9 @@ function getCategory(url) {
   })
   .success(function(categoryData){
     console.log("success")
-    let category = new Category(categoryData);
+    const category = new Category(categoryData);
     category.displayCategory();
-    let filters = {category: category.id};
+    const filters = {category: category.id};
     getBeers(filters);
   })
   .fail(function(response){
@@ -87,10 +87,10 @@ function getCategory(url) {
 
 function getCategories() {
   $.get("/categories.json", function(data){
-    let categoryData = data;
+    const categoryData = data;
     $('tbody').empty();
     categoryData.forEach(function(response){
-      let category = new Category(response)
+      const category = new Category(response)
       category.categoryListDisplay();
     })
   })

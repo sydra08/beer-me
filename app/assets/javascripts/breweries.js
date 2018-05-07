@@ -18,19 +18,19 @@ function newBreweryBtn() {
   $("form#new_brewery").submit(function(e){
     e.preventDefault();
     // console.log("you clicked add new brewery");
-    let formData = $(this).serialize();
+    const formData = $(this).serialize();
     console.log(formData);
     addBrewery(formData);
   });
 }
 
 function addBrewery(newBreweryData) {
-  let posting = $.post("/breweries", newBreweryData)
+  const posting = $.post("/breweries", newBreweryData)
   posting.success(function(newBrewery){
     console.log("success")
     $("form#new_brewery")[0].reset();
     $("input[type='submit']").attr("disabled", false);
-    let brewery = new Brewery(newBrewery)
+    const brewery = new Brewery(newBrewery)
     brewery.breweryListDisplay();
   });
   posting.fail(function(response){
@@ -44,8 +44,8 @@ function addBrewery(newBreweryData) {
 function prevBreweryBtn(){
   $(".js-prev").on("click", function(){
     console.log("you clicked on previous brewery");
-    let prevId = parseInt($("#breweryHeader").attr("data-id"))-1;
-    let url = `/breweries/${prevId}.json`;
+    const prevId = parseInt($("#breweryHeader").attr("data-id"))-1;
+    const url = `/breweries/${prevId}.json`;
     getBrewery(url);
   });
 }
@@ -53,8 +53,8 @@ function prevBreweryBtn(){
 function nextBreweryBtn(){
   $(".js-next").on("click", function(){
     console.log("you clicked on next brewery");
-    let nextId = parseInt($("#breweryHeader").attr("data-id"))+1;
-    let url = `/breweries/${nextId}.json`;
+    const nextId = parseInt($("#breweryHeader").attr("data-id"))+1;
+    const url = `/breweries/${nextId}.json`;
     getBrewery(url);
   });
 }
@@ -64,9 +64,9 @@ function categoryFilterChange() {
   $('#category').on("change", function(e){
     console.log("you changed a category filter on /breweries");
     e.preventDefault();
-    let category = $("#category option:selected").val();
-    let brewery = $("#breweryHeader").attr("data-id");
-    let formData = {category: category, brewery: brewery};
+    const category = $("#category option:selected").val();
+    const brewery = $("#breweryHeader").attr("data-id");
+    const formData = {category: category, brewery: brewery};
     getBeers(formData);
   })
 }
@@ -103,8 +103,8 @@ function getBrewery(url){
     // console.log(data)
   })
   .success(function(breweryData){
-    let brewery = new Brewery(breweryData);
-    let filters = {brewery: brewery.id};
+    const brewery = new Brewery(breweryData);
+    const filters = {brewery: brewery.id};
     brewery.displayBrewery();
     getBeers(filters);
   })
@@ -117,11 +117,11 @@ function getBrewery(url){
 
 function getBreweries() {
   $.get("/breweries.json", function(data){
-    let breweryData = data;
+    const breweryData = data;
     $('tbody').empty();
     breweryData.forEach(function(response){
       console.log(response)
-      let brewery = new Brewery(response)
+      const brewery = new Brewery(response)
       brewery.breweryListDisplay();
     })
   })
