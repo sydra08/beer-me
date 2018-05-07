@@ -14,8 +14,6 @@
 //= require rails-ujs
 //= require jquery
 //= require handlebars
-//= require_tree .
 //= require beers
 //= require breweries
 //= require categories
-//= require user_beers
