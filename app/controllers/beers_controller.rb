@@ -2,10 +2,6 @@ class BeersController < ApplicationController
   before_action :require_login, only: [:new, :create]
 
   def index
-    # set for form
-    @beer = Beer.new
-    @beer.build_brewery
-    @beer.build_category
     # set for filters
     @categories = Category.alpha_sorted
     @breweries = Brewery.alpha_sorted
